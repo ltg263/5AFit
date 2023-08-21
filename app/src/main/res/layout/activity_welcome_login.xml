@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/iv_icon"
+        android:layout_alignBottom="@id/iv_icon"
+        android:layout_marginStart="@dimen/common_margin_26"
+        android:gravity="center_vertical"
+        android:lineSpacingExtra="@dimen/dimen_20dp"
+        android:text="不管你来自何方，\n都欢迎你！"
+        android:textColor="@color/color_333333"
+        android:textSize="@dimen/dimen_25dp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/dimen_70dp"
+        android:layout_marginEnd="@dimen/common_margin_26"
+        android:src="@mipmap/icon_app_logo" />
+
+
+    <TextView
+        android:id="@+id/tv_go"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/btn_shape_line_e3_25"
+        android:drawableStart="@drawable/icon_splash_1"
+        android:drawablePadding="@dimen/dp_10"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/dimen_50dp"
+        android:paddingTop="@dimen/dp_10"
+        android:paddingEnd="@dimen/dimen_50dp"
+        android:paddingBottom="@dimen/dp_10"
+        android:text="有健身器材去添加"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <ImageView
+        android:id="@+id/iv_line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_go"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/icon_splash_2" />
+
+    <TextView
+        android:id="@+id/tv_go_x"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_line"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dimen_30dp"
+        android:background="@drawable/btn_shape_bj_f2_25"
+        android:drawableStart="@drawable/icon_splash_3"
+        android:drawablePadding="@dimen/dp_10"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/dimen_50dp"
+        android:paddingTop="@dimen/dp_10"
+        android:paddingEnd="@dimen/dimen_50dp"
+        android:paddingBottom="@dimen/dp_10"
+        android:text="无健身器材去逛逛"
+        android:textColor="@color/color_999999"
+        android:textSize="16sp" />
+</RelativeLayout>

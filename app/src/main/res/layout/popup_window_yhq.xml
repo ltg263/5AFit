@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/transparency_65"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bj_circle_fff_20_ss"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:paddingHorizontal="@dimen/dp_10"
+            android:text="优惠券领取"
+            android:textColor="@color/color_000000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dimen_2dp"
+            android:layout_below="@id/tv"
+            android:layout_alignStart="@id/tv"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginTop="-5dp"
+            android:background="@drawable/line_shape_bj_select" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/tv_ok"
+            android:layout_below="@id/tv"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/dp_10"
+            android:background="@color/color_ffffff" />
+
+
+        <TextView
+            android:id="@+id/tv_ok"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginHorizontal="@dimen/dimen_30dp"
+            android:layout_marginVertical="@dimen/dimen_20dp"
+            android:background="@drawable/btn_shape_bj_theme_25"
+            android:gravity="center"
+            android:paddingTop="@dimen/dp_10"
+            android:paddingBottom="@dimen/dp_10"
+            android:text="全部领取"
+            android:textColor="@color/color_ffffff"
+            android:textSize="16sp" />
+    </RelativeLayout>
+</RelativeLayout>

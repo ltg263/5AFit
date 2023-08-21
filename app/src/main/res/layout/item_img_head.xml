@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rl_view"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/ic_dw_hui" />
+
+    <ImageView
+        android:id="@+id/image_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:visibility="invisible"
+        android:src="@drawable/ic_dw_red" />
+
+    <com.jxkj.fit_5a.conpoment.view.SquareRelativeLayout
+        android:id="@+id/srl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/image"
+        android:layout_alignEnd="@id/image"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="3dp"
+        android:background="@drawable/bj_circle_fff" />
+
+    <com.jxkj.fit_5a.conpoment.view.RoundImageView
+        android:id="@+id/image_iv"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_alignStart="@id/image"
+        android:layout_alignEnd="@id/image"
+        android:layout_margin="5dp"
+        android:src="@mipmap/icon_app_logo"
+        android:scaleType="fitXY"
+        app:type="circle" />
+
+</RelativeLayout>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_bj_back"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/tv_zs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/dimen_15dp"
+                android:paddingVertical="@dimen/dp_10"
+                android:text="评论（0）"
+                android:textColor="@color/color_000000"
+                android:textSize="14sp" />
+
+            <View
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/tv_rd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/dimen_15dp"
+                android:paddingVertical="@dimen/dp_10"
+                android:text="按热度"
+                android:textColor="@color/color_999999"
+                android:textSize="12sp" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="@dimen/dp_10"
+                android:background="@color/line_color" />
+
+            <TextView
+                android:id="@+id/tv_sj"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/dimen_15dp"
+                android:paddingVertical="@dimen/dp_10"
+                android:text="按时间"
+                android:textColor="@color/color_333333"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_list"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:overScrollMode="never" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll"
+        android:background="@color/color_ffffff"
+        android:padding="@dimen/dp_10">
+
+        <EditText
+            android:id="@+id/et_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_shape_bj_theme_99"
+            android:gravity="top"
+            android:hint="说几句，为楼主加油打气..."
+            android:maxLines="10"
+            android:minLines="1"
+            android:paddingHorizontal="@dimen/dimen_15dp"
+            android:paddingVertical="8dp"
+            android:textColor="#333333"
+            android:textColorHint="@color/color_999999"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_fabu"
+            android:layout_width="56dp"
+            android:layout_height="30dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/shap_01a380_24"
+            android:gravity="center"
+            android:text="发表"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_ffffff">
+
+    <RelativeLayout
+        android:id="@+id/rl_actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/ic_mine_jf">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/tv"
+            android:layout_alignBottom="@id/tv"
+            android:layout_marginStart="@dimen/dimen_25dp"
+            android:paddingHorizontal="@dimen/dimen_5dp"
+            android:src="@drawable/icon_jiantou_zuo_ff" />
+
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/dimen_15dp"
+            android:gravity="center"
+            android:text="金 豆"
+            android:textColor="@color/color_ffffff"
+            android:textSize="@dimen/dimen_20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_right_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:drawableStart="@drawable/icon_help"
+            android:drawablePadding="@dimen/dimen_2dp"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:padding="@dimen/dimen_15dp"
+            android:text="规则"
+            android:textColor="@color/color_ffffff"
+            android:textSize="@dimen/dimen_16dp" />
+    </RelativeLayout>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dimen_75dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_25dp"
+                android:paddingStart="35dp">
+
+                <TextView
+                    android:id="@+id/tv_jifen_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0.0"
+                    android:textColor="@color/color_ffffff"
+                    android:textSize="36sp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/tv3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_jifen_num"
+                    android:layout_marginStart="5dp"
+                    android:text="剩余金豆"
+                    android:textColor="@color/color_ffffff"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv_cz"
+                    android:layout_width="@dimen/dimen_80dp"
+                    android:layout_height="@dimen/dimen_30dp"
+                    android:layout_alignBottom="@id/tv3"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/dimen_30dp"
+                    android:visibility="invisible"
+                    android:background="@drawable/bj_circle_fff_10"
+                    android:gravity="center"
+                    android:text="充值"
+                    android:textColor="@color/color_text_theme"
+                    android:textSize="@dimen/sp_14" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_30dp"
+                android:layout_marginHorizontal="@dimen/dp_40"
+                android:layout_marginTop="@dimen/dimen_25dp"
+                android:background="@drawable/shape_yy_ff_cc_33" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_30dp"
+                android:layout_marginHorizontal="@dimen/dimen_30dp"
+                android:layout_marginTop="-20dp"
+                android:background="@drawable/shape_yy_ff_cc_50" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dp_10"
+                android:layout_marginTop="-20dp"
+                android:layout_marginBottom="@dimen/dimen_50dp"
+                android:background="@drawable/shape_yy_ff_all_6"
+                android:padding="@dimen/dimen_20dp">
+
+                <TextView
+                    android:id="@+id/tv2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="历史记录"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_logPay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/tv2"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginBottom="@dimen/dimen_2dp"
+                    android:drawableEnd="@drawable/icon_jiantou_xia_theme"
+                    android:drawablePadding="@dimen/dp_10"
+                    android:text="支出记录"
+                    android:textColor="@color/color_text_theme"
+                    android:textSize="12sp" />
+
+                <View
+                    android:layout_width="@dimen/dp_40"
+                    android:layout_height="@dimen/dimen_2dp"
+                    android:layout_below="@id/tv2"
+                    android:layout_marginTop="-5dp"
+                    android:background="@drawable/line_shape_bj_select" />
+
+                <LinearLayout
+                    android:id="@+id/view1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv2"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="@dimen/dp_10"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/iv_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/dp_10"
+                        android:src="@drawable/icon_jiantou_zuo_00" />
+
+                    <TextView
+                        android:id="@+id/tv_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="@dimen/common_margin_20"
+                        android:text="2020.05"
+                        android:textColor="@color/color_333333"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:id="@+id/iv_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/dp_10"
+                        android:src="@drawable/icon_jiantou_you_00" />
+
+
+                </LinearLayout>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/view1"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:visibility="gone"
+                    android:overScrollMode="never" />
+
+                <TextView
+                    android:id="@+id/tv_not"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_150dp"
+                    android:layout_below="@id/view1"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:gravity="center"
+                    android:text="暂无数据" />
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

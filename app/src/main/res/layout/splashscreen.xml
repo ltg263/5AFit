@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rl_actionbar"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <com.jxkj.fit_5a.conpoment.view.JzvdStdTikTok
+        android:id="@+id/mp_video"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.youth.banner.Banner
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        app:indicator_drawable_selected="@mipmap/banner_selected"
+        app:indicator_drawable_unselected="@mipmap/banner_unselected" />
+
+    <TextView
+        android:id="@+id/tv_start"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="40dp"
+        android:layout_marginEnd="@dimen/dimen_15dp"
+        android:background="@drawable/bj_shape_line_theme_25_b"
+        android:gravity="center"
+        android:text="跳过"
+        android:textColor="@color/white"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/tv_start_one"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/dimen_50dp"
+        android:background="@drawable/bj_shape_line_theme_25"
+        android:gravity="center"
+        android:text="立即体验"
+        android:textColor="@color/color_text_theme"
+        android:visibility="invisible" />
+
+</RelativeLayout>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/ll_chang"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_75dp"
+        android:layout_marginVertical="@dimen/dp_10"
+        android:background="@drawable/ic_shade_img"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="@dimen/dp_10">
+
+        <ImageView
+            android:id="@+id/iv_img"
+            android:layout_width="@dimen/dimen_45dp"
+            android:layout_height="@dimen/dimen_45dp"
+            android:layout_margin="@dimen/dp_10"
+            android:src="@mipmap/ic_2" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_10"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="HEAD海德商用椭圆机"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_14"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_sub_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_10"
+                android:layout_marginTop="@dimen/dimen_5dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:visibility="gone"
+                android:text="支付Android"
+                android:textColor="@color/color_666666"
+                android:textSize="@dimen/sp_14" />
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginHorizontal="@dimen/dimen_15dp"
+            android:src="@drawable/icon_san_xiaodian" />
+
+        <ImageView
+            android:id="@+id/iv_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dimen_15dp"
+            android:src="@drawable/icon_jiantou_you_99" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_ljzt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/common_margin_5"
+        android:layout_marginStart="@dimen/dp_10"
+        android:background="@drawable/btn_shape_bj_theme_2"
+        android:paddingHorizontal="@dimen/dimen_15dp"
+        android:visibility="gone"
+        android:text="已连接"
+        android:textColor="@color/color_ffffff"
+        android:textSize="@dimen/sp_14" />
+
+    <LinearLayout
+        android:id="@+id/ll_fang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/iv_img_1"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_margin="5dp"
+            android:src="@mipmap/ic_2" />
+
+        <TextView
+            android:id="@+id/tv_name_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="--"
+            android:textColor="@color/color_333333"
+            android:textSize="13sp" />
+    </LinearLayout>
+</RelativeLayout>

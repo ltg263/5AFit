@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="143dp"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="143dp"
+        android:background="@mipmap/ic_yhq_wsy"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/tv_icon"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dimen_45dp"
+            android:src="@mipmap/ic_5" />
+
+
+        <LinearLayout
+            android:id="@+id/ll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:layout_toStartOf="@id/btn"
+            android:layout_toEndOf="@id/tv_icon"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/tv_icon"
+                android:text=""
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textColor="@color/color_000000"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_1"
+                android:layout_marginTop="@dimen/dimen_7dp"
+                android:layout_toEndOf="@id/tv_icon"
+                android:text="运动手环10元优惠券"
+                android:textColor="@color/color_text_theme"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/tv_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_2"
+                android:layout_marginTop="@dimen/dimen_5dp"
+                android:layout_toEndOf="@id/tv_icon"
+                android:text="获得途径：宝箱获得"
+                android:textColor="@color/color_999999"
+                android:textSize="9sp" />
+
+            <TextView
+                android:id="@+id/tv_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_3"
+                android:layout_marginTop="@dimen/dimen_5dp"
+                android:layout_toEndOf="@id/tv_icon"
+                android:text="2020.05.01-2020.05.31"
+                android:textColor="@color/color_666666"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/btn"
+            android:layout_width="65dp"
+            android:layout_height="@dimen/dimen_24dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/dimen_30dp"
+            android:background="@drawable/btn_shape_bj_theme_2"
+            android:gravity="center"
+            android:text="去使用"
+            android:textColor="@color/color_ffffff"
+            android:textSize="10sp" />
+
+        <ImageView
+            android:id="@+id/iv_zt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:layout_toStartOf="@id/btn"
+            android:src="@drawable/icon_yhq_1" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

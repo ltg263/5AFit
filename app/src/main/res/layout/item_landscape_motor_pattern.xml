@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_marginStart="@dimen/dimen_17dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="@dimen/dimen_180dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="@dimen/dimen_17dp"
+        android:background="@drawable/bj_circle_fff_10"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="@dimen/dimen_180dp"
+            android:layout_height="@dimen/dimen_100dp">
+
+            <com.jxkj.fit_5a.conpoment.view.SelectableRoundedImageView
+                android:id="@+id/iv_imgUrl"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@mipmap/ic_hp_cjfj_10"
+                app:sriv_left_top_corner_radius="@dimen/dp_10"
+                app:sriv_right_top_corner_radius="@dimen/dimen_7dp" />
+
+            <TextView
+                android:id="@+id/tv_verification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/ic_hp_sj"
+                android:drawableStart="@drawable/ic_suo_1"
+                android:drawablePadding="@dimen/dimen_3dp"
+                android:gravity="center_vertical"
+                android:paddingStart="@dimen/dp_10"
+                android:text="01"
+                android:textColor="@color/color_ffffff"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:drawableStart="@mipmap/ic_hp_cjfj_13"
+                android:drawablePadding="@dimen/dimen_5dp"
+                android:paddingEnd="11dp"
+                android:paddingBottom="8dp"
+                android:text="4.2km"
+                android:textColor="@color/color_ffffff"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_map_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F7F7F7"
+            android:gravity="center"
+            android:padding="@dimen/dimen_7dp"
+            android:text="地图名称地图名称"
+            android:textColor="@color/color_333333"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_12dp"
+            android:layout_marginTop="@dimen/dp_10"
+            android:drawableStart="@mipmap/ic_hp_ydms_1"
+            android:drawablePadding="@dimen/dimen_7dp"
+            android:text="房间名称"
+            android:textColor="@color/color_333333"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_limitNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_12dp"
+            android:layout_marginTop="10dp"
+            android:drawableStart="@mipmap/ic_hp_ydms_3"
+            android:drawablePadding="@dimen/dimen_7dp"
+            android:text="人数：5/10人"
+            android:textColor="@color/color_333333"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_nickName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="2dp"
+            android:layout_marginStart="@dimen/dimen_12dp"
+            android:drawableStart="@mipmap/ic_hp_ydms_2"
+            android:drawablePadding="@dimen/dimen_7dp"
+            android:text="房主："
+            android:textColor="@color/color_333333"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/tv_"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_12dp"
+            android:layout_marginBottom="10dp"
+            android:drawableStart="@mipmap/ic_hp_ydms_4"
+            android:drawablePadding="@dimen/dimen_7dp"
+            android:text="宝箱：0个"
+            android:textColor="@color/color_333333"
+            android:textSize="12sp" />
+
+
+    </LinearLayout>
+</RelativeLayout>

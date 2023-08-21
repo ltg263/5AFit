@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/rv_select_yes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_5dp"
+        android:background="@drawable/bnt_jb_shape_vip_item">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="-20dp"
+            android:src="@mipmap/ic_czhy"/>
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dimen_25dp"
+            android:drawablePadding="@dimen/dimen_5dp"
+            android:text="自动续费"
+            android:textColor="@color/color_000000"
+            android:textSize="@dimen/sp_14" />
+
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dimen_5dp"
+            android:layout_marginBottom="@dimen/dimen_20dp"
+            android:drawablePadding="@dimen/dimen_5dp"
+            android:text="19.8元/月"
+            android:textColor="@color/color_000000"
+            android:textSize="@dimen/dimen_12dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rv_select_no"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:layout_margin="@dimen/dimen_5dp"
+        android:background="@drawable/bnt_jb_shape_vip_item_1">
+
+        <TextView
+            android:id="@+id/tv11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dimen_25dp"
+            android:drawablePadding="@dimen/dimen_5dp"
+            android:text="自动续费"
+            android:textColor="@color/color_text_theme"
+            android:textSize="@dimen/sp_14" />
+
+        <TextView
+            android:id="@+id/tv22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv11"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dimen_5dp"
+            android:layout_marginBottom="@dimen/dimen_20dp"
+            android:drawablePadding="@dimen/dimen_5dp"
+            android:text="19.8元/月"
+            android:textColor="@color/color_text_theme"
+            android:textSize="@dimen/dimen_12dp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="bottom"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimen_30dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/iv_1"
+            android:layout_width="@dimen/dimen_80dp"
+            android:layout_height="@dimen/dimen_80dp"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="@dimen/dimen_20dp"
+            android:background="@drawable/bnt_circle_start"
+            android:gravity="center"
+            android:scaleType="center"
+            android:src="@drawable/ic_yundong_kaishi" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_1"
+            android:layout_centerHorizontal="true"
+            android:text="开始"
+            android:textColor="@color/color_ffffff"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimen_30dp"
+        android:layout_weight="1">
+
+
+        <ImageView
+            android:id="@+id/iv_2"
+            android:layout_width="@dimen/dimen_80dp"
+            android:layout_height="@dimen/dimen_80dp"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="@dimen/dimen_20dp"
+            android:background="@drawable/bnt_circle_start"
+            android:gravity="center"
+            android:scaleType="center"
+            android:src="@drawable/ic_yundong_jieshu" />
+
+        <com.jxkj.fit_5a.conpoment.view.StepArcView_Btn
+            android:id="@+id/sv"
+            android:layout_width="@dimen/dimen_80dp"
+            android:layout_height="@dimen/dimen_80dp"
+            android:layout_centerInParent="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_2"
+            android:layout_centerHorizontal="true"
+            android:text="退出"
+            android:textColor="@color/color_ffffff"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+
+</LinearLayout>

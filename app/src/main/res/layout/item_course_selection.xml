@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.jxkj.fit_5a.conpoment.view.SquareLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/ic_shade_img"
+    android:orientation="vertical"
+    android:padding="@dimen/dimen_15dp">
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="热身模式"
+        android:textColor="@color/color_000000"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_sub_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_5dp"
+        android:maxLines="1"
+        android:text="Online Sports"
+        android:textColor="@color/color_999999"
+        android:textSize="11sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <com.jxkj.fit_5a.AAChartCoreLib.AAChartCreator.AAChartView
+            android:id="@+id/AAChartView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dimen_5dp"
+            android:background="@color/color_ffffff" />
+
+        <com.jxkj.fit_5a.AAChartCoreLib.AAChartCreator.AAChartView
+            android:id="@+id/AAChartView1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dp_10"
+            android:background="@color/color_ffffff" />
+    </RelativeLayout>
+</com.jxkj.fit_5a.conpoment.view.SquareLinearLayout>

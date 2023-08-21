@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp">
+
+        <ImageView
+            android:id="@+id/iv_yhq_bj"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/icon_yhq_yes" />
+
+        <TextView
+            android:id="@+id/tv_fh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:text="¥"
+            android:textColor="@color/color_eb"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_yhq_je"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="25dp"
+            android:text="100"
+            android:textColor="@color/color_eb"
+            android:textSize="26sp" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_yhq_mj"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text="满XXXX元可用"
+                android:textColor="@color/color_eb"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tv_yhq_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
+                android:text="有效期至2023.3.26 23:59"
+                android:textColor="@color/color_eb"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_yhq_go"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="15dp"
+            android:layout_centerVertical="true"
+            android:text="使用"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="5dp"
+            android:background="@drawable/bj_shape_line_yhq"
+            android:textColor="@color/color_eb"
+            android:textSize="14sp" />
+        <ImageView
+            android:id="@+id/iv_yhq_sx"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:adjustViewBounds="true"
+            android:visibility="gone"
+            android:layout_margin="10dp"
+            android:src="@drawable/icon_yhq_ysx"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="143dp"
+        android:visibility="gone"
+        android:background="@mipmap/ic_yhq_wsy"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/tv_icon"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dimen_45dp"
+            android:src="@mipmap/ic_5" />
+
+
+        <LinearLayout
+            android:id="@+id/ll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:layout_toStartOf="@id/btn"
+            android:layout_toEndOf="@id/tv_icon"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/tv_icon"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text=""
+                android:textColor="@color/color_000000"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_1"
+                android:layout_marginTop="@dimen/dimen_7dp"
+                android:layout_toEndOf="@id/tv_icon"
+                android:text="运动手环10元优惠券"
+                android:textColor="@color/color_text_theme"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/tv_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_2"
+                android:layout_marginTop="@dimen/dimen_5dp"
+                android:layout_toEndOf="@id/tv_icon"
+                android:text="获得途径：宝箱获得"
+                android:textColor="@color/color_999999"
+                android:textSize="9sp" />
+
+            <TextView
+                android:id="@+id/tv_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_3"
+                android:layout_marginTop="@dimen/dimen_5dp"
+                android:layout_toEndOf="@id/tv_icon"
+                android:text="2020.05.01-2020.05.31"
+                android:textColor="@color/color_666666"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/btn"
+            android:layout_width="65dp"
+            android:layout_height="@dimen/dimen_24dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/dimen_30dp"
+            android:background="@drawable/btn_shape_bj_theme_2"
+            android:gravity="center"
+            android:text="去使用"
+            android:textColor="@color/color_ffffff"
+            android:textSize="10sp" />
+
+        <ImageView
+            android:id="@+id/iv_zt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:layout_toStartOf="@id/btn"
+            android:src="@drawable/icon_yhq_1" />
+
+    </RelativeLayout>
+
+</LinearLayout>

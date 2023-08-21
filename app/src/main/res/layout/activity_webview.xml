@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_ffffff"
+    android:orientation="vertical">
+
+    <include layout="@layout/include_titlebar_common" />
+
+    <com.jxkj.fit_5a.conpoment.view.MyWebView
+        android:id="@+id/web"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rl_actionbar"
+        android:layout_weight="1.0"
+        android:background="#fff"
+        android:visibility="visible"
+        android:paddingTop="15dp" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/mNsv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:visibility="gone"
+        android:layout_below="@id/rl_actionbar"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="15dp"
+            android:paddingBottom="10dp"
+            android:drawableTop="@drawable/icon_jifenguize"
+            android:text="\n\n一、积分规则\n\n1 用户积分是用户通过平台参与运动、签到，分享等多种途径来获取的；\n2 用户可以用积分抵扣金额、兑换礼品和权益。\n\n\n二、积分有效期\n\n正当渠道获取的积分有效期为长期。\n\n\n三、具体规则\n\n(1)签到领积分：\n1.用户可以每日前往领取积分页面进行签到，签到可领积分；\n2.日常签到可获得 20 积分/天；\n   连续签到 7 日，当日可获得 50 积分；\n   连续签到 15 日，当日可获得 100 积 分;\n   连续签到 30 日，当日可获得 200 积分；\n   若签到中断则重新计算，连续签到获得更高积分后，不再领取当天的 20 积分。\n\n(2)邀请新用户注册领积分：\n成功邀请新用户注册，邀请人可领取 50 积分，一天最多可有机会领取 300 积分。\n\n(3)做任务领积分： \n1.商城版块：\n成功购买商品，根据实付人民币金额可获得相应积分；成功进行商品评论，获得 20 积分；\n2.教学视频版块：\n成功收藏获得 50 积分，同一个教学视频只能算为一次，一天最多可得 5 次；成功评论获 得 20 积分、成功点赞获得 20 积分，仅限当日首次互动获取； \n3.社群板块：\n成功收藏获得 20 积分、成功评论获得 20 积分、成功点赞获得 20 积分，以上仅限当日首次互 动获取，同一条动态同个操作反复多次视为一次；\n4.发布动态：\n每日首次动态成功发布获得 50 积分；\n5.日常任务板块：\n当日首次成功连接产品，获得 50 积分;当日运动累积满 15 分钟，获得 20 积分；每日运 动距离满 1KM，获得 20 积分;\n6.参与日常运动消耗卡路里：\n根据卡路里消耗量可获得积分，每人一天最多可有机会领取 50 积分； \n7.其他：\n通过后台消息和活动页参与的任务(如某竞赛、划船机限时打卡等)积分数另行计算。\n\n\n 四、温馨提示\n\n(1)请勿违规、恶意、虚假刷积分，如发现存在以上行为，我们有权取消你获得的积分和锁定你的积分资格；\n\n(2)所得优惠券规则：\n   活动优惠券到期后自动失效，请尽快使用； \n   当商品成功支付则表示该优惠已经使用(退单不退优惠券)； \n   当商品支付失败则表示该优惠没有使用(退单可退优惠券)；\n\n(3)以上规则最终解释权归 5AFit 所有，如有改动，恕不另行通知，您可至本页面查看。"
+            android:textColor="@color/color_000000"
+            android:textSize="14sp" />
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

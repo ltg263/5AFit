@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.jxkj.fit_5a.conpoment.view.SquareRelativeLayout
+        android:id="@+id/sll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_5dp"
+        android:background="@drawable/shape_yy_f7_ss">
+        <ImageView
+            android:id="@+id/iv_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/icon_app_logo" />
+
+        <TextView
+            android:id="@+id/tv_balance"
+            android:layout_width="40dp"
+            android:layout_height="17dp"
+            android:gravity="center"
+            android:background="@mipmap/ic_hp_sj"
+            android:text="01"
+            android:textColor="@color/color_ffffff"
+            android:textSize="10sp" />
+
+    </com.jxkj.fit_5a.conpoment.view.SquareRelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sll"
+        android:layout_marginBottom="@dimen/dimen_5dp"
+        android:orientation="vertical"
+        android:background="@drawable/shape_yy_ff_xx"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/tv_jg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:maxLines="1"
+            android:gravity="center_vertical"
+            android:drawablePadding="5dp"
+            android:paddingTop="10dp"
+            android:drawableStart="@drawable/ic_mine_lwj"
+            android:paddingHorizontal="@dimen/dp_10"
+            android:text="风车"
+            android:textColor="@color/color_text_theme"
+            android:textSize="13sp" />
+        <TextView
+            android:id="@+id/tv_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:maxLines="1"
+            android:padding="@dimen/dp_10"
+            android:text="风车"
+            android:textColor="@color/color_333333"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="260dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bj_circle_fff_10"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingTop="20dp"
+        android:textStyle="bold"
+        android:text="请选择"
+        android:textColor="@color/color_000000"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="5dp"
+        android:layout_marginHorizontal="15dp"
+        android:gravity="center"
+        android:text="加入黑名单后,该用户的所有动态降不在可见"
+        android:textColor="#333333"
+        android:textSize="13sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.6dp"
+        android:layout_marginTop="5dp"
+        android:background="#dddddd" />
+
+    <TextView
+        android:id="@+id/tv_jubao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:gravity="center"
+        android:text="举报"
+        android:textColor="@color/color_00A2FF"
+        android:textSize="14sp" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.6dp"
+        android:background="#dddddd" />
+
+    <TextView
+        android:id="@+id/tv_heimingdan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:gravity="center"
+        android:text="加入黑名单"
+        android:textColor="@color/color_00A2FF"
+        android:textSize="14sp" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.6dp"
+        android:background="#dddddd" />
+
+    <TextView
+        android:id="@+id/tv_quxiao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:gravity="center"
+        android:text="取消"
+        android:textStyle="bold"
+        android:textColor="@color/color_00A2FF"
+        android:textSize="14sp" />
+
+</LinearLayout>

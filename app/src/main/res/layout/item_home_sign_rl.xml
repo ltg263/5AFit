@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="@dimen/dp_40"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/bj_circle_dot_theme"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="@dimen/dp_40"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible"
+        android:src="@drawable/ic_sign_lw" />
+
+    <TextView
+        android:id="@+id/tv_rq"
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="@dimen/dp_40"
+        android:gravity="center"
+        android:text="7"
+        android:textColor="@color/color_333333"
+        android:textSize="@dimen/sp_14"
+        android:textStyle="bold" />
+
+    <View
+        android:id="@+id/view_dot"
+        android:layout_width="5dp"
+        android:layout_height="5dp"
+        android:layout_below="@id/tv_rq"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/bj_circle_dot_theme"
+        android:visibility="invisible" />
+
+
+</RelativeLayout>

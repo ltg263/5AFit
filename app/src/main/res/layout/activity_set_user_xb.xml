@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_20dp"
+                android:layout_marginTop="@dimen/dp_40"
+                android:text="你的性别"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/dimen_2dp"
+                android:layout_marginStart="@dimen/dimen_30dp"
+                android:layout_marginTop="-5dp"
+                android:background="@drawable/line_shape_bj_select" />
+
+            <TextView
+                android:id="@+id/tv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_30dp"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:text="你的性别为你推荐内容"
+                android:textColor="@color/color_999999"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dimen_30dp"
+                android:layout_marginTop="@dimen/dimen_20dp">
+
+                <RelativeLayout
+                    android:id="@+id/rl_nan"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dimen_20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bj_shape_line_theme_6"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dp_10">
+
+                    <ImageView
+                        android:id="@+id/iv_1"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@mipmap/ic_ren_nan" />
+
+                    <ImageView
+                        android:id="@+id/iv_select_nan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/icon_select_yd_yse" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/iv_1"
+                        android:layout_centerHorizontal="true"
+                        android:padding="@dimen/dimen_5dp"
+                        android:text="男"
+                        android:textColor="@color/color_333333"
+                        android:textSize="@dimen/dimen_16dp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_nv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bj_shape_line_66_6"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dp_10">
+
+                    <ImageView
+                        android:id="@+id/iv_2"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@mipmap/ic_ren_nv" />
+
+                    <ImageView
+                        android:id="@+id/iv_select_nv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/icon_select_yd_no" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/iv_2"
+                        android:layout_centerHorizontal="true"
+                        android:padding="@dimen/dimen_5dp"
+                        android:text="女"
+                        android:textColor="@color/color_333333"
+                        android:textSize="@dimen/dimen_16dp" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_30dp"
+                    android:text="你的出生年月"
+                    android:textColor="@color/color_333333"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tv4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_30dp"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:text="你的年龄为你推荐内容"
+                    android:textColor="@color/color_999999"
+                    android:textSize="14sp" />
+
+                <DatePicker
+                    android:id="@+id/date_picker"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:calendarViewShown="false"
+                    android:theme="@android:style/Theme.Holo.Light" />
+
+
+                <TextView
+                    android:id="@+id/tv_go_xyb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dimen_30dp"
+                    android:layout_marginVertical="@dimen/dimen_10dp"
+                    android:background="@drawable/btn_shape_bj_theme_25"
+                    android:gravity="center"
+                    android:paddingTop="@dimen/dp_10"
+                    android:paddingBottom="@dimen/dp_10"
+                    android:text="下一步"
+                    android:textColor="@color/color_ffffff"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>

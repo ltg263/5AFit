@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_ffffff"
+    android:orientation="vertical">
+
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/refreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srlAccentColor="#00000000"
+        app:srlEnablePreviewInEditMode="true"
+        app:srlPrimaryColor="#00000000">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/rl_actionbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/icon_ydjl_all">
+
+                    <ImageView
+                        android:id="@+id/iv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/ic_exercord_top"
+                        android:visibility="invisible" />
+
+                    <ImageView
+                        android:id="@+id/iv_back"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/dp_10"
+                        android:src="@drawable/icon_jiantou_zuo_ff" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignTop="@id/iv"
+                        android:layout_alignBottom="@id/iv"
+                        android:adjustViewBounds="true"
+                        android:background="@drawable/btn_shape_bj_fff" />
+
+
+                    <TextView
+                        android:id="@id/tv1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/iv_back"
+                        android:gravity="center"
+                        android:padding="20dp"
+                        android:text="运动记录"
+                        android:textColor="@color/color_333333"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv1"
+                        android:gravity="center"
+                        android:paddingHorizontal="20dp"
+                        android:text="Heart rate pattern"
+                        android:textColor="@color/color_333333"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_sb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@id/iv_back"
+                        android:layout_alignBottom="@id/iv_back"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="@dimen/dp_10"
+                        android:drawableStart="@drawable/icon_home_left_b"
+                        android:drawableEnd="@drawable/icon_jiantou_xia_ff"
+                        android:drawablePadding="@dimen/dimen_5dp"
+                        android:gravity="center"
+                        android:text="器材筛选"
+                        android:textColor="@color/color_ffffff"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="270dp"
+                    android:layout_marginHorizontal="@dimen/dimen_15dp"
+                    android:layout_marginTop="-60dp"
+                    android:background="@drawable/ic_shade_img">
+
+                    <com.jxkj.fit_5a.AAChartCoreLib.AAChartCreator.AAChartView
+                        android:id="@+id/AAChartView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@id/ll_top" />
+
+                    <ImageView
+                        android:id="@+id/iv_z"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dimen_100dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="-10dp"
+                        android:layout_marginEnd="-10dp"
+                        android:background="@mipmap/ic_bnt_bj" />
+
+                    <ImageView
+                        android:id="@+id/iv_y"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dimen_100dp"
+                        android:layout_marginStart="-10dp"
+                        android:layout_marginTop="-10dp"
+                        android:background="@mipmap/ic_bnt_bj_y"
+                        android:visibility="invisible" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_top"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_50dp">
+
+                        <TextView
+                            android:id="@+id/tv_top_jyz"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/dimen_50dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="近一周"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_top_jyy"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/dimen_50dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="近一月"
+                            android:textColor="@color/color_666666"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_top_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_10"
+                    android:layout_marginEnd="@dimen/dimen_15dp"
+                    android:overScrollMode="never" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dimen_15dp">
+
+                    <TextView
+                        android:id="@+id/tv1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="记录详情"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="@dimen/dp_40"
+                        android:layout_height="@dimen/dimen_2dp"
+                        android:layout_below="@id/tv1"
+                        android:layout_marginTop="-5dp"
+                        android:background="@drawable/line_shape_bj_select" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:drawableEnd="@drawable/icon_jiantou_you_99"
+                        android:paddingStart="@dimen/dimen_5dp"
+                        android:text="更多"
+                        android:textColor="@color/color_999999"
+                        android:textSize="14sp"
+                        android:visibility="invisible" />
+
+
+                </RelativeLayout>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_jlxq_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:overScrollMode="never" />
+
+            </LinearLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+        <com.jxkj.fit_5a.conpoment.view.ClassicsFooter
+
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+</RelativeLayout>

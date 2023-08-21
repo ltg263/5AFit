@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_fe"
+    android:orientation="vertical">
+
+    <include layout="@layout/include_titlebar_common" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_0.5dp"
+        android:background="@color/line_color" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_below="@id/tv2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/icon_jfsc_yhjbj"/>
+
+        <RelativeLayout
+            android:id="@+id/rl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/ll_top"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingTop="@dimen/dimen_10dp"
+                android:paddingHorizontal="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_jiage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingStart="10dp"
+                    android:paddingVertical="5dp"
+                    android:text="积分值"
+                    android:textColor="@color/color_000000"
+                    android:textSize="14sp" />
+                <ImageView
+                    android:id="@+id/iv_jiage"
+                    android:layout_width="8dp"
+                    android:adjustViewBounds="true"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="3dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/common_selected_jipx"/>
+
+                <TextView
+                    android:id="@+id/tv_jifenzhi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingStart="10dp"
+                    android:paddingVertical="5dp"
+                    android:visibility="invisible"
+                    android:text="积分值"
+                    android:textColor="@color/color_666666"
+                    android:textSize="14sp" />
+                <ImageView
+                    android:id="@+id/iv_jifenzhi"
+                    android:layout_width="8dp"
+                    android:adjustViewBounds="true"
+                    android:visibility="invisible"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="3dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/icon_jfsc_jts"/>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"/>
+
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_marginVertical="2dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/color_999999"/>
+
+                <ImageView
+                    android:id="@+id/tv_bian"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:padding="5dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/common_selected_jiuge"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ll_top"
+                android:orientation="horizontal">
+                <View
+                    android:id="@+id/view_1"
+                    android:layout_width="20dp"
+                    android:layout_height="3dp"
+                    android:layout_marginStart="25dp"
+                    android:background="@drawable/bj_circle_4555a3_10" />
+                <View
+                    android:id="@+id/view_2"
+                    android:layout_width="20dp"
+                    android:visibility="invisible"
+                    android:layout_height="3dp"
+                    android:layout_marginStart="50dp"
+                    android:background="@drawable/bj_circle_4555a3_10" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_list_all"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/dp_10"
+            android:overScrollMode="never" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_list_all_h"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:layout_marginVertical="@dimen/dp_10"
+            android:paddingHorizontal="10dp"
+            android:overScrollMode="never" />
+    </LinearLayout>
+
+</LinearLayout>

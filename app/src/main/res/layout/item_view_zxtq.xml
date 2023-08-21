@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:padding="@dimen/dimen_15dp">
+
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="@dimen/dimen_45dp"
+        android:layout_height="@dimen/dimen_45dp"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="@dimen/dp_10"
+        android:src="@drawable/ic_mine_wz" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/iv_icon"
+        android:text="每日红包"
+        android:textColor="@color/color_000000"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_title_f"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_title"
+        android:layout_marginTop="@dimen/dimen_5dp"
+        android:layout_toEndOf="@id/iv_icon"
+        android:text="免费领取福利"
+        android:textColor="@color/color_666666"
+        android:textSize="14sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/bj_shape_line_theme_25"
+        android:paddingHorizontal="@dimen/dp_10"
+        android:paddingVertical="@dimen/dimen_5dp"
+        android:text="查看详情"
+        android:textColor="@color/color_text_theme"
+        android:textSize="@dimen/dimen_16dp" />
+
+</RelativeLayout>

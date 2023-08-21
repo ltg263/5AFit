@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_yy_ff_all_6"
+    android:gravity="center_vertical"
+    android:padding="@dimen/dimen_12dp">
+
+    <ImageView
+        android:id="@+id/iv_img"
+        android:layout_width="66dp"
+        android:layout_height="66dp"
+        android:layout_margin="@dimen/dp_10"
+        android:background="@drawable/bj_circle_f2_5"
+        android:src="@mipmap/ic_17" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="赠送奖杯给"
+            android:textColor="@color/color_text_theme"
+            android:textSize="12sp" />
+
+        <com.jxkj.fit_5a.conpoment.view.RoundImageView
+            android:id="@+id/icon_head"
+            android:layout_width="@dimen/dimen_20dp"
+            android:layout_height="@dimen/dimen_20dp"
+            android:layout_below="@id/tv_title"
+            android:layout_marginTop="@dimen/dimen_5dp"
+            android:src="@mipmap/ic_6"
+            app:type="circle" />
+
+        <TextView
+            android:id="@+id/tv_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/icon_head"
+            android:layout_alignBottom="@id/icon_head"
+            android:layout_marginStart="@dimen/dimen_5dp"
+            android:layout_toEndOf="@id/icon_head"
+            android:gravity="center_vertical"
+            android:text="冯伟赠送"
+            android:textColor="@color/color_333333"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_user"
+            android:layout_marginTop="@dimen/dp_10"
+            android:text="2020.05.09 14:02:22"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/tv_worth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:drawableEnd="@drawable/ic_dou"
+            android:drawablePadding="@dimen/dp_10"
+            android:text="-0" />
+    </RelativeLayout>
+
+
+</LinearLayout>

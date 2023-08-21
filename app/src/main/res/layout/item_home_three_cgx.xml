@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="@dimen/dimen_5dp"
+    android:background="@color/color_ffffff"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_ffffff"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_icon_sp"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/ic_13" />
+
+            <com.jxkj.fit_5a.conpoment.view.SquareImageView
+                android:id="@+id/iv_icon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/ic_13" />
+
+            <ImageView
+                android:id="@+id/iv_baofang"
+                android:layout_width="45dp"
+                android:layout_height="@dimen/dimen_45dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_baofang" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_10"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:minLines="2"
+            android:text="标题标题标题标题标题标题标题标题"
+            android:textColor="@color/color_333333"
+            android:textSize="13sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:paddingHorizontal="10dp"
+            android:paddingBottom="10dp"
+            android:gravity="center"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_666666"
+                android:textSize="12dp"
+                android:text="@string/app_name"/>
+            <ImageView
+                android:id="@+id/iv_delete"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:padding="5dp"
+                android:src="@drawable/icon_cgx_dele"/>
+
+
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginBottom="@dimen/dp_10">
+
+
+            <com.jxkj.fit_5a.conpoment.view.RoundImageView
+                android:id="@+id/iv_head_img"
+                android:layout_width="@dimen/dimen_25dp"
+                android:layout_height="@dimen/dimen_25dp"
+                android:layout_marginStart="@dimen/dimen_5dp"
+                app:type="circle"
+                android:src="@mipmap/icon_app_logo" />
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/dimen_5dp"
+                android:layout_toStartOf="@id/ll_xh"
+                android:layout_toEndOf="@id/iv_head_img"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:layout_marginEnd="@dimen/dp_10"
+                android:padding="@dimen/dimen_2dp"
+                android:text="游客"
+                android:textColor="@color/color_999999"
+                android:textSize="12sp" />
+
+
+            <LinearLayout
+                android:id="@+id/ll_xh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/tv_name"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                android:paddingEnd="@dimen/dp_10">
+
+                <ImageView
+                    android:id="@+id/iv_select_xh"
+                    android:layout_width="@dimen/dimen_15dp"
+                    android:layout_height="@dimen/dimen_15dp"
+                    android:src="@drawable/icon_xin_99_d" />
+
+                <TextView
+                    android:id="@+id/tv_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_5dp"
+                    android:text="0"
+                    android:textColor="@color/color_999999"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

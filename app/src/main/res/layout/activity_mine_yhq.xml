@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_ffffff"
+    android:orientation="vertical">
+
+    <include layout="@layout/include_titlebar_common" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_0.5dp"
+        android:background="@color/line_color" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/rl1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="@dimen/dp_10">
+
+            <TextView
+                android:id="@+id/tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="未使用"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/view1"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/dimen_2dp"
+                android:visibility="invisible"
+                android:layout_below="@id/tv1"
+                android:layout_marginTop="-5dp"
+                android:background="@drawable/line_shape_bj_select" />
+
+        </RelativeLayout>
+        <View
+            android:layout_width="1dp"
+            android:background="@color/color_eeeeee"
+            android:layout_height="25dp"/>
+
+        <RelativeLayout
+            android:id="@+id/rl2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="@dimen/dp_10">
+
+            <TextView
+                android:id="@+id/tv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="已使用"
+                android:textColor="@color/color_666666"
+                android:textSize="16sp" />
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/dimen_2dp"
+                android:layout_below="@id/tv2"
+                android:layout_marginTop="-5dp"
+                android:background="@drawable/line_shape_bj_select"
+                android:visibility="invisible" />
+
+        </RelativeLayout>
+        <View
+            android:layout_width="1dp"
+            android:background="@color/color_eeeeee"
+            android:layout_height="25dp"/>
+        <RelativeLayout
+            android:id="@+id/rl3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="@dimen/dp_10">
+
+            <TextView
+                android:id="@+id/tv3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="已失效"
+                android:textColor="@color/color_666666"
+                android:textSize="16sp" />
+
+            <View
+                android:id="@+id/view3"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/dimen_2dp"
+                android:layout_below="@id/tv3"
+                android:layout_marginTop="-5dp"
+                android:background="@drawable/line_shape_bj_select"
+                android:visibility="invisible" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="0dp"/>
+
+    </LinearLayout>
+
+
+    <net.lucode.hackware.magicindicator.MagicIndicator
+        android:id="@+id/magic_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_45dp"
+        android:visibility="gone" />
+
+    <com.jxkj.fit_5a.conpoment.view.AutoHeightViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

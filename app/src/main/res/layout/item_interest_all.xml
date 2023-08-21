@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dimen_5dp"
+    android:background="@drawable/shape_yy_theme"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_toEndOf="@id/iv"
+        android:paddingStart="@dimen/dimen_5dp"
+        android:paddingTop="5dp"
+        android:text="6546646"
+        android:textColor="@color/color_333333"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv1"
+        android:layout_alignStart="@id/tv1"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:minLines="1"
+        android:padding="@dimen/dimen_5dp"
+        android:text="123456"
+        android:textColor="#777777"
+        android:textSize="12sp" />
+
+    <com.jxkj.fit_5a.conpoment.view.PileAvertView
+        android:id="@+id/pile_view_1"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_below="@id/tv2"
+        android:layout_alignStart="@id/tv1"
+        app:PileLayout_pileWidth="10dp" />
+
+    <TextView
+        android:id="@+id/tv3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/pile_view_1"
+        android:layout_alignBottom="@id/pile_view_1"
+        android:layout_toEndOf="@id/pile_view_1"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/dimen_5dp"
+        android:text="0人"
+        android:textColor="@color/color_999999"
+        android:textSize="10sp" />
+
+
+    <TextView
+        android:id="@+id/tv4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/tv3"
+        android:layout_marginStart="@dimen/dimen_50dp"
+        android:layout_marginTop="@dimen/dimen_5dp"
+        android:layout_toEndOf="@id/tv3"
+        android:drawableStart="@drawable/ic_interest_msg"
+        android:drawablePadding="@dimen/dimen_5dp"
+        android:paddingStart="@dimen/dimen_5dp"
+        android:text="6912条"
+        android:textColor="@color/color_808080"
+        android:textSize="10sp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tv5"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dimen_25dp"
+        android:layout_alignBottom="@id/pile_view_1"
+        android:paddingHorizontal="15dp"
+        android:layout_margin="5dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/btn_shape_bj_theme_25"
+        android:gravity="center"
+        android:text="+加入"
+        android:textColor="@color/white"
+        android:textSize="12sp" />
+
+
+    <com.jxkj.fit_5a.conpoment.view.SquareImageView
+        android:id="@+id/iv"
+        android:layout_width="@dimen/dimen_80dp"
+        android:layout_height="@dimen/dimen_80dp"
+        android:layout_margin="@dimen/dp_10"
+        android:scaleType="fitXY"
+        android:src="@mipmap/ic_7" />
+
+</RelativeLayout>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+
+    <RelativeLayout
+        android:id="@+id/rl_top"
+        android:layout_width="wrap_content"
+        android:visibility="gone"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv"
+            android:layout_width="wrap_content"
+            android:layout_height="110dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_guide_1" />
+
+        <TextView
+            android:id="@+id/tv_str_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/iv"
+            android:layout_alignEnd="@id/iv"
+            android:layout_alignBottom="@id/iv"
+            android:lineSpacingExtra="5dp"
+            android:paddingStart="15dp"
+            android:paddingBottom="8dp"
+            android:text="点击此处，可切换运动模式\n选择适合的运动模式"
+            android:textColor="@color/white"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/btn_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@id/iv"
+            android:layout_alignBottom="@id/iv"
+            android:layout_marginEnd="35dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/bj_circle_fff_4"
+            android:paddingHorizontal="5dp"
+            android:paddingVertical="2dp"
+            android:text="下一步"
+            android:textColor="@color/color_text_theme"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_2"
+            android:layout_width="wrap_content"
+            android:layout_height="130dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_guide_2" />
+
+        <TextView
+            android:id="@+id/tv_str_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/iv_2"
+            android:layout_alignEnd="@id/iv_2"
+            android:layout_marginTop="25dp"
+            android:lineSpacingExtra="5dp"
+            android:paddingStart="15dp"
+            android:paddingBottom="8dp"
+            android:text="点击此处，可切换运动模式\n选择适合的运动模式"
+            android:textColor="@color/white"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/btn_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@id/iv_2"
+            android:layout_alignBottom="@id/tv_str_2"
+            android:layout_marginEnd="35dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/bj_circle_fff_4"
+            android:paddingHorizontal="5dp"
+            android:paddingVertical="2dp"
+            android:text="下一步"
+            android:textColor="@color/color_text_theme"
+            android:textSize="12sp" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rl_3"
+        android:layout_width="wrap_content"
+        android:visibility="gone"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_3"
+            android:layout_width="wrap_content"
+            android:layout_height="130dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_guide_3" />
+
+        <TextView
+            android:id="@+id/tv_str_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/iv_3"
+            android:layout_alignEnd="@id/iv_3"
+            android:layout_marginBottom="15dp"
+            android:lineSpacingExtra="5dp"
+            android:layout_alignBottom="@id/iv_3"
+            android:layout_marginStart="15dp"
+            android:paddingStart="15dp"
+            android:paddingBottom="8dp"
+            android:text="点击此处，可切换运动模式\n选择适合的运动模式"
+            android:textColor="@color/white"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/btn_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@id/iv_3"
+            android:layout_alignBottom="@id/tv_str_3"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/bj_circle_fff_4"
+            android:paddingHorizontal="5dp"
+            android:paddingVertical="2dp"
+            android:text="知道了"
+            android:textColor="@color/color_text_theme"
+            android:textSize="12sp" />
+    </RelativeLayout>
+</RelativeLayout>

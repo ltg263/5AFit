@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_ffffff"
+    android:orientation="vertical">
+
+
+    <include layout="@layout/include_titlebar_common" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_0.5dp"
+        android:background="@color/line_color" />
+
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_15dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_top_lwj" />
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_30dp"
+            android:layout_marginTop="@dimen/dp_40"
+            android:text="礼物金余额"
+            android:textColor="@color/color_ffffff"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv"
+            android:layout_alignStart="@id/tv"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:src="@drawable/ic_mine_lwj" />
+
+        <TextView
+            android:id="@+id/tv_lwj"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/iv"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_toEndOf="@id/iv"
+            android:text="0"
+            android:textColor="@color/color_ffffff"
+            android:textSize="32sp" />
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_15dp"
+        android:background="@drawable/shape_yy_ff_all_6"
+        android:orientation="vertical"
+        android:padding="@dimen/dimen_5dp">
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_15dp"
+            android:layout_marginTop="@dimen/dimen_15dp"
+            android:text="历史记录"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dimen_2dp"
+            android:layout_below="@id/tv1"
+            android:layout_marginStart="@dimen/dimen_15dp"
+            android:layout_marginTop="-5dp"
+            android:layout_marginBottom="@dimen/dimen_20dp"
+            android:background="@drawable/line_shape_bj_select" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:overScrollMode="never"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_not"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_150dp"
+            android:gravity="center"
+            android:text="暂无数据" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

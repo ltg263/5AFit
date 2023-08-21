@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rl_actionbar"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/ic_hp_cjfj_2">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@mipmap/ic_hp_cjfj_1" />
+
+    <ImageView
+        android:id="@+id/iv_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_15dp"
+        android:layout_marginTop="13dp"
+        android:src="@mipmap/ic_hp_cjfj_3" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:src="@mipmap/ic_hp_top_bj" />
+
+    <TextView
+        android:id="@+id/tv_name_n"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dp_10"
+        android:text="房间号04"
+        android:textColor="@color/color_ffffff"
+        android:textSize="@dimen/dimen_18dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:layout_width="63dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginEnd="@dimen/dimen_20dp"
+        android:background="@mipmap/ic_hp_bnt"
+        android:gravity="center"
+        android:text="分享"
+        android:textColor="@color/color_ffffff"
+        android:textSize="14sp"
+        android:visibility="invisible" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/tv_js"
+            android:layout_width="80dp"
+            android:layout_height="31dp"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginEnd="@dimen/dimen_20dp"
+            android:background="@mipmap/ic_hp_bnt"
+            android:gravity="center"
+            android:text="解散"
+            android:textColor="@color/color_ffffff"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/tv_ok"
+            android:layout_width="80dp"
+            android:layout_height="31dp"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginEnd="@dimen/dimen_20dp"
+            android:background="@mipmap/ic_hp_bnt"
+            android:gravity="center"
+            android:text="开始"
+            android:textColor="@color/color_ffffff"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="@dimen/dimen_180dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="22dp"
+        android:layout_marginBottom="38dp"
+        android:background="@drawable/bj_circle_fff_10"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="@dimen/dimen_180dp"
+            android:layout_height="@dimen/dimen_100dp">
+
+            <com.jxkj.fit_5a.conpoment.view.SelectableRoundedImageView
+                android:id="@+id/iv_imgUrl"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                app:sriv_left_top_corner_radius="@dimen/dp_10"
+                app:sriv_right_top_corner_radius="@dimen/dimen_7dp" />
+
+
+            <TextView
+                android:id="@+id/tv_verification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/ic_hp_sj"
+                android:drawableStart="@drawable/ic_suo_1"
+                android:drawablePadding="@dimen/dimen_3dp"
+                android:gravity="center_vertical"
+                android:paddingStart="@dimen/dp_10"
+                android:text="01"
+                android:textColor="@color/color_ffffff"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:drawableStart="@mipmap/ic_hp_cjfj_13"
+                android:drawablePadding="@dimen/dimen_5dp"
+                android:paddingEnd="11dp"
+                android:paddingBottom="8dp"
+                android:text="4.2km"
+                android:textColor="@color/color_ffffff"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_map_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F7F7F7"
+            android:gravity="center"
+            android:padding="@dimen/dimen_7dp"
+            android:text="地图名称地图名称"
+            android:textColor="@color/color_333333"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_12dp"
+            android:layout_marginTop="@dimen/dimen_14dp"
+            android:drawableStart="@mipmap/ic_hp_ydms_1"
+            android:drawablePadding="@dimen/dimen_7dp"
+            android:text="房间名称"
+            android:textColor="@color/color_333333"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_limitNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_12dp"
+            android:layout_marginTop="11dp"
+            android:drawableStart="@mipmap/ic_hp_ydms_3"
+            android:drawablePadding="@dimen/dimen_7dp"
+            android:text="人数：5/10人"
+            android:textColor="@color/color_333333"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_nickName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_12dp"
+            android:layout_marginTop="6dp"
+            android:drawableStart="@mipmap/ic_hp_ydms_2"
+            android:drawablePadding="@dimen/dimen_7dp"
+            android:text="房主：小明"
+            android:textColor="@color/color_333333"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_map_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_12dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="@dimen/dimen_20dp"
+            android:drawableStart="@mipmap/ic_hp_ydms_4"
+            android:drawablePadding="@dimen/dimen_7dp"
+            android:text="宝箱：0个"
+            android:textColor="@color/color_333333"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/ll"
+        android:layout_marginStart="36dp"
+        android:layout_toEndOf="@id/ll" />
+
+</RelativeLayout>

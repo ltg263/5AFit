@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_ffffff"
+    android:orientation="vertical">
+
+    <include layout="@layout/include_titlebar_common" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_0.5dp"
+        android:background="@color/line_color" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_list_zp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"
+        android:padding="@dimen/dp_10" />
+
+    <RelativeLayout
+        android:id="@+id/rl_v"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/dp_10"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_v"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dimen_180dp"
+            android:layout_marginStart="@dimen/dimen_15dp"
+            android:adjustViewBounds="true"
+            android:overScrollMode="never" />
+
+        <ImageView
+            android:id="@+id/iv_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@id/iv_v"
+            android:layout_marginTop="@dimen/dimen_15dp"
+            android:layout_marginEnd="@dimen/dimen_15dp"
+            android:src="@drawable/icon_close" />
+
+    </RelativeLayout>
+
+
+    <EditText
+        android:id="@+id/et_content"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_150dp"
+        android:layout_margin="@dimen/dimen_20dp"
+        android:background="@null"
+        android:gravity="top"
+        android:hint="说说你的感受和心得吧~"
+        android:lineSpacingExtra="@dimen/dp_10"
+        android:textColor="@color/color_333333"
+        android:textColorHint="@color/color_999999"
+        android:textSize="@dimen/sp_14" />
+
+
+    <LinearLayout
+        android:id="@+id/ll_topic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/dimen_20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_topic_jin"
+            android:drawablePadding="10dp"
+            android:text="添加话题"
+            android:textColor="@color/color_333333"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tv_topics"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableEnd="@drawable/icon_jiantou_you_99"
+            android:drawablePadding="10dp"
+            android:gravity="end"
+            android:text="合适的话题会有更多赞~"
+            android:textColor="@color/color_999999"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_margin="@dimen/dimen_15dp"
+        android:background="@color/line_color" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/dimen_20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_topic_jin"
+            android:drawablePadding="10dp"
+            android:text="你在哪里"
+            android:textColor="@color/color_333333"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tv_position"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableEnd="@drawable/icon_jiantou_you_99"
+            android:drawablePadding="10dp"
+            android:gravity="end"
+            android:text=" "
+            android:textColor="@color/color_999999"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_margin="@dimen/dimen_15dp"
+        android:background="@color/line_color" />
+
+    <LinearLayout
+        android:id="@+id/ll_tb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_20dp"
+        android:visibility="gone"
+        android:background="@drawable/btn_shape_bj_theme_99"
+        android:gravity="center"
+        android:paddingHorizontal="@dimen/dp_10"
+        android:paddingVertical="5dp">
+
+        <ImageView
+            android:id="@+id/iv_tb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_select_yd_yse" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="同步到个人动态" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_gk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_20dp"
+        android:background="@drawable/btn_shape_bj_theme_99"
+        android:drawableEnd="@drawable/icon_jiantou_xia_66"
+        android:drawablePadding="@dimen/dimen_5dp"
+        android:paddingHorizontal="@dimen/dp_10"
+        android:paddingVertical="@dimen/dimen_5dp"
+        android:text="公开"
+        android:textColor="@color/color_text_theme"
+        android:textSize="12sp" />
+</LinearLayout>

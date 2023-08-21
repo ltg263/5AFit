@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="@dimen/dimen_5dp"
+    android:layout_marginStart="@dimen/dp_10"
+    android:background="@color/color_ffffff"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/iv_shop_pic"
+            android:layout_width="140dp"
+            android:layout_height="120dp"
+            android:src="@mipmap/ic_11" />
+
+        <ImageView
+            android:id="@+id/iv_jr1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/iv_shop_pic"
+            android:layout_alignEnd="@id/iv_shop_pic"
+            android:layout_alignBottom="@id/iv_shop_pic"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_add_qz" />
+
+        <TextView
+            android:id="@+id/iv_jr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/iv_shop_pic"
+            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:layout_marginBottom="@dimen/dimen_5dp"
+            android:background="@drawable/bj_shape_line_fff_5"
+            android:drawableStart="@drawable/ic_add_qz"
+            android:drawablePadding="@dimen/dimen_5dp"
+            android:paddingHorizontal="@dimen/dimen_7dp"
+            android:paddingVertical="@dimen/dimen_3dp"
+            android:text="加入"
+            android:textColor="@color/color_ffffff"
+            android:textSize="10sp" />
+
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:paddingTop="@dimen/dp_10"
+        android:singleLine="true"
+        android:text="圈子1..."
+        android:textColor="@color/color_333333"
+        android:textSize="@dimen/dimen_14dp" />
+
+    <TextView
+        android:id="@+id/tv_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="12人"
+        android:textColor="@color/color_999999"
+        android:textSize="@dimen/dimen_12dp" />
+
+
+</LinearLayout>

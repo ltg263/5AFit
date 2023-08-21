@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/iv"
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="@dimen/dp_40"
+        android:layout_margin="@dimen/dimen_15dp"
+        android:src="@mipmap/ic_6" />
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/iv"
+        android:layout_toEndOf="@id/iv"
+        android:text="常平"
+        android:textColor="@color/color_333333"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv1"
+        android:layout_marginTop="6dp"
+        android:layout_toEndOf="@id/iv"
+        android:text="计数放对现场把是运然革收热我己样社没"
+        android:textColor="@color/color_333333"
+        android:textSize="12sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:padding="@dimen/dimen_15dp"
+        android:text="5分钟前"
+        android:textColor="@color/color_999999"
+        android:textSize="11sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv2"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="@dimen/dimen_30dp"
+        android:layout_toEndOf="@id/iv"
+        android:background="@drawable/bj_circle_f2_5"
+        android:lineSpacingExtra="2dp"
+        android:padding="@dimen/dp_10"
+        android:text="车广等使切料下实活那层权具同进议话压连五通文a哈量aa群马外电老道素色能历决要着族活斗持设积府己开基年指红布海"
+        android:textColor="@color/color_999999"
+        android:textSize="12sp" />
+
+</RelativeLayout>

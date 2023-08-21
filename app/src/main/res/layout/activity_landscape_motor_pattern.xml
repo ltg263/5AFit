@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_actionbar"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/ic_hp_cjfj_2">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@mipmap/ic_hp_cjfj_1" />
+
+    <ImageView
+        android:id="@+id/iv_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_15dp"
+        android:layout_marginTop="13dp"
+        android:src="@mipmap/ic_hp_cjfj_3" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center">
+
+        <RelativeLayout
+            android:layout_width="211dp"
+            android:layout_height="@dimen/dimen_45dp"
+            android:layout_marginEnd="-25dp"
+            android:layout_toStartOf="@id/icon">
+
+            <ImageView
+                android:id="@+id/iv_select_z"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@mipmap/ic_hp_select_z1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@id/iv_select_z"
+                android:layout_alignBottom="@id/iv_select_z"
+                android:layout_marginEnd="@dimen/dimen_30dp"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:text="即时运动"
+                android:textColor="@color/color_ffffff"
+                android:textSize="18sp" />
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="211dp"
+            android:layout_height="@dimen/dimen_45dp"
+            android:layout_marginStart="-25dp"
+            android:layout_toEndOf="@id/icon">
+
+            <ImageView
+                android:id="@+id/iv_select_y"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@mipmap/ic_hp_select_y2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/iv_select_y"
+                android:layout_marginStart="@dimen/dimen_30dp"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:text="竞赛模式"
+                android:textColor="@color/color_ffffff"
+                android:textSize="18sp" />
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_centerHorizontal="true"
+            android:src="@mipmap/ic_hp_select" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="@dimen/dimen_25dp"
+        android:background="@drawable/bj_circle_fff_10_tm"
+        android:drawableStart="@drawable/ic_search_t"
+        android:drawablePadding="@dimen/dimen_2dp"
+        android:gravity="center"
+        android:paddingVertical="@dimen/dimen_5dp"
+        android:paddingStart="@dimen/common_margin_8"
+        android:paddingEnd="@dimen/dimen_25dp"
+        android:text="房间号"
+        android:textColor="@color/color_999999"
+        android:textSize="12sp"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/iv_shaxin"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:scaleType="center"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_shuaxin" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/ll_btn"
+        android:layout_below="@id/iv_1"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:overScrollMode="never" />
+
+    <LinearLayout
+        android:id="@+id/ll_btn"
+        android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="@dimen/dimen_25dp"
+        android:layout_marginBottom="@dimen/dimen_14dp"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/bnt1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/ic_hp_bnt"
+            android:layout_marginEnd="@dimen/dimen_25dp"
+            android:gravity="center"
+            android:text="快速加入"
+            android:textColor="@color/color_ffffff"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/bnt2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/ic_hp_bnt"
+            android:gravity="center"
+            android:text="创建房间"
+            android:textColor="@color/color_ffffff"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+</RelativeLayout>

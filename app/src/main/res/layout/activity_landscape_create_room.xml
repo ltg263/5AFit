@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_actionbar"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/ic_hp_cjfj_2">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@mipmap/ic_hp_cjfj_1" />
+
+    <ImageView
+        android:id="@+id/iv_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_15dp"
+        android:layout_marginTop="13dp"
+        android:src="@mipmap/ic_hp_cjfj_3" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:src="@mipmap/ic_hp_top_bj" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dp_10"
+        android:text="创建房间"
+        android:textColor="@color/color_ffffff"
+        android:textSize="@dimen/dimen_18dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="63dp"
+        android:layout_height="31dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginEnd="@dimen/dimen_20dp"
+        android:background="@mipmap/ic_hp_bnt"
+        android:gravity="center"
+        android:text="确定"
+        android:textColor="@color/color_ffffff"
+        android:textSize="14sp" />
+
+
+    <TextView
+        android:id="@+id/tv_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_1"
+        android:layout_marginStart="@dimen/dimen_17dp"
+        android:layout_marginTop="@dimen/dimen_15dp"
+        android:background="@mipmap/ic_hp_sj"
+        android:drawableStart="@mipmap/ic_ph_xiaod"
+        android:drawablePadding="@dimen/common_margin_3"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/dimen_15dp"
+        android:paddingTop="@dimen/dimen_5dp"
+        android:paddingEnd="@dimen/dimen_30dp"
+        android:paddingBottom="@dimen/dimen_5dp"
+        android:text="模式"
+        android:textColor="@color/color_ffffff"
+        android:textSize="14sp" />
+
+    <ImageView
+        android:id="@+id/iv_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_3"
+        android:src="@mipmap/ic_hp_cjfj_5" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/iv_2"
+        android:layout_alignEnd="@id/iv_2"
+        android:layout_alignBottom="@id/iv_2"
+        android:layout_marginEnd="37dp"
+        android:gravity="center"
+        android:text="即时模式"
+        android:textColor="@color/color_000000"
+        android:textSize="@dimen/sp_14" />
+
+    <ImageView
+        android:id="@+id/iv_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/iv_2"
+        android:layout_toEndOf="@id/iv_2"
+        android:src="@mipmap/ic_hp_cjfj_4" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/iv_3"
+        android:layout_alignEnd="@id/iv_3"
+        android:layout_alignBottom="@id/iv_3"
+        android:layout_marginEnd="37dp"
+        android:gravity="center"
+        android:text="竞赛运动"
+        android:textColor="@color/color_000000"
+        android:textSize="@dimen/sp_14" />
+
+    <ImageView
+        android:id="@+id/iv_8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/iv_2"
+        android:layout_alignTop="@id/iv_2"
+        android:layout_alignEnd="@id/iv_2"
+        android:layout_alignBottom="@id/iv_2"
+        android:layout_marginBottom="@dimen/dp_4"
+        android:scaleType="center"
+        android:src="@mipmap/ic_hp_cjfj_6"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/iv_7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/iv_3"
+        android:layout_alignTop="@id/iv_3"
+        android:layout_alignEnd="@id/iv_3"
+        android:layout_alignBottom="@id/iv_3"
+        android:layout_marginBottom="@dimen/dp_4"
+        android:scaleType="center"
+        android:src="@mipmap/ic_hp_cjfj_6" />
+
+    <TextView
+        android:id="@+id/tv_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/et_1"
+        android:layout_alignTop="@id/iv_3"
+        android:drawableStart="@mipmap/ic_hp_cjfj_7"
+        android:drawablePadding="@dimen/dimen_5dp"
+        android:text="房间名："
+        android:textColor="@color/color_000000"
+        android:textSize="13sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/et_1"
+        android:layout_width="@dimen/dimen_120dp"
+        android:layout_height="@dimen/dimen_30dp"
+        android:layout_below="@id/tv_1"
+        android:imeOptions="actionDone"
+        android:layout_marginTop="@dimen/dp_4"
+        android:layout_marginEnd="@dimen/dimen_25dp"
+        android:layout_toStartOf="@id/et_2"
+        android:background="@drawable/bj_circle_000tm_5"
+        android:hint="请输入房间名"
+        android:paddingStart="@dimen/dp_10"
+        android:textColor="@color/color_ffffff"
+        android:textColorHint="@color/color_ffffff"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tv_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/et_2"
+        android:layout_alignTop="@id/iv_3"
+        android:drawableStart="@mipmap/ic_hp_cjfj_9"
+        android:drawablePadding="@dimen/dimen_5dp"
+        android:text="房间密码："
+        android:textColor="@color/color_000000"
+        android:textSize="13sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/et_2"
+        android:layout_width="@dimen/dimen_120dp"
+        android:layout_height="@dimen/dimen_30dp"
+        android:layout_below="@id/tv_2"
+        android:imeOptions="actionDone"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/dp_4"
+        android:layout_marginEnd="@dimen/dimen_25dp"
+        android:inputType="number"
+        android:background="@drawable/bj_circle_000tm_5"
+        android:hint="请输入密码"
+        android:paddingStart="@dimen/dp_10"
+        android:textColor="@color/color_ffffff"
+        android:textColorHint="@color/color_ffffff"
+        android:textSize="12sp" />
+
+
+    <TextView
+        android:id="@+id/tv_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_2"
+        android:layout_marginStart="@dimen/dimen_17dp"
+        android:background="@mipmap/ic_hp_sj"
+        android:drawableStart="@mipmap/ic_ph_xiaod"
+        android:drawablePadding="@dimen/dimen_3dp"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/dimen_15dp"
+        android:paddingEnd="@dimen/dimen_30dp"
+        android:paddingBottom="@dimen/dimen_5dp"
+        android:text="地图"
+        android:textColor="@color/color_ffffff"
+        android:textSize="14sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_4"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:overScrollMode="never" />
+
+</RelativeLayout>

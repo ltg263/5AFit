@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.jxkj.fit_5a.conpoment.view.SquareRelativeLayout
+        android:id="@+id/sll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_5dp"
+        android:background="@drawable/shape_yy_f7_ss">
+
+        <ImageView
+            android:id="@+id/iv_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/icon_app_logo" />
+
+        <ImageView
+            android:id="@+id/iv_select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="5dp"
+            android:src="@drawable/common_selected_circle"
+            android:visibility="invisible" />
+    </com.jxkj.fit_5a.conpoment.view.SquareRelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_select_no"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sll"
+        android:layout_marginBottom="@dimen/dimen_5dp"
+        android:background="@drawable/shape_yy_ff_xx"
+        android:gravity="center_vertical">
+
+        <com.jxkj.fit_5a.conpoment.view.RoundImageView
+            android:id="@+id/icon_head"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="5dp"
+            android:src="@mipmap/ic_6"
+            app:type="circle" />
+
+        <TextView
+            android:id="@+id/tv_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@id/icon_head"
+            android:maxLines="1"
+            android:text="冯伟赠送"
+            android:textColor="@color/color_333333"
+            android:textSize="8sp" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_user"
+            android:layout_toEndOf="@id/icon_head"
+            android:maxLines="1"
+            android:text="07/22"
+            android:textSize="6sp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/rl_select_yes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sll"
+        android:visibility="invisible"
+        android:layout_marginBottom="@dimen/dimen_5dp"
+        android:background="@drawable/shape_yy_ff_xx"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="5dp"
+            android:src="@drawable/ic_mine_lwj" />
+        <TextView
+            android:id="@+id/tv_user_lwj"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="0"
+            android:textColor="@color/color_text_theme"
+            android:textSize="12sp" />
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

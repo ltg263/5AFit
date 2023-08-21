@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.jxkj.fit_5a.conpoment.view.SquareRelativeLayout
+        android:id="@+id/rv_select_yes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/ic_jindou_bj_2"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:drawableStart="@drawable/ic_dou"
+            android:drawablePadding="@dimen/dimen_5dp"
+            android:text="0"
+            android:textColor="@color/color_text_theme"
+            android:textSize="@dimen/sp_14" />
+
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv1"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/dimen_5dp"
+            android:text="￥0"
+            android:textColor="@color/color_text_theme"
+            android:textSize="12sp" />
+
+    </com.jxkj.fit_5a.conpoment.view.SquareRelativeLayout>
+
+    <com.jxkj.fit_5a.conpoment.view.SquareRelativeLayout
+        android:id="@+id/rv_select_no"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/rv_select_yes"
+        android:layout_alignBottom="@id/rv_select_yes"
+        android:background="@mipmap/ic_jindou_cz_1"
+        android:visibility="invisible"
+        android:gravity="center">
+
+
+        <TextView
+            android:id="@+id/tv12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:drawableStart="@drawable/ic_dou_h"
+            android:drawablePadding="@dimen/dimen_5dp"
+            android:text="0"
+            android:textColor="@color/color_999999"
+            android:textSize="@dimen/sp_14" />
+
+        <TextView
+            android:id="@+id/tv22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv12"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/dimen_5dp"
+            android:text="￥0"
+            android:textColor="@color/color_999999"
+            android:textSize="12sp" />
+
+    </com.jxkj.fit_5a.conpoment.view.SquareRelativeLayout>
+</RelativeLayout>

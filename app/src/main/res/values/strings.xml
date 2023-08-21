@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">5AFit</string>
+    <string name="cancel">取消</string>
+    <string name="title">请选择时间</string>
+    <string name="confirm">确定</string>
+    <string name="year">年</string>
+    <string name="month">月</string>
+    <string name="day">日</string>
+    <string name="hour">时</string>
+    <string name="minute">分</string>
+
+
+    <string name="course_patten">1.间歇训练每段时间 = 用户设定总时间/10\n2.间歇训练强度可由用户自定义调整\n （1）选择“-”，“+”为整体调整\n （2）手动触屏提拉为单个时间段的调整\n （3）选择“ ↺ ”为恢复初始默认值</string>
+    <string name="jianli_shuoming">1.输入目标完成的奖励积分\n2.完成每日目标均有奖励积分\n3.奖励积分每日递增</string>
+
+
+    <!-- autolistview -->
+    <string name="pull_to_refresh">下拉可以刷新</string>
+    <string name="release_to_refresh">松开可以刷新</string>
+    <string name="lastUpdateTime">最近更新：%s</string>
+    <string name="load_full">已加载全部</string>
+    <string name="no_data">暂无数据</string>
+    <string name="more">加载中</string>
+    <string name="d">图片描述</string>
+
+    <string name="register_name_digits">._0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLIMNOPQRSTUVWXYZ</string>
+    <string name="home_ts">感谢您使用5AFit！我非常重视您的个人信息和隐私保护。为了更好的保障您的个人权益，在您使用我们的产品前，请您认真阅读一下《使用协议》和《隐私政策》的全部内容，同意并接受全部条款后开始使用我们的产品和服务：\n1.为向您提供基本服务，我们会遵循正当、合法、必要的原则收集和使用必要的信息；\n2.未经您的授权同意，我们不会将您的信息共享给地第三方或者其他用途\n我们会严格按照政策内容使用和保护您的个人信息，感谢您的使用！</string>
+
+</resources>

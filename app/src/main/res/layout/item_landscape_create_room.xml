@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ll"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/dimen_17dp"
+    android:background="@drawable/shape_yy_ff_all_10"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="@dimen/dimen_180dp"
+        android:layout_height="wrap_content">
+
+        <com.jxkj.fit_5a.conpoment.view.SelectableRoundedImageView
+            android:id="@+id/iv_imgUrl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/iv_imgUrl_yy"
+            android:layout_alignTop="@id/iv_imgUrl_yy"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_hp_cjfj_12"
+            app:sriv_left_top_corner_radius="6dp"
+            app:sriv_right_top_corner_radius="6dp" />
+
+        <ImageView
+            android:id="@+id/iv_imgUrl_yy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@mipmap/ic_hp_cjfj_12" />
+
+        <TextView
+            android:id="@+id/tv_difficultyLevel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_7dp"
+            android:layout_marginTop="@dimen/dimen_5dp"
+            android:drawableStart="@mipmap/ic_hp_cjfj_11"
+            android:drawablePadding="@dimen/dimen_5dp"
+            android:text="0"
+            android:textColor="@color/color_ffffff"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/iv_imgUrl"
+            android:layout_alignParentEnd="true"
+            android:drawableStart="@mipmap/ic_hp_cjfj_13"
+            android:drawablePadding="@dimen/dimen_5dp"
+            android:paddingEnd="11dp"
+            android:paddingBottom="8dp"
+            android:text="0km"
+            android:textColor="@color/color_ffffff"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bj_circle_fff_10_xx"
+        android:gravity="center"
+        android:padding="@dimen/dimen_7dp"
+        android:text="地图名称地图名称" />
+
+</LinearLayout>

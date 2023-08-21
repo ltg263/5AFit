@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="@dimen/dimen_20dp"
+    android:layout_marginBottom="@dimen/dp_10"
+    android:background="@drawable/bj_circle_fff_10"
+    android:padding="@dimen/dimen_7dp">
+
+    <ImageView
+        android:id="@+id/iv_avatar"
+        android:layout_width="@dimen/common_margin_26"
+        android:layout_height="@dimen/common_margin_26"
+        android:src="@mipmap/ic_6" />
+
+    <TextView
+        android:id="@+id/tv_nickName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_5dp"
+        android:layout_marginTop="@dimen/dimen_2dp"
+        android:layout_toEndOf="@id/iv_avatar"
+        android:text="用户昵称(房主)"
+        android:textColor="@color/color_333333"
+        android:textSize="10sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_avatar"
+        android:layout_marginStart="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dimen_7dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_calories"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textColor="@color/color_text_theme"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_2dp"
+                android:drawableStart="@mipmap/ic_hp_ydms_5"
+                android:drawablePadding="@dimen/dimen_2dp"
+                android:text="卡路里(Cal)"
+                android:textColor="@color/color_999999"
+                android:textSize="@dimen/dp_10" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textColor="@color/color_text_theme"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_2dp"
+                android:drawableStart="@mipmap/ic_hp_ydms_6"
+                android:drawablePadding="@dimen/dimen_2dp"
+                android:text="耗时"
+                android:textColor="@color/color_999999"
+                android:textSize="@dimen/dp_10" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textColor="@color/color_text_theme"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_2dp"
+                android:drawableStart="@mipmap/ic_hp_ydms_7"
+                android:drawablePadding="@dimen/dimen_2dp"
+                android:text="距离(km)"
+                android:textColor="@color/color_999999"
+                android:textSize="@dimen/dp_10" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

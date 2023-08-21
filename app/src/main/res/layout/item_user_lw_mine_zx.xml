@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="105dp"
+    android:layout_margin="3dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bj_shape_line_f2_5"
+    android:orientation="horizontal">
+
+
+    <ImageView
+        android:id="@+id/iv_img"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginVertical="5dp"
+        android:layout_marginStart="10dp"
+        android:src="@mipmap/ic_17" />
+
+    <TextView
+        android:id="@+id/tv_balance"
+        android:layout_width="25dp"
+        android:layout_height="15dp"
+        android:background="@mipmap/ic_hp_sj"
+        android:gravity="center"
+        android:text="01"
+        android:textColor="@color/color_ffffff"
+        android:textSize="10sp" />
+    <TextView
+        android:id="@+id/tv_realPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/iv_img"
+        android:maxLength="3"
+        android:layout_centerInParent="true"
+        android:maxLines="1"
+        android:paddingHorizontal="5dp"
+        android:text="100"
+        android:drawablePadding="5dp"
+        android:drawableEnd="@drawable/ic_dou"
+        android:textColor="@color/color_333333"
+        android:textSize="12sp" />
+
+</RelativeLayout>

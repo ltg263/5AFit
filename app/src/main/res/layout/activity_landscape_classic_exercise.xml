@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_20" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/dimen_24dp"
+        android:background="@drawable/bj_circle_fff_50"
+        android:paddingHorizontal="@dimen/dimen_24dp"
+        android:paddingVertical="@dimen/dimen_14dp"
+        android:text="00:30:00"
+        android:textColor="@color/color_333333"
+        android:textSize="17sp"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/dimen_140dp"
+        android:layout_marginEnd="@dimen/dimen_20dp"
+        android:background="@drawable/bj_circle_fff_4">
+
+        <TextView
+            android:layout_width="11dp"
+            android:layout_height="11dp"
+            android:layout_margin="6dp"
+            android:background="@drawable/bj_circle_dot_999"
+            android:gravity="center"
+            android:text="2"
+            android:textColor="@color/color_ffffff"
+            android:textSize="8sp" />
+
+        <com.jxkj.fit_5a.conpoment.view.LinShiView
+            android:id="@+id/lsv"
+            android:layout_width="@dimen/dimen_50dp"
+            android:layout_height="@dimen/dimen_50dp"
+            android:layout_margin="@dimen/common_margin_6" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@id/lsv"
+            android:layout_alignBottom="@id/lsv"
+            android:drawableStart="@mipmap/ic_hp_yd_13"
+            android:text="2.5km"
+            android:textColor="@color/color_000000"
+            android:textSize="8sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dimen_30dp"
+        android:background="@drawable/bj_circle_ccc_6"
+        android:drawableStart="@mipmap/ic_hp_yd_14"
+        android:drawablePadding="13dp"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="@dimen/dimen_20dp"
+        android:paddingVertical="@dimen/dimen_5dp"
+        android:text="返回VGu起哦v哥Wiu曲棍球诶怕高V九曲湾"
+        android:textColor="@color/color_ffffff" />
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/dimen_15dp"
+        android:layout_marginBottom="130dp"
+        android:background="@drawable/bj_circle_fff_6_zx">
+
+        <ImageView
+            android:id="@+id/iv_1"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:padding="@dimen/dp_10"
+            android:scaleType="center"
+            android:src="@mipmap/ic_hp_yd_12" />
+
+        <ImageView
+            android:id="@+id/iv_2"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:padding="@dimen/dp_10"
+            android:src="@mipmap/ic_hp_yd_9" />
+
+        <ImageView
+            android:id="@+id/iv_3"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:padding="@dimen/dp_10"
+            android:src="@mipmap/ic_hp_yd_8" />
+
+        <ImageView
+            android:id="@+id/iv_4"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:padding="@dimen/dp_10"
+            android:src="@mipmap/ic_hp_yd_10" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_alignBottom="@id/rl"
+        android:paddingStart="@dimen/dimen_120dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/iv"
+            android:layout_marginStart="-22dp"
+            android:layout_marginBottom="@dimen/dimen_5dp"
+            android:layout_toEndOf="@id/iv"
+            android:background="@drawable/bj_circle_fff_10"
+            android:paddingHorizontal="@dimen/dp_10"
+            android:paddingVertical="@dimen/dimen_2dp"
+            android:text="1.2km"
+            android:textColor="@color/color_000000"
+            android:textSize="11sp" />
+
+        <ImageView
+            android:id="@+id/iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_hp_yd_11" />
+    </RelativeLayout>
+
+</RelativeLayout>

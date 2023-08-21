@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.jxkj.fit_5a.conpoment.view.SquareLinearLayout
+        android:id="@+id/sll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_5dp"
+        android:background="@drawable/shape_yy_f7_ss"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_17" />
+    </com.jxkj.fit_5a.conpoment.view.SquareLinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sll"
+        android:layout_marginBottom="@dimen/dimen_5dp"
+        android:background="@drawable/shape_yy_ff_xx"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/icon_head"
+            android:layout_width="@dimen/dimen_25dp"
+            android:layout_height="@dimen/dimen_25dp"
+            android:layout_margin="@dimen/dp_4"
+            android:src="@mipmap/ic_6" />
+
+        <TextView
+            android:id="@+id/tv_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_7dp"
+            android:layout_toEndOf="@id/icon_head"
+            android:text="冯伟赠送"
+            android:textColor="@color/color_333333"
+            android:textSize="8sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_user"
+            android:layout_marginTop="@dimen/dimen_2dp"
+            android:layout_toEndOf="@id/icon_head"
+            android:text="07/22"
+            android:textSize="6sp" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

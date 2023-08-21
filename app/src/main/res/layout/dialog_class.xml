@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/iv_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_15dp"
+        android:layout_marginTop="13dp"
+        android:src="@mipmap/ic_hp_cjfj_3" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="@dimen/dimen_25dp"
+        android:adjustViewBounds="true"
+        android:src="@mipmap/ic_dialog_1" />
+
+    <Button
+        android:id="@+id/tv_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/dimen_45dp"
+        android:background="@mipmap/ic_hp_bnt"
+        android:gravity="center"
+        android:text="查看成绩"
+        android:textColor="@color/color_ffffff"
+        android:textSize="16sp" />
+</RelativeLayout>

@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false">
+
+    <FrameLayout
+        android:id="@+id/fl_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="50dp" />
+
+    <RelativeLayout
+        android:id="@+id/lay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:background="@color/transparent">
+
+        <LinearLayout
+            android:id="@+id/ll_b"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <LinearLayout
+                android:id="@+id/ll_main_1"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_gravity="bottom"
+                android:layout_marginHorizontal="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_shape_bj_theme_99"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/iv_main_1"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/icon_main_1_no" />
+
+                <TextView
+                    android:id="@+id/tv_main_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_income"
+                    android:layout_centerInParent="true"
+                    android:layout_marginStart="@dimen/dimen_5dp"
+                    android:layout_marginTop="1dp"
+                    android:padding="2dp"
+                    android:text="首页"
+                    android:textColor="@color/color_333333"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_main_2"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_gravity="bottom"
+                android:layout_marginHorizontal="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_shape_bj_theme_99"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/iv_main_2"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/icon_main_2_no" />
+
+                <TextView
+                    android:id="@+id/tv_main_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_income"
+                    android:layout_centerInParent="true"
+                    android:layout_marginStart="@dimen/dimen_5dp"
+                    android:layout_marginTop="1dp"
+                    android:padding="2dp"
+                    android:text="运动"
+                    android:textColor="@color/color_333333"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="55dp"
+                android:layout_height="15dp"
+                android:layout_marginHorizontal="3dp"
+                android:src="@drawable/icon_home_zhong"
+                android:visibility="invisible" />
+
+            <LinearLayout
+                android:id="@+id/ll_main_3"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_gravity="bottom"
+                android:layout_marginHorizontal="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_shape_bj_theme_99"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/iv_main_3"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/icon_main_3_no" />
+
+                <TextView
+                    android:id="@+id/tv_main_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_income"
+                    android:layout_centerInParent="true"
+                    android:layout_marginStart="@dimen/dimen_5dp"
+                    android:layout_marginTop="1dp"
+                    android:padding="2dp"
+                    android:text="社群"
+                    android:textColor="@color/color_333333"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_main_4"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_gravity="bottom"
+                android:layout_marginHorizontal="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_shape_bj_theme_99"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/iv_main_4"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/icon_main_4_no" />
+
+                <TextView
+                    android:id="@+id/tv_main_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_income"
+                    android:layout_centerInParent="true"
+                    android:layout_marginStart="@dimen/dimen_5dp"
+                    android:layout_marginTop="1dp"
+                    android:padding="2dp"
+                    android:text="我的"
+                    android:textColor="@color/color_333333"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </LinearLayout>
+        <!--        icon_home_dialog-->
+        <LinearLayout
+            android:id="@+id/ll_dialog"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/iv_icon_add"
+            android:layout_centerHorizontal="true"
+            android:visibility="gone"
+            android:background="@drawable/icon_home_dialog"
+            android:paddingHorizontal="15dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableStart="@drawable/icon_home_dialog_y"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical"
+                android:paddingTop="15dp"
+                android:paddingBottom="25dp"
+                android:text="发布动态领积分，参与兑换热门好物！"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:id="@+id/iv_close_dialog"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginBottom="5dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/icon_home_dialog_z" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_icon_add"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_alignBottom="@id/ll_b"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="12dp"
+            android:src="@drawable/icon_home_zhong" />
+    </RelativeLayout>
+</RelativeLayout>

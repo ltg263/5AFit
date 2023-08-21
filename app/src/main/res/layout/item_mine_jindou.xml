@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_yy_ff_all_6"
+    android:gravity="center_vertical"
+    android:padding="@dimen/dimen_12dp">
+
+    <ImageView
+        android:layout_width="@dimen/dimen_55dp"
+        android:layout_height="@dimen/dimen_55dp"
+        android:layout_margin="@dimen/dp_10"
+        android:scaleType="center"
+        android:src="@drawable/ic_mine_rwzx" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="商品购买——商品名称"
+            android:textColor="#0E0E0E"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_paymentTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_user"
+            android:layout_marginTop="@dimen/dp_10"
+            android:text="2020.05.09 14:02:22"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/tv_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dimen_15dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:drawablePadding="@dimen/dp_10"
+            android:text="0"
+            android:textColor="@color/color_000000" />
+
+        <TextView
+            android:id="@+id/tv_amount_dou"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/dimen_15dp"
+            android:drawableEnd="@drawable/ic_dou"
+            android:visibility="invisible"
+            android:drawablePadding="@dimen/dp_10"
+            android:text="0"
+            android:textColor="@color/color_000000" />
+    </RelativeLayout>
+
+
+</LinearLayout>

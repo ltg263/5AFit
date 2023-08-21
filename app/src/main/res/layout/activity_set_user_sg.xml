@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_ffffff"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_30dp"
+            android:layout_marginTop="@dimen/dp_40"
+            android:text="你的身高"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dimen_2dp"
+            android:layout_below="@id/tv1"
+            android:layout_marginStart="@dimen/dimen_30dp"
+            android:layout_marginTop="-5dp"
+            android:background="@drawable/line_shape_bj_select" />
+
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv1"
+            android:layout_marginStart="@dimen/dimen_30dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:text="你的身高为你推荐内容"
+            android:textColor="@color/color_999999"
+            android:textSize="14sp" />
+
+        <com.jxkj.fit_5a.conpoment.view.SquareRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/tv2"
+            android:padding="@dimen/dp_10"
+            android:rotation="90">
+
+            <com.jxkj.fit_5a.conpoment.view.RulerView_xz
+                android:id="@+id/ruler_height"
+                android:layout_width="match_parent"
+                android:layout_height="58.0dip"
+                app:alphaEnable="false"
+                app:lineColor="#AAAAAA"
+                app:lineMaxHeight="30dp"
+                app:lineMidHeight="30dp"
+                app:lineMinHeight="15dp"
+                app:lineSpaceWidth="7dp"
+                app:lineWidth="1dip"
+                app:perValue="1"
+                app:textColor="#AAAAAA"
+                app:textSize="12sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="-5dp"
+                android:src="@drawable/icon_sg_shu" />
+
+            <ImageView
+                android:id="@+id/iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="175dp"
+                android:rotation="90"
+                android:src="@mipmap/ic_line" />
+
+            <TextView
+                android:id="@+id/tv_sg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/dimen_20dp"
+                android:rotation="-90"
+                android:text="160cm"
+                android:textColor="@color/color_333333"
+                android:textSize="26sp" />
+
+
+            <ImageView
+                android:id="@+id/iv_xb"
+                android:layout_width="wrap_content"
+                android:layout_height="140dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:rotation="-90"
+                android:src="@mipmap/ic_ren_nv" />
+        </com.jxkj.fit_5a.conpoment.view.SquareRelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimen_25dp"
+        android:layout_marginTop="@dimen/dimen_25dp">
+
+        <TextView
+            android:id="@+id/tv_tz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="60.0"
+            android:textColor="@color/color_333333"
+            android:textSize="26sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/tv_tz"
+            android:layout_toEndOf="@id/tv_tz"
+            android:gravity="bottom"
+            android:paddingBottom="@dimen/dimen_2dp"
+            android:text="kg"
+            android:textColor="@color/color_333333"
+            android:textSize="16sp" />
+
+        <com.zkk.view.rulerview.RulerView
+            android:id="@+id/ruler_weight"
+            android:layout_width="match_parent"
+            android:layout_height="58.0dip"
+            android:layout_below="@id/tv_tz"
+            android:layout_marginTop="@dimen/dimen_15dp"
+            app:alphaEnable="false"
+            app:lineColor="#AAAAAA"
+            app:lineMaxHeight="30dp"
+            app:lineMidHeight="30dp"
+            app:lineMinHeight="15dp"
+            app:lineSpaceWidth="7dp"
+            app:lineWidth="1dip"
+            app:perValue="1"
+            app:textColor="#AAAAAA"
+            app:textSize="12sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_tz"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp_10"
+            android:src="@drawable/icon_sg_shu" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_go_xyb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimen_30dp"
+        android:layout_marginVertical="@dimen/dimen_20dp"
+        android:background="@drawable/btn_shape_bj_theme_25"
+        android:gravity="center"
+        android:paddingTop="@dimen/dp_10"
+        android:paddingBottom="@dimen/dp_10"
+        android:text="下一步"
+        android:textColor="@color/color_ffffff"
+        android:textSize="16sp" />
+</LinearLayout>

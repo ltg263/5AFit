@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_ffffff"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll_dh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:visibility="gone">
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_20dp"
+            android:layout_weight="1"
+            android:background="@drawable/bj_shap_f7_6"
+            android:hint="请输入兑换码"
+            android:paddingVertical="@dimen/dimen_7dp"
+            android:paddingStart="@dimen/dimen_15dp"
+            android:textColor="@color/color_333333"
+            android:textColorHint="@color/color_999999"
+            android:textSize="13sp" />
+
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="@dimen/dimen_30dp"
+            android:layout_marginEnd="@dimen/dimen_20dp"
+            android:background="@drawable/btn_shape_bj_theme_2"
+            android:gravity="center"
+            android:text="兑换"
+            android:textColor="@color/color_ffffff"
+            android:textSize="@dimen/sp_14" />
+
+    </LinearLayout>
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/refreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:srlAccentColor="#00000000"
+        app:srlEnablePreviewInEditMode="true"
+        app:srlPrimaryColor="#00000000">
+
+        <com.jxkj.fit_5a.conpoment.view.ClassicsHeader
+
+            android:layout_width="match_parent"
+            android:layout_height="35dp" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never" />
+
+        <com.jxkj.fit_5a.conpoment.view.ClassicsFooter
+
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+    <LinearLayout
+        android:id="@+id/lv_not"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dimen_100dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_yhj_not" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="还没有优惠券哦~"
+            android:visibility="gone"
+            android:textColor="@color/color_999999"
+            android:textSize="@dimen/sp_14" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="165dp"
+        android:layout_marginStart="@dimen/dimen_15dp"
+        android:layout_marginTop="@dimen/dimen_15dp"
+        android:layout_marginEnd="@dimen/dimen_15dp"
+        android:background="@drawable/vip_shape_bj_15_1"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:adjustViewBounds="true"
+            android:src="@drawable/icon_vip_bj" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="-38dp"
+            android:layout_marginEnd="-10dp"
+            android:src="@mipmap/ic_vip_bj_1" />
+
+        <ImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dimen_30dp"
+            android:layout_marginEnd="@dimen/dimen_15dp"
+            android:src="@mipmap/ic_6" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/iv_icon"
+            android:layout_toEndOf="@id/iv_icon"
+            android:text="任敏敏 DEAR"
+            android:textColor="@color/color_ffffff"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/iv_vip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/tv_name"
+            android:layout_alignBottom="@id/tv_name"
+            android:layout_marginStart="@dimen/dimen_15dp"
+            android:layout_toEndOf="@id/tv_name"
+            android:adjustViewBounds="true"
+            android:src="@drawable/icon_vip_1" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_name"
+            android:layout_marginTop="@dimen/dimen_2dp"
+            android:layout_toEndOf="@id/iv_icon"
+            android:text="2020-08-18"
+            android:textColor="@color/color_ffffff"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_sign"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_name"
+            android:layout_marginStart="@dimen/dimen_30dp"
+            android:layout_marginTop="@dimen/dimen_2dp"
+            android:layout_toEndOf="@id/tv_time"
+            android:drawableEnd="@drawable/icon_jiantou_you_ff"
+            android:drawablePadding="@dimen/dimen_5dp"
+            android:text="自动续费"
+            android:textColor="@color/color_ffffff"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/tv_xf"
+            android:layout_alignBottom="@id/tv_xf"
+            android:layout_marginStart="@dimen/dimen_15dp"
+            android:gravity="center_vertical"
+            android:text="NO.0000 0000 0000 0001"
+            android:textColor="@color/color_ffffff"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/tv_xf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/dimen_20dp"
+            android:background="@drawable/vip_shape_bj_bnt_zz"
+            android:paddingVertical="@dimen/dimen_5dp"
+            android:paddingStart="@dimen/dp_10"
+            android:paddingEnd="@dimen/dp_10"
+            android:text="立即续费"
+            android:textColor="@color/color_ffffff"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/tv_name"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/dimen_15dp"
+            android:drawableStart="@drawable/icon_help"
+            android:drawablePadding="@dimen/dimen_5dp"
+            android:text="攻略"
+            android:textColor="@color/color_ffffff"
+            android:textSize="@dimen/sp_14" />
+
+    </RelativeLayout>
+</RelativeLayout>

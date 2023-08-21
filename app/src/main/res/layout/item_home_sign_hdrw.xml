@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/dp_10">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="每日签到"
+        android:textColor="@color/color_000000"
+        android:textSize="14sp" />
+
+    <ImageView
+        android:id="@+id/iv_xx"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_title"
+        android:layout_marginTop="@dimen/dimen_5dp"
+        android:background="@drawable/btn_shape_bj_theme_25"
+        android:padding="@dimen/dimen_5dp"
+        android:src="@drawable/icon_sign_xx" />
+
+    <TextView
+        android:id="@+id/tv_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_title"
+        android:layout_alignTop="@id/iv_xx"
+        android:layout_marginStart="@dimen/dp_10"
+        android:layout_toEndOf="@id/iv_xx"
+        android:text="+ 40积分奖励"
+        android:textColor="@color/color_999999"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tv_go_sign"
+        android:layout_width="@dimen/dimen_80dp"
+        android:layout_height="@dimen/dimen_30dp"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/btn_shape_bj_theme_25"
+        android:gravity="center"
+        android:text="去观看"
+        android:textColor="@color/color_ffffff"
+        android:textSize="16sp" />
+
+
+</RelativeLayout>

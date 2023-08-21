@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/iv"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dimen_45dp"
+        android:layout_margin="@dimen/dimen_15dp"
+        android:src="@drawable/icon_msg" />
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/iv"
+        android:layout_toEndOf="@id/iv"
+        android:text="系统消息"
+        android:textColor="@color/color_333333"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv1"
+        android:layout_marginTop="6dp"
+        android:layout_toEndOf="@id/iv"
+        android:text="签到提醒"
+        android:textColor="@color/color_999999"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tv_doc"
+        android:layout_width="5dp"
+        android:layout_height="5dp"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="@dimen/dp_10"
+        android:layout_toStartOf="@id/iv_back"
+        android:background="@drawable/bj_circle_red"
+        android:gravity="center"
+        android:visibility="invisible"
+        android:textColor="@color/color_ffffff"
+        android:textSize="10sp" />
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="@dimen/dimen_20dp"
+        android:src="@drawable/icon_jiantou_you_99" />
+
+
+</RelativeLayout>

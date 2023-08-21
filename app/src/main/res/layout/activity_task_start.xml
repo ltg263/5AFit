@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_ffffff"
+    android:orientation="vertical">
+
+    <include layout="@layout/include_titlebar_common" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_0.5dp"
+        android:background="@color/line_color" />
+
+    <RelativeLayout
+        android:id="@+id/rl_sbgl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_15dp">
+
+        <TextView
+            android:id="@+id/tv_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="设备管理"
+            android:textColor="@color/color_333333"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/tv_1"
+            android:layout_alignBottom="@id/tv_1"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_toRightOf="@id/tv_1"
+            android:padding="@dimen/dimen_5dp"
+            android:scaleType="center"
+            android:src="@drawable/icon_jiantou_you_00" />
+
+        <TextView
+            android:id="@+id/tv_lianjie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_1"
+            android:layout_marginTop="9dp"
+            android:text="智能椭圆机——已连接"
+            android:textColor="@color/color_999999"
+            android:textSize="@dimen/sp_14" />
+
+        <ImageView
+            android:id="@+id/iv_two_img"
+            android:layout_width="@dimen/dimen_50dp"
+            android:layout_height="@dimen/dimen_50dp"
+            android:layout_alignParentEnd="true"
+            android:src="@mipmap/ic_2" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/ic_yundong_bj1">
+
+        <LinearLayout
+            android:id="@+id/ll_kcxz"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_55dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/dimen_30dp"
+            android:layout_marginEnd="@dimen/dimen_30dp"
+            android:layout_marginBottom="@dimen/dimen_50dp"
+            android:background="@drawable/ic_shade_img"
+            android:gravity="center">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/icon_task_kcxz"
+                android:drawablePadding="@dimen/dp_10"
+                android:text="课程选择"
+                android:textColor="@color/color_333333"
+                android:textSize="@dimen/sp_14" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_xlkz"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_55dp"
+            android:layout_above="@id/ll_kcxz"
+            android:layout_marginStart="@dimen/dimen_30dp"
+            android:layout_marginEnd="@dimen/dimen_30dp"
+            android:layout_marginBottom="@dimen/dimen_20dp"
+            android:background="@drawable/ic_shade_img"
+            android:gravity="center">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/icon_task_xlkz"
+                android:drawablePadding="@dimen/dp_10"
+                android:text="心率控制"
+                android:textColor="@color/color_333333"
+                android:textSize="@dimen/sp_14" />
+
+
+        </LinearLayout>
+
+        <cn.forward.androids.views.MaskImageView
+            android:id="@+id/btn_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dimen_30dp"
+            android:clickable="true"
+            android:scaleType="fitXY"
+            android:src="@mipmap/icon_start_d"
+            app:miv_is_ignore_alpha="true"
+            app:miv_mask_color="#88000000"
+            app:miv_mask_level="foreground"
+            app:sel_background_corner_bottomRight="30dp"
+            app:vp_content_height="60dp"
+            app:vp_content_padding_bottom="0dp"
+            app:vp_content_padding_left="0dp"
+            app:vp_content_width="60dp" />
+
+    </RelativeLayout>
+
+</LinearLayout>

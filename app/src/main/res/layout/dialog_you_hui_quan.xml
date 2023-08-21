@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@mipmap/ic_youhuiquan_s" />
+
+        <ImageView
+            android:id="@+id/iv_close"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_below="@id/iv_1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:padding="10dp"
+            android:src="@drawable/icon_close" />
+
+        <ImageView
+            android:id="@+id/iv_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv"
+            android:adjustViewBounds="true"
+            android:src="@mipmap/ic_youhuiquan_x" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_list"
+            android:layout_width="wrap_content"
+            android:layout_height="180dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignTop="@id/iv_1"
+            android:layout_marginBottom="25dp" />
+
+        <TextView
+            android:id="@+id/tv_bnt"
+            android:layout_width="@dimen/dimen_140dp"
+            android:layout_height="32dp"
+            android:layout_below="@id/iv_1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-60dp"
+            android:background="@drawable/bnt_jb_youhuiq"
+            android:gravity="center"
+            android:text="全部领取"
+            android:textColor="@color/color_ffffff"
+            android:textSize="@dimen/sp_14" />
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_333333">
+
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/dimen_80dp"
+        android:background="@drawable/bj_circle_fff_20"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/et_pss"
+            android:layout_width="170dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="50dp"
+            android:inputType="number"
+            android:maxLines="6"
+            android:textCursorDrawable="@drawable/shape_edit_cursor"
+            android:paddingVertical="@dimen/dp_10"
+            android:maxLength="6"
+            android:paddingStart="14dp"
+            android:text=""
+            android:letterSpacing="0.9"
+            android:background="@drawable/ic_input_pas"
+            android:textColor="@color/color_text_theme"
+            android:textSize="@dimen/dimen_16dp"
+            android:textStyle="normal" />
+
+
+        <TextView
+            android:id="@+id/tv_ok"
+            android:layout_width="@dimen/dimen_150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/btn_shape_bj_theme_2"
+            android:gravity="center"
+            android:paddingTop="@dimen/dp_10"
+            android:paddingBottom="@dimen/dp_10"
+            android:text="确定"
+            android:textColor="@color/color_ffffff"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignTop="@id/ll"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-30dp"
+        android:background="@drawable/bj_circle_fff"
+        android:padding="@dimen/dimen_15dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_input_pss_1" />
+
+    <ImageView
+        android:id="@+id/iv_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dp_10"
+        android:src="@drawable/icon_close" />
+
+
+</RelativeLayout>
