@@ -177,6 +177,13 @@ public interface ApiService {
     @GET(ConstValues.PORT_21 + "api/v1/teaching/moment/query-home-popular")
     Observable<Result<TeachingMomentListsBean>> getQueryHomePopular();
 
+    /**
+     * 获取热门动态信息
+     * @return
+     */
+    @GET(ConstValues.PORT_21 + "api/v1/teaching/moment/query-home-popular")
+    Observable<Result<TeachingMomentListsBean>> getQueryHomePopular(@Query("page") int page,@Query("pageSize") int pageSize);
+
 
     /**
      * 获取所有官方动态分类
