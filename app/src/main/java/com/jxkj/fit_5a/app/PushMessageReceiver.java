@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
-
 import com.jxkj.fit_5a.MainActivity;
 
 import cn.jpush.android.api.CmdMessage;
@@ -53,6 +52,15 @@ public class PushMessageReceiver extends JPushMessageReceiver {
 
     @Override
     public void onNotifyMessageArrived(Context context, NotificationMessage message) {
+        // [onNotifyMessageArrived] NotificationMessage{notificationId=520094589, msgId='18100933850918857',
+        // appkey='dc4203ad97ac6a667d332a64', notificationContent='这是一条测试内容', notificationAlertType=7,
+        // notificationTitle='测试', notificationSmallIcon='', notificationLargeIcon='', notificationExtras='{}',
+        // notificationStyle=0, notificationBuilderId=0, notificationBigText='', notificationBigPicPath='',
+        // notificationInbox='', notificationPriority=0, notificationCategory='', developerArg0='', platform=0,
+        // notificationChannelId='', displayForeground='', notificationType=0', inAppMsgType=1', inAppMsgShowType=2',
+        // inAppMsgShowPos=0',
+        // inAppMsgTitle=, inAppMsgContentBody=, inAppType=0, inAppShowTarget=, inAppClickAction=, inAppExtras=}
+        startBroadcast(message.notificationContent);
         Log.e(TAG, "[onNotifyMessageArrived] " + message);
     }
 
@@ -127,5 +135,13 @@ public class PushMessageReceiver extends JPushMessageReceiver {
         super.onNotificationSettingsCheck(context, isOn, source);
         Log.e(TAG, "[onNotificationSettingsCheck] isOn:" + isOn + ",source:" + source);
     }
-
+    public static void startBroadcast(String msg){
+        //开启广播
+        //创建一个意图对象
+        Intent intent = new Intent("com.jxkj.fit_5a.app.PushMessageReceiver");
+        //发送广播的数据
+        intent.putExtra("msg", msg);
+        //发送
+        MainApplication.getContext().sendBroadcast(intent);
+    }
 }

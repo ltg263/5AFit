@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -39,6 +40,8 @@ public class FindPasswordActivity extends BaseActivity {
     TextView mEtInputMmYes;
     @BindView(R.id.ll_go_dl)
     LinearLayout mLlGoDl;
+    @BindView(R.id.iv_icon)
+    ImageView iv_icon;
     private TimeCounter mTimeCounter;
 
     @Override
@@ -49,7 +52,9 @@ public class FindPasswordActivity extends BaseActivity {
 
     @Override
     protected void initViews() {
-
+        if(StringUtil.getLoginUserType().equals("1")){
+            iv_icon.setImageResource(R.drawable.icon_login_allog);
+        }
     }
 
     @OnClick({R.id.tv_go_yzm, R.id.tv_go_find, R.id.iv_back})

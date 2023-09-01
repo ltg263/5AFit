@@ -63,12 +63,12 @@
                     android:focusableInTouchMode="true" />
 
                 <LinearLayout
-                    android:id="@+id/ll_top_1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp">
 
                     <LinearLayout
+                        android:id="@+id/ll_top_1"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -76,8 +76,10 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="55dp"
-                            android:layout_height="55dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="15dp"
+                            android:adjustViewBounds="true"
                             android:src="@drawable/icon_home_mrdk" />
 
                         <TextView
@@ -99,8 +101,10 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="55dp"
-                            android:layout_height="55dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="15dp"
+                            android:adjustViewBounds="true"
                             android:src="@drawable/icon_home_jxsp" />
 
                         <TextView
@@ -122,8 +126,10 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="55dp"
-                            android:layout_height="55dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="15dp"
+                            android:adjustViewBounds="true"
                             android:src="@drawable/icon_home_ydsj" />
 
                         <TextView
@@ -131,6 +137,30 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
                             android:text="运动数据"
+                            android:textColor="@color/color_000000"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/ll_top_5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="15dp"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/icon_home_jxsp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="定制训练"
                             android:textColor="@color/color_000000"
                             android:textSize="14sp" />
 
@@ -145,8 +175,10 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="55dp"
-                            android:layout_height="55dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="15dp"
+                            android:adjustViewBounds="true"
                             android:src="@drawable/icon_home_jfdh" />
 
                         <TextView

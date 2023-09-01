@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.jxkj.fit_5a.MainActivity;
 import com.jxkj.fit_5a.R;
+import com.jxkj.fit_5a.api.ApiService;
 import com.jxkj.fit_5a.api.RetrofitUtil;
 import com.jxkj.fit_5a.base.BaseActivity;
 import com.jxkj.fit_5a.base.Result;
@@ -30,11 +31,8 @@ import com.jxkj.fit_5a.entity.WxAccessTokenBean;
 import com.jxkj.fit_5a.view.activity.home.WebViewActivity;
 import com.jxkj.fit_5a.wxapi.WXEntryActivity;
 import com.tencent.connect.common.Constants;
-import com.tencent.mm.opensdk.modelbase.BaseReq;
-import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.modelmsg.SendAuth;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
-import com.tencent.mm.opensdk.openapi.IWXAPIEventHandler;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import com.tencent.tauth.Tencent;
 
@@ -42,11 +40,11 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-import retrofit2.http.Query;
 
 public class LoginActivity extends BaseActivity{
 
@@ -72,6 +70,10 @@ public class LoginActivity extends BaseActivity{
     LinearLayout mLl3;
     @BindView(R.id.iv_select)
     ImageView iv_select;
+    @BindView(R.id.iv_icon)
+    ImageView iv_icon;
+    @BindView(R.id.iv_login_al)
+    ImageView iv_login_al;
     int loginType = 2;//密码登录
     private TimeCounter mTimeCounter;
 
@@ -90,9 +92,21 @@ public class LoginActivity extends BaseActivity{
         mTvLoginWjmm.setVisibility(View.INVISIBLE);
     }
 
-    @OnClick({R.id.tv_login_yzm, R.id.tv_login_wjmm, R.id.iv_login_wx,R.id.iv_login_qq,R.id.iv_iconsole,R.id.tv_go_login, R.id.ll_go_zc,R.id.tv_go_yzm,R.id.iv_select,R.id.tv_info,R.id.tv_ysty})
+    @OnClick({R.id.iv_login_al,R.id.tv_login_yzm, R.id.tv_login_wjmm, R.id.iv_login_wx,R.id.iv_login_qq,
+            R.id.iv_iconsole,R.id.tv_go_login, R.id.ll_go_zc,R.id.tv_go_yzm,R.id.iv_select,R.id.tv_info,R.id.tv_ysty})
     public void onViewClicked(View view) {
         switch (view.getId()) {
+            case R.id.iv_login_al:
+                if(StringUtil.getLoginUserType().equals("1")){
+                    iv_icon.setImageResource(R.mipmap.ic_launcher);
+                    iv_login_al.setImageResource(R.drawable.icon_login_5a);
+                    SharedUtils.singleton().put(ConstValues.LOGIN_USER_TYPE,"0");
+                }else{
+                    iv_icon.setImageResource(R.drawable.icon_login_allog);
+                    iv_login_al.setImageResource(R.drawable.icon_login_al);
+                    SharedUtils.singleton().put(ConstValues.LOGIN_USER_TYPE,"1");
+                }
+                break;
             case R.id.tv_login_yzm:
                 if(loginType==1){
                     loginType = 2;
@@ -190,6 +204,14 @@ public class LoginActivity extends BaseActivity{
                 show();
                 getWx_access_token(code);
             }
+        }
+
+        if(StringUtil.getLoginUserType().equals("1")){
+            iv_icon.setImageResource(R.drawable.icon_login_allog);
+            iv_login_al.setImageResource(R.drawable.icon_login_al);
+        }else{
+            iv_icon.setImageResource(R.mipmap.ic_launcher);
+            iv_login_al.setImageResource(R.drawable.icon_login_5a);
         }
     }
 
@@ -341,9 +363,14 @@ public class LoginActivity extends BaseActivity{
         }
         show();
         String finalMm = mm;
-        RetrofitUtil.getInstance().apiService()
-                .userVerifyLogin(3,sjh,mm,yzm)
-                .observeOn(AndroidSchedulers.mainThread())
+        ApiService mApiService = RetrofitUtil.getInstance().apiService();
+        Observable<Result<LoginInfo>> mObservable;
+        if(StringUtil.getLoginUserType().equals("1")){
+            mObservable = mApiService.userVerifyLogin_al(3, sjh, mm, yzm);
+        }else {
+            mObservable = mApiService.userVerifyLogin(3, sjh, mm, yzm);
+        }
+        mObservable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Observer<Result<LoginInfo>>() {
                     @Override

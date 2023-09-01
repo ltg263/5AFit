@@ -32,8 +32,8 @@
 
             <ImageView
                 android:id="@+id/iv_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
                 android:layout_alignTop="@id/tv_title"
                 android:layout_alignBottom="@id/tv_title"
                 android:layout_alignParentEnd="true"
@@ -205,7 +205,10 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/view2"
                 android:layout_alignParentEnd="true"
-                android:layout_margin="@dimen/dimen_16dp"
+                android:layout_marginStart="@dimen/dimen_16dp"
+                android:layout_marginTop="@dimen/dimen_16dp"
+                android:layout_marginEnd="@dimen/dimen_16dp"
+                android:layout_marginBottom="@dimen/dimen_16dp"
                 android:padding="@dimen/dp_10"
                 android:text="忘记密码?"
                 android:textColor="@color/color_666666"
@@ -275,30 +278,37 @@
                     android:gravity="center">
 
                     <ImageView
+                        android:id="@+id/iv_login_al"
+                        android:layout_width="@dimen/dimen_45dp"
+                        android:layout_height="@dimen/dimen_45dp"
+                        android:layout_margin="@dimen/dp_10"
+                        android:src="@drawable/icon_login_al" />
+
+                    <ImageView
                         android:id="@+id/iv_login_wx"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/dimen_45dp"
+                        android:layout_height="@dimen/dimen_45dp"
                         android:layout_margin="@dimen/dp_10"
                         android:src="@drawable/icon_login_wx" />
 
                     <ImageView
                         android:id="@+id/iv_login_qq"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/dimen_45dp"
+                        android:layout_height="@dimen/dimen_45dp"
                         android:layout_margin="@dimen/dp_10"
                         android:src="@drawable/icon_login_qq" />
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/dimen_45dp"
+                        android:layout_height="@dimen/dimen_45dp"
                         android:layout_margin="@dimen/dp_10"
                         android:visibility="gone"
                         android:src="@drawable/icon_login_xl" />
 
                     <ImageView
                         android:id="@+id/iv_iconsole"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/dimen_45dp"
+                        android:layout_height="@dimen/dimen_45dp"
                         android:layout_margin="@dimen/dp_10"
                         android:src="@drawable/icon_login_sf" />
 

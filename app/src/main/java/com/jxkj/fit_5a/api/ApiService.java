@@ -674,17 +674,6 @@ public interface ApiService {
                                           @Query("verify") String verify);
 
     /**
-     * 登录
-     *
-     * @return clientType:客户端类型1web2IOS3安卓4微信
-     */
-    @POST(ConstValues.PORT_5 + "api/v1/user/verify/login")
-    Observable<Result<LoginInfo>> userVerifyLogin(@Query("clientType") int clientType,
-                                                  @Query("phone") String phone, @Query("password") String password,
-                                                  @Query("verify") String verify);
-
-
-    /**
      * 忘记密码
      *
      * @return type:类型0注册1修改密码2登录
@@ -1784,4 +1773,18 @@ public interface ApiService {
     @POST(ConstValues.SPORT_GAME_SERVER + "api/v1/game/complete")
     Observable<Result<GameCompleteBean>> gamComplete(@Query("calories") String calories, @Query("distance") String distance, @Query("roomMemberId") String roomMemberId, @Query("sportLogId") String sportLogId);
 
+    /** ********************涉及到安利用户的接口*******************************/
+
+    /**
+     * 登录
+     * @return clientType:客户端类型1web2IOS3安卓4微信
+     */
+    @POST(ConstValues.PORT_5 + "api/v1/user/verify/login")
+    Observable<Result<LoginInfo>> userVerifyLogin(@Query("clientType") int clientType,
+                                                  @Query("phone") String phone, @Query("password") String password,
+                                                  @Query("verify") String verify);
+    @POST(ConstValues.PORT_5 + "api/v1/user/verify/login")
+    Observable<Result<LoginInfo>> userVerifyLogin_al(@Query("clientType") int clientType,
+                                                     @Query("phone") String phone, @Query("password") String password,
+                                                     @Query("verify") String verify);
 }

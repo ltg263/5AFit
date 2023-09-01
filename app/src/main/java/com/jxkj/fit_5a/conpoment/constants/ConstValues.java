@@ -58,6 +58,7 @@ public class ConstValues {
 
     public static final String USER_THREE_HT_PAGE = "user_three_ht_page";//	页数
 
+    public static final String LOGIN_USER_TYPE = "login_user_type";//用户登录类型   1：安利  else 5a
     public static final String accessKeyId = "accessKeyId";
     public static final String accessKeySecret = "accessKeySecret";
     public static final String endpoint = "endpoint";

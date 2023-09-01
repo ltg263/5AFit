@@ -22,6 +22,8 @@ import com.jxkj.fit_5a.entity.AnnouncementList;
 import com.jxkj.fit_5a.entity.ProductListBean;
 import com.jxkj.fit_5a.entity.TeachingMomentBean;
 import com.jxkj.fit_5a.entity.TeachingMomentListsBean;
+import com.jxkj.fit_5a.view.activity.exercise.TaskSelectionActivity;
+import com.jxkj.fit_5a.view.activity.exercise.TaskSelectionOneActivity;
 import com.jxkj.fit_5a.view.activity.mine.JiaoXueSpActivity;
 import com.jxkj.fit_5a.view.activity.home.TaskSignActivity;
 import com.jxkj.fit_5a.view.activity.mine.JiaoXueSpXpActivity;
@@ -157,7 +159,7 @@ public class HomeOneFragment extends BaseFragment {
         return homeFragment;
     }
 
-    @OnClick({R.id.iv_close,R.id.iv_gosc,R.id.ll_top_1,R.id.rl_actionbar,R.id.ll_top_2,R.id.ll_top_3,R.id.ll_top_4,R.id.tv_gdkc,R.id.tv_gdsp,R.id.on_rv_qd,R.id.tv_message})
+    @OnClick({R.id.iv_close,R.id.iv_gosc,R.id.ll_top_1,R.id.rl_actionbar,R.id.ll_top_2,R.id.ll_top_3,R.id.ll_top_4,R.id.ll_top_5,R.id.tv_gdkc,R.id.tv_gdsp,R.id.on_rv_qd,R.id.tv_message})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_close:
@@ -179,6 +181,11 @@ public class HomeOneFragment extends BaseFragment {
             case R.id.ll_top_4:
             case R.id.tv_gdsp:
                 ShoppingActivity.intentStartActivity(getActivity());
+                break;
+            case R.id.ll_top_5:
+
+                IntentUtils.getInstence().
+                        intent(getActivity(), TaskSelectionOneActivity.class, "exercise_type", "");
                 break;
             case R.id.tv_message:
                 startActivity(new Intent(getActivity(), MineMessageAnnouncementActivity.class));

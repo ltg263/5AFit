@@ -3,10 +3,8 @@ package com.jxkj.fit_5a.view.fragment;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.PopupWindow;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -17,11 +15,9 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.jxkj.fit_5a.R;
 import com.jxkj.fit_5a.api.RetrofitUtil;
 import com.jxkj.fit_5a.base.BaseFragment;
-import com.jxkj.fit_5a.conpoment.utils.CustomPopWindow;
 import com.jxkj.fit_5a.conpoment.utils.HttpRequestUtils;
 import com.jxkj.fit_5a.conpoment.utils.IntentUtils;
 import com.jxkj.fit_5a.conpoment.utils.MagicIndicatorUtils;
-import com.jxkj.fit_5a.conpoment.utils.MatisseUtils;
 import com.jxkj.fit_5a.conpoment.utils.SharedUtils;
 import com.jxkj.fit_5a.conpoment.view.AutoHeightViewPager;
 import com.jxkj.fit_5a.conpoment.view.PopupWindowTy;
@@ -54,7 +50,7 @@ public class HomeThreeNewFragment extends BaseFragment {
     ImageView tv_add_dt;
 //    private CustomPopWindow distancePopWindow;
     //
-    private static final String[] CHANNELS = new String[]{"关注", "精选", "圈子"};
+    private static final String[] CHANNELS = new String[]{"关注", "精选", "圈子","栏目"};
     private List<String> mDataList = Arrays.asList(CHANNELS);
 
     @Override
@@ -123,7 +119,7 @@ public class HomeThreeNewFragment extends BaseFragment {
                     ((HomeThreeFragment_qz)fragments.get(mViewPager.getCurrentItem())).setDoubleClicked();
                     break;
                 case 3:
-                    ((HomeThreeFragment_tc)fragments.get(mViewPager.getCurrentItem())).setDoubleClicked();
+                    ((HomeThreeFragment_lm)fragments.get(mViewPager.getCurrentItem())).setDoubleClicked();
                     break;
             }
         }
@@ -184,10 +180,10 @@ public class HomeThreeNewFragment extends BaseFragment {
 //            fragment.setArguments(bundle);
         fragments.add(fragment_qz);
 
-//        HomeThreeFragment_tc fragment_tg = new HomeThreeFragment_tc();
+        HomeThreeFragment_lm fragment_tg = new HomeThreeFragment_lm();
 //            Bundle bundle = new Bundle();
 //            fragment.setArguments(bundle);
-//        fragments.add(fragment_tg);
+        fragments.add(fragment_tg);
         return fragments;
     }
 

@@ -1,5 +1,6 @@
 package com.jxkj.fit_5a.app;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 import android.os.Environment;
@@ -53,6 +54,7 @@ public class LogcatHelper {
         init(context);
         mPId = android.os.Process.myPid();
     }
+    @SuppressLint("SuspiciousIndentation")
     public void start() {
         if (mLogDumper == null)
             mLogDumper = new LogDumper(String.valueOf(mPId), PATH_LOGCAT);

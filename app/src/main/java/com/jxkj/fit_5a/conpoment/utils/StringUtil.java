@@ -899,4 +899,8 @@ public class StringUtil {
         return bitmap;
 
     }
+
+    public static String getLoginUserType() {
+        return SharedUtils.singleton().get(ConstValues.LOGIN_USER_TYPE,"");
+    }
 }

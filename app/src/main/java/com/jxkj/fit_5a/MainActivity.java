@@ -3,6 +3,10 @@ package com.jxkj.fit_5a;
 
 import android.Manifest;
 import android.app.Dialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.drawable.Animatable2;
 import android.graphics.drawable.AnimatedImageDrawable;
 import android.graphics.drawable.Drawable;
@@ -51,13 +55,13 @@ import com.jxkj.fit_5a.entity.ParameterBean;
 import com.jxkj.fit_5a.entity.UserReportBean;
 import com.jxkj.fit_5a.entity.VideoPlayInfoBean;
 import com.jxkj.fit_5a.lanya.Ble4_0Util;
+import com.jxkj.fit_5a.lanya.ConstValues_Ly;
 import com.jxkj.fit_5a.view.activity.association.AssociationAddActivity;
-import com.jxkj.fit_5a.view.activity.mine.ShoppingJfActivity;
+import com.jxkj.fit_5a.view.activity.exercise.landscape.MapExerciseActivity;
 import com.jxkj.fit_5a.view.fragment.HomeFourFragment;
 import com.jxkj.fit_5a.view.fragment.HomeOneFragment;
 import com.jxkj.fit_5a.view.fragment.HomeThreeNewFragment;
 import com.jxkj.fit_5a.view.fragment.HomeTwoFragment;
-import com.jxkj.fit_5a.view.map.LocationSelectActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -80,6 +84,8 @@ public class MainActivity extends BaseActivity {
     TextView mTvMain1;
     @BindView(R.id.ll_dialog)
     LinearLayout ll_dialog;
+    @BindView(R.id.tv_dialog)
+    TextView tv_dialog;
     @BindView(R.id.ll_main_1)
     LinearLayout mLlMain1;
     @BindView(R.id.iv_icon_add)
@@ -119,7 +125,7 @@ public class MainActivity extends BaseActivity {
     protected int getContentView() {
         return R.layout.activity_main;
     }
-
+    MyReceiver mMyReceiver;
     @Override
     protected void initViews() {
         MainApplication.getContext().finishAllActivity(false);
@@ -158,25 +164,7 @@ public class MainActivity extends BaseActivity {
         }).start();
         boolean isCloseDiaLog = SharedUtils.singleton().get("iv_close_dialog",false);
         if(!isCloseDiaLog){
-            ll_dialog.setVisibility(View.VISIBLE);
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        Thread.sleep(5000);
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                ll_dialog.setVisibility(View.GONE);
-                                SharedUtils.singleton().put("iv_close_dialog",true);
-                            }
-                        });
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-
-                }
-            }).start();
+            showLlDiaLog("发布动态领积分，参与兑换热门好物！");
         }
         Ble4_0Util.initLsData();
         openLocation();
@@ -184,7 +172,51 @@ public class MainActivity extends BaseActivity {
         getUserReportList();
         HttpRequestUtils.postBlackList(this,null);
         getusable_not_obtained();
+        initRegisterReceiver();
     }
+
+    private void showLlDiaLog(String msg) {
+        ll_dialog.setVisibility(View.VISIBLE);
+        tv_dialog.setText(msg);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(5000);
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            ll_dialog.setVisibility(View.GONE);
+                            SharedUtils.singleton().put("iv_close_dialog",true);
+                        }
+                    });
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }).start();
+    }
+
+    private void initRegisterReceiver() {
+        /**
+         * 广播动态注册
+         */
+        mMyReceiver = new MyReceiver();//集成广播的类
+        IntentFilter filter = new IntentFilter("com.jxkj.fit_5a.view.activity.exercise.RatePatternActivity");// 创建IntentFilter对象
+        registerReceiver(mMyReceiver, filter);// 注册Broadcast Receive
+    }
+    public class MyReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+           String msg = intent.getStringExtra("msg");
+           if(StringUtil.isNotBlank(msg)){
+               ll_dialog.setVisibility(View.VISIBLE);
+               tv_dialog.setText(msg);
+           }
+        }
+    }
+
 
     private void getMapDingWei() {
 
@@ -523,6 +555,9 @@ public class MainActivity extends BaseActivity {
     protected void onDestroy() {
         super.onDestroy();
         Ble4_0Util.initLsData();
+        if (mMyReceiver != null) {
+            unregisterReceiver(mMyReceiver);
+        }
     }
 
     private long exitTime = 0;

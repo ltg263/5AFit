@@ -14,7 +14,7 @@ public class ConstValues_Ly {
      */
     private final static String[] hexArray = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
 
-    public static String[] mBleNames = {"ibike","console","i-rower","fit","5afit","db201","head","hd211","5afit-stag"};
+    public static String[] mBleNames = {"ibike","console","i-rower","fit","5afit","db201","head","hd211","5afit-stag","amway-r562","amway"};
 
     public static boolean isYalingsheben(String name){
         if(name.toLowerCase().contains("hd211")

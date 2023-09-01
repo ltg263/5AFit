@@ -54,8 +54,10 @@ public class MainApplication extends Application implements Application.Activity
 //        appException.init(getApplicationContext());
         registerActivityLifecycleCallbacks(mContext);
         boolean isFirst = SharedUtils.singleton().get(ConstValues.ISNOTFIRST,false);
-        if(isFirst){
+        Log.w("initUMShare","isFirst"+isFirst);
+        if(!isFirst){
             initUMShare(this);
+            LogcatHelper.getInstance(mContext).start();
         }
     }
     public static void initUMShare(Context mContext) {
@@ -64,7 +66,6 @@ public class MainApplication extends Application implements Application.Activity
         UMShareAPI.get(mContext);
         UMShareAPI.init(mContext,"5ec7be110cafb29140000033");
         PlatformConfig.setWeixin(ConstValues.WX_APP_ID,ConstValues.WX_APP_SECRET);
-        LogcatHelper.getInstance(mContext).start();
     }
 
     /**

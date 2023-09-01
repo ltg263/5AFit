@@ -169,7 +169,6 @@ public class SplashScreenActivity  extends AppCompatActivity {
             message.setPadding(30,10,30,10);
             message.setMovementMethod(LinkMovementMethod.getInstance());
 
-
 //            DialogUtils.showUnificationDialog(this, "亲爱的5AFit用户",message, "不同意","同意",
 //                    new DialogUtils.UnificationDialogInterface() {
 //                        @Override

@@ -44,7 +44,10 @@ public class RegisterActivity extends BaseActivity {
     TextView mEtInputMmYes;
     @BindView(R.id.iv_select)
     ImageView iv_select;
-
+    @BindView(R.id.iv_icon)
+    ImageView iv_icon;
+    @BindView(R.id.iv_login_al)
+    ImageView iv_login_al;
     private TimeCounter mTimeCounter;
     @Override
     protected int getContentView() {
@@ -54,12 +57,35 @@ public class RegisterActivity extends BaseActivity {
 
     @Override
     protected void initViews() {
-
     }
 
-    @OnClick({R.id.tv_go_yzm, R.id.tv_go_register, R.id.ll_go_dl,R.id.iv_select,R.id.tv_info,R.id.tv_ysty})
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if(StringUtil.getLoginUserType().equals("1")){
+            iv_icon.setImageResource(R.drawable.icon_login_allog);
+            iv_login_al.setImageResource(R.drawable.icon_login_al);
+        }else{
+            iv_icon.setImageResource(R.mipmap.ic_launcher);
+            iv_login_al.setImageResource(R.drawable.icon_login_5a);
+        }
+    }
+
+    @OnClick({R.id.iv_login_al,R.id.tv_go_yzm, R.id.tv_go_register, R.id.ll_go_dl,R.id.iv_select,R.id.tv_info,R.id.tv_ysty})
     public void onViewClicked(View view) {
         switch (view.getId()) {
+            case R.id.iv_login_al:
+                if(StringUtil.getLoginUserType().equals("1")){
+                    iv_icon.setImageResource(R.mipmap.ic_launcher);
+                    iv_login_al.setImageResource(R.drawable.icon_login_5a);
+                    SharedUtils.singleton().put(ConstValues.LOGIN_USER_TYPE,"0");
+                }else{
+                    iv_icon.setImageResource(R.drawable.icon_login_allog);
+                    iv_login_al.setImageResource(R.drawable.icon_login_al);
+                    SharedUtils.singleton().put(ConstValues.LOGIN_USER_TYPE,"1");
+                }
+                break;
             case R.id.tv_go_yzm:
                 String sjh = mEtInputSjh.getText().toString();
                 if(!TextUtils.isEmpty(sjh)&&sjh.length()==11){

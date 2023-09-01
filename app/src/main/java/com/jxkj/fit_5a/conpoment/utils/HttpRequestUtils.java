@@ -13,6 +13,7 @@ import com.alibaba.sdk.android.vod.upload.model.UploadFileInfo;
 import com.alibaba.sdk.android.vod.upload.model.VodInfo;
 import com.jxkj.fit_5a.MainActivity;
 import com.jxkj.fit_5a.R;
+import com.jxkj.fit_5a.api.ApiService;
 import com.jxkj.fit_5a.api.RetrofitUtil;
 import com.jxkj.fit_5a.app.MainApplication;
 import com.jxkj.fit_5a.base.BaseActivity;
@@ -52,6 +53,7 @@ import java.util.List;
 import java.util.Map;
 
 import constant.UiType;
+import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -170,10 +172,17 @@ public class HttpRequestUtils {
     }
 
     public static void userVerifyLogin() {
-        RetrofitUtil.getInstance().apiService()
-                .userVerifyLogin(3,SharedUtils.singleton().get(ConstValues.USER_PHONE,""),
-                        SharedUtils.singleton().get(ConstValues.USER_PASSWORD,""),null)
-                .observeOn(AndroidSchedulers.mainThread())
+
+        ApiService mApiService = RetrofitUtil.getInstance().apiService();
+        Observable<Result<LoginInfo>> mObservable;
+        if(StringUtil.getLoginUserType().equals("1")){
+            mObservable = mApiService.userVerifyLogin_al(3,SharedUtils.singleton().get(ConstValues.USER_PHONE,""),
+                    SharedUtils.singleton().get(ConstValues.USER_PASSWORD,""),null);
+        }else {
+            mObservable = mApiService.userVerifyLogin(3,SharedUtils.singleton().get(ConstValues.USER_PHONE,""),
+                    SharedUtils.singleton().get(ConstValues.USER_PASSWORD,""),null);
+        }
+        mObservable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Observer<Result<LoginInfo>>() {
                     @Override

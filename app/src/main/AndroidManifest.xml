@@ -12,13 +12,11 @@
     <queries>
         <package android:name="com.tencent.mm" />
     </queries>
-    <permission
-        android:name="com.jxkj.fit_5a.permission.JPUSH_MESSAGE"
-        android:protectionLevel="signature" />
 
     <uses-feature android:name="android.hardware.Camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
-
+    <permission android:name="com.jxkj.fit_5a.permission.JOPERATE_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.jxkj.fit_5a.permission.JOPERATE_MESSAGE" />
 
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
@@ -26,6 +24,7 @@
     <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
     <uses-permission
         android:name="android.permission.ACCESS_MOCK_LOCATION"
         tools:ignore="MockLocation,ProtectedPermissions" />
@@ -96,6 +95,15 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!--在对应的Activity配置你的scheme-->
+            <intent-filter>
+                <data android:scheme="123456789" />
+                <!--下面这几行也必须得设置-->
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
             </intent-filter>
         </activity>
         <activity
@@ -546,6 +554,10 @@
             android:name=".view.activity.mine.MineMessageSubTypeActivity"
 
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.exercise.TaskSelectionOneActivity"
+
+            android:screenOrientation="portrait" />
 
 
         <provider
@@ -593,7 +605,8 @@
         <!-- User defined.  For test only  用户自定义接收消息器,3.0.7开始支持,目前新tag/alias接口设置结果会在该广播接收器对应的方法中回调-->
         <!--since 3.3.0 接收JPush相关事件-->
         <receiver android:name=".app.PushMessageReceiver"
-            android:exported="false">
+            android:enabled="true"
+            android:exported="false" >
             <intent-filter>
                 <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />
                 <category android:name="com.jxkj.fit_5a"/>
@@ -620,26 +633,34 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <receiver
-            android:name="cn.jpush.android.service.PushReceiver"
-            android:exported="false"
-            android:enabled="true" >
-            <intent-filter android:priority="1000" >
-                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" /> <!-- Required  显示通知栏 -->
-                <category android:name="${JPUSH_PKGNAME}" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.USER_PRESENT" />
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-            </intent-filter>
-            <!-- Optional -->
-            <intent-filter>
-                <action android:name="android.intent.action.PACKAGE_ADDED" />
-                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+<!--        <receiver-->
+<!--            android:name="cn.jpush.android.service.PushReceiver"-->
+<!--            android:exported="false"-->
+<!--            android:enabled="true" >-->
+<!--            <intent-filter android:priority="1000" >-->
+<!--                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" /> &lt;!&ndash; Required  显示通知栏 &ndash;&gt;-->
+<!--                <category android:name="${JPUSH_PKGNAME}" />-->
+<!--            </intent-filter>-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.USER_PRESENT" />-->
+<!--                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />-->
+<!--            </intent-filter>-->
+<!--            &lt;!&ndash; Optional &ndash;&gt;-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.PACKAGE_ADDED" />-->
+<!--                <action android:name="android.intent.action.PACKAGE_REMOVED" />-->
 
-                <data android:scheme="package" />
+<!--                <data android:scheme="package" />-->
+<!--            </intent-filter>-->
+<!--        </receiver>-->
+        <service android:name="cn.jpush.android.service.JCommonService"
+            android:process=":pushcore"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="cn.jiguang.user.service.action" />
             </intent-filter>
-        </receiver>
+        </service>
     </application>
 
 </manifest>
