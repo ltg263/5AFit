@@ -282,6 +282,7 @@
                         android:layout_width="@dimen/dimen_45dp"
                         android:layout_height="@dimen/dimen_45dp"
                         android:layout_margin="@dimen/dp_10"
+                        android:visibility="gone"
                         android:src="@drawable/icon_login_xl" />
 
                     <ImageView
