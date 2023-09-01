@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/tv_1"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="器械"
+                    android:textColor="@color/color_000000"
+                    android:textSize="@dimen/sp_14" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_1"
+                    android:orientation="vertical"
+                    android:paddingVertical="@dimen/dp_10"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:spanCount="4" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/tv_2"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="难度"
+                    android:textColor="@color/color_000000"
+                    android:textSize="@dimen/sp_14" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_2"
+                    android:orientation="vertical"
+                    android:paddingVertical="@dimen/dp_10"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:spanCount="4" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/tv_3"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="时长"
+                    android:textColor="@color/color_000000"
+                    android:textSize="@dimen/sp_14" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_3"
+                    android:orientation="vertical"
+                    android:paddingVertical="@dimen/dp_10"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:spanCount="4" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/tv_4"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="明星教练"
+                    android:textColor="@color/color_000000"
+                    android:textSize="@dimen/sp_14" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_4"
+                    android:orientation="vertical"
+                    android:paddingVertical="@dimen/dp_10"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:spanCount="4" />
+            </RelativeLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/tv_re"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_shape_bj_theme_zs_25"
+            android:gravity="center"
+            android:paddingVertical="8dp"
+            android:text="重置"
+            android:textColor="@color/color_000000"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/tv_ok"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/btn_shape_bj_red_zs_25"
+            android:gravity="center"
+            android:paddingVertical="8dp"
+            android:text="确认"
+            android:textColor="@color/white"
+            android:textSize="13sp" />
+
+
+    </LinearLayout>
+</LinearLayout>
