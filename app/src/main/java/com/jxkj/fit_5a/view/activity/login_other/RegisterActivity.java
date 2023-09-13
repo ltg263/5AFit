@@ -62,13 +62,12 @@ public class RegisterActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
         if(StringUtil.getLoginUserType().equals("1")){
             iv_icon.setImageResource(R.drawable.icon_login_allog);
-            iv_login_al.setImageResource(R.drawable.icon_login_al);
+            iv_login_al.setImageResource(R.drawable.icon_login_5a);
         }else{
             iv_icon.setImageResource(R.mipmap.ic_launcher);
-            iv_login_al.setImageResource(R.drawable.icon_login_5a);
+            iv_login_al.setImageResource(R.drawable.icon_login_al);
         }
     }
 
@@ -78,11 +77,11 @@ public class RegisterActivity extends BaseActivity {
             case R.id.iv_login_al:
                 if(StringUtil.getLoginUserType().equals("1")){
                     iv_icon.setImageResource(R.mipmap.ic_launcher);
-                    iv_login_al.setImageResource(R.drawable.icon_login_5a);
+                    iv_login_al.setImageResource(R.drawable.icon_login_al);
                     SharedUtils.singleton().put(ConstValues.LOGIN_USER_TYPE,"0");
                 }else{
                     iv_icon.setImageResource(R.drawable.icon_login_allog);
-                    iv_login_al.setImageResource(R.drawable.icon_login_al);
+                    iv_login_al.setImageResource(R.drawable.icon_login_5a);
                     SharedUtils.singleton().put(ConstValues.LOGIN_USER_TYPE,"1");
                 }
                 break;
@@ -128,9 +127,11 @@ public class RegisterActivity extends BaseActivity {
             ToastUtils.showShortToast(RegisterActivity.this,"请先阅读并同意《使用协议》和《隐私政策》");
             return;
         }
+        String userTyp = StringUtil.getLoginUserType();
         show();
+        //userType	用户类型:1,海德;2,安利
         RetrofitUtil.getInstance().apiService()
-                .userVerifyRegister(3,sjh,mm,yzm)
+                .userVerifyRegister(3,sjh,mm,userTyp.equals("1")?2:1,yzm)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Observer<Result<LoginInfo>>() {

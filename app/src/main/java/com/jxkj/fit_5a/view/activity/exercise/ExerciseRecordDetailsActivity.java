@@ -38,6 +38,7 @@ import com.jxkj.fit_5a.AAChartCoreLib.AAOptionsModel.AAPie;
 import com.jxkj.fit_5a.AAChartCoreLib.AAOptionsModel.AAScrollablePlotArea;
 import com.jxkj.fit_5a.AAChartCoreLib.AAOptionsModel.AATooltip;
 import com.jxkj.fit_5a.R;
+import com.jxkj.fit_5a.api.ApiService;
 import com.jxkj.fit_5a.api.RetrofitUtil;
 import com.jxkj.fit_5a.base.BaseActivity;
 import com.jxkj.fit_5a.base.Result;
@@ -56,6 +57,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -357,9 +359,14 @@ public class ExerciseRecordDetailsActivity extends BaseActivity {
 
 
     private void geSportLogDetails() {
-        RetrofitUtil.getInstance().apiService()
-                .geSportLogDetails(getIntent().getStringExtra("id"))
-                .observeOn(AndroidSchedulers.mainThread())
+        ApiService mApiService = RetrofitUtil.getInstance().apiService();
+        Observable<Result<SportLogDetailBean>> mObservable;
+        if(StringUtil.getLoginUserType().equals("1")){
+            mObservable = mApiService.geSportLogDetails_al(getIntent().getStringExtra("id"));
+        }else {
+            mObservable = mApiService.geSportLogDetails(getIntent().getStringExtra("id"));
+        }
+        mObservable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Observer<Result<SportLogDetailBean>>() {
                     @Override

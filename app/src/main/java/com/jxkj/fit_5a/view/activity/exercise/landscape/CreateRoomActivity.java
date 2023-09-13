@@ -16,12 +16,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.jxkj.fit_5a.R;
+import com.jxkj.fit_5a.api.ApiService;
 import com.jxkj.fit_5a.api.RetrofitUtil;
 import com.jxkj.fit_5a.base.Result;
 import com.jxkj.fit_5a.conpoment.utils.StatusBarUtil;
 import com.jxkj.fit_5a.conpoment.utils.StringUtil;
 import com.jxkj.fit_5a.conpoment.utils.ToastUtils;
 import com.jxkj.fit_5a.entity.GageRoomCreateBean;
+import com.jxkj.fit_5a.entity.GameRoomDetailsBean;
 import com.jxkj.fit_5a.entity.MapListSposrt;
 import com.jxkj.fit_5a.lanya.ConstValues_Ly;
 import com.jxkj.fit_5a.view.adapter.LandscapeCreateRoomAdapter;
@@ -29,6 +31,7 @@ import com.jxkj.fit_5a.view.adapter.LandscapeCreateRoomAdapter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -88,9 +91,14 @@ public class CreateRoomActivity extends Activity {
 
     }
     private void getSportMapList() {
-        RetrofitUtil.getInstance().apiService()
-                .getSportMapList(1, 20, ConstValues_Ly.DEVICE_TYPE_ID_URL)
-                .observeOn(AndroidSchedulers.mainThread())
+        ApiService mApiService = RetrofitUtil.getInstance().apiService();
+        Observable<Result<MapListSposrt>> mObservable;
+        if(StringUtil.getLoginUserType().equals("1")){
+            mObservable = mApiService.getSportMapList_al(1, 20, ConstValues_Ly.DEVICE_TYPE_ID_URL);
+        }else {
+            mObservable = mApiService.getSportMapList(1, 20, ConstValues_Ly.DEVICE_TYPE_ID_URL);
+        }
+        mObservable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Observer<Result<MapListSposrt>>() {
                     @Override
@@ -160,9 +168,14 @@ public class CreateRoomActivity extends Activity {
             ToastUtils.showShort("密码长度设置6位数字");
             return;
         }
-        RetrofitUtil.getInstance().apiService()
-                .gameCreateRoom(10, mapId,et_1.getText().toString(),password, password != null,roomType)
-                .observeOn(AndroidSchedulers.mainThread())
+        ApiService mApiService = RetrofitUtil.getInstance().apiService();
+        Observable<Result<GageRoomCreateBean>> mObservable;
+        if(StringUtil.getLoginUserType().equals("1")){
+            mObservable = mApiService.gameCreateRoom_al(10, mapId,et_1.getText().toString(),password, password != null,roomType);//ConstValues_Ly.DEVICE_TYPE_ID_URL,roomType
+        }else {
+            mObservable = mApiService.gameCreateRoom(10, mapId,et_1.getText().toString(),password, password != null,roomType);//ConstValues_Ly.DEVICE_TYPE_ID_URL,roomType;
+        }
+        mObservable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Observer<Result<GageRoomCreateBean>>() {
                     @Override

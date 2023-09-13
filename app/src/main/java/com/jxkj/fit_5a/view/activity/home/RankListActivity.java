@@ -18,6 +18,8 @@ import com.jxkj.fit_5a.base.Result;
 import com.jxkj.fit_5a.conpoment.constants.ConstValues;
 import com.jxkj.fit_5a.conpoment.utils.GlideImageUtils;
 import com.jxkj.fit_5a.conpoment.utils.SharedUtils;
+import com.jxkj.fit_5a.conpoment.utils.StringUtil;
+import com.jxkj.fit_5a.entity.LoginInfo;
 import com.jxkj.fit_5a.entity.RankDetailsData;
 import com.jxkj.fit_5a.entity.RankListData;
 import com.jxkj.fit_5a.entity.RankStatsData;
@@ -207,14 +209,26 @@ public class RankListActivity extends BaseActivity {
     private void getRankStatsList(int type) {
         ApiService mApiService = RetrofitUtil.getInstance().apiService();
         Observable<Result<RankStatsData>> mObservable;
-        if(!isQuanGuo){
-            mObservable = mApiService.getRankStatsList_city(type, cityAdCode)
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribeOn(Schedulers.io());
-        }else{
-            mObservable = mApiService.getRankStatsList(type)
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribeOn(Schedulers.io());
+        if(StringUtil.getLoginUserType().equals("1")){
+            if(!isQuanGuo){
+                mObservable = mApiService.getRankStatsList_city_al(type, cityAdCode)
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribeOn(Schedulers.io());
+            }else{
+                mObservable = mApiService.getRankStatsList_al(type)
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribeOn(Schedulers.io());
+            }
+        }else {
+            if(!isQuanGuo){
+                mObservable = mApiService.getRankStatsList_city(type, cityAdCode)
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribeOn(Schedulers.io());
+            }else{
+                mObservable = mApiService.getRankStatsList(type)
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribeOn(Schedulers.io());
+            }
         }
         show();
         mObservable.subscribe(new Observer<Result<RankStatsData>>() {
@@ -337,9 +351,14 @@ public class RankListActivity extends BaseActivity {
     }
     private void getStatsZan(String calRankId, int dimension, boolean hasZan) {
         if (!hasZan) {
-            RetrofitUtil.getInstance().apiService()
-                    .getStatsZan(calRankId, dimension)
-                    .observeOn(AndroidSchedulers.mainThread())
+            ApiService mApiService = RetrofitUtil.getInstance().apiService();
+            Observable<Result> mObservable;
+            if(StringUtil.getLoginUserType().equals("1")){
+                mObservable = mApiService.getStatsZan_al(calRankId, dimension);
+            }else {
+                mObservable = mApiService.getStatsZan(calRankId, dimension);
+            }
+            mObservable.observeOn(AndroidSchedulers.mainThread())
                     .subscribeOn(Schedulers.io())
                     .subscribe(new Observer<Result>() {
                         @Override
@@ -365,9 +384,14 @@ public class RankListActivity extends BaseActivity {
                         }
                     });
         } else {
-            RetrofitUtil.getInstance().apiService()
-                    .getCancelStatsZan(calRankId, dimension)
-                    .observeOn(AndroidSchedulers.mainThread())
+            ApiService mApiService = RetrofitUtil.getInstance().apiService();
+            Observable<Result> mObservable;
+            if(StringUtil.getLoginUserType().equals("1")){
+                mObservable = mApiService.getCancelStatsZan_al(calRankId, dimension);
+            }else {
+                mObservable = mApiService.getCancelStatsZan(calRankId, dimension);
+            }
+            mObservable.observeOn(AndroidSchedulers.mainThread())
                     .subscribeOn(Schedulers.io())
                     .subscribe(new Observer<Result>() {
                         @Override

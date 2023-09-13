@@ -22,6 +22,7 @@ import com.jxkj.fit_5a.conpoment.utils.CustomPopWindow;
 import com.jxkj.fit_5a.conpoment.utils.IntentUtils;
 import com.jxkj.fit_5a.conpoment.view.CustomPopWindow_spsx;
 import com.jxkj.fit_5a.entity.ClassificationAllData;
+import com.jxkj.fit_5a.entity.DeviceTypeCoachData;
 import com.jxkj.fit_5a.entity.TeachingMomentBean;
 import com.jxkj.fit_5a.view.adapter.FacilityAddSbAdapter;
 import com.jxkj.fit_5a.view.adapter.HomeJiaoXueSpAdapter;
@@ -33,6 +34,7 @@ import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import butterknife.BindView;
@@ -106,7 +108,6 @@ public class JiaoXueSpActivity extends BaseActivity {
     private JiaoXueTitleAdapter mJiaoXueTitleAdapter;
     private HomeJiaoXueSpAdapter mHomeJiaoXueSpAdapter;
     int page = 1;
-    String keyword = null;
 
     @Override
     protected int getContentView() {
@@ -174,8 +175,40 @@ public class JiaoXueSpActivity extends BaseActivity {
             }
         });
         queryDeviceTypeLists();
+        queryDeviceCoachLists();
     }
 
+    private void queryDeviceCoachLists() {
+        RetrofitUtil.getInstance().apiService()
+                .queryDeviceCoachLists()
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new Observer<Result<List<DeviceTypeCoachData>>>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(Result<List<DeviceTypeCoachData>> result) {
+                        if (isDataInfoSucceed(result)) {
+                            list_shaixuan_jl.clear();
+                            list_shaixuan_jl.addAll(result.getData());
+                            getClassificationAll();
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
     private void queryDeviceTypeLists() {
         RetrofitUtil.getInstance().apiService()
                 .queryDeviceTypeLists(1)
@@ -190,6 +223,8 @@ public class JiaoXueSpActivity extends BaseActivity {
                     @Override
                     public void onNext(Result<DeviceTypeData> result) {
                         if (isDataInfoSucceed(result)) {
+                            list_shaixuan_sb.clear();
+                            list_shaixuan_sb.addAll(result.getData().getList());
                             mFacilityAddSbAdapter.setNewData(result.getData().getList());
                             deviceTypeId = mFacilityAddSbAdapter.getData().get(0).getId();
                             getClassificationAll();
@@ -239,11 +274,13 @@ public class JiaoXueSpActivity extends BaseActivity {
                 });
     }
 
-    int classificationId, deviceTypeId;
+    Integer classificationId, deviceTypeId,difficulty,sortType,videoMaxDuration,videoMinDuration;
+    Long starCoachId;
 
     private void getTeachingMomentQuery() {
         RetrofitUtil.getInstance().apiService()
-                .getTeachingMomentQuery(keyword, classificationId, deviceTypeId, page, ConstValues.PAGE_SIZE)
+                .getTeachingMomentQuery(classificationId, difficulty,sortType,deviceTypeId,starCoachId,videoMaxDuration,videoMinDuration,
+                        page, ConstValues.PAGE_SIZE)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Observer<Result<List<TeachingMomentBean>>>() {
@@ -286,95 +323,143 @@ public class JiaoXueSpActivity extends BaseActivity {
                     }
                 });
     }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
-    List<String> list =new ArrayList<>();
+    List<String> listsSelect = new ArrayList<>();
+    List<DeviceTypeCoachData> list_shaixuan_jl = new ArrayList<>();
+    List<DeviceTypeData.ListBean> list_shaixuan_sb = new ArrayList<>();
+    String[] list_shaixuan_nd ={"全部","入门","初级","中级","中高级","进阶","高级"};
+    String[] list_shaixuan_sj ={"全部","≤5min","5-10min","10-15min","15-20min","20-25min","25-30min","≥30min"};
+    String[] list_shaixuan_zx ={"默认","最新","最热"};
     @OnClick({R.id.rl_xuanze_1, R.id.rl_xuanze_2, R.id.rl_xuanze_3, R.id.iv_shaixuan})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.rl_xuanze_1:
-                list.clear();
-                list.add("难度1");
-                list.add("难度2");
-                list.add("难度3");
-                list.add("难度4");
-                list.add("难度5");
                 iv1.setImageResource(R.drawable.icon_jiantou_shangla_yes);
-                CustomPopWindow_spsx.initPopupWindow(this, rlXuanze1, list,
+                CustomPopWindow_spsx.initPopupWindow(this, rlXuanze1, Arrays.asList(list_shaixuan_nd),
                         new CustomPopWindow_spsx.PopWindowInterface() {
                             @Override
                             public void getPosition(int position) {
                                 iv1.setImageResource(R.drawable.icon_jiantou_xiala_no);
                                 if(position!=-1){
                                     tv1.setTextColor(getColor(R.color.color_4555a3));
-                                    tv1.setText(list.get(position));
+                                    tv1.setText(list_shaixuan_nd[position]);
+                                    if(position == 0){
+                                        difficulty = null;
+                                    }else{
+                                        difficulty = position;
+                                    }
+                                    getTeachingMomentQuery();
                                 }
                             }
                         });
                 break;
             case R.id.rl_xuanze_2:
-                list.clear();
-                list.add("时间间");
-                list.add("时间间间2");
-                list.add("时间3");
-                list.add("时间4");
-                list.add("时间5");
                 iv2.setImageResource(R.drawable.icon_jiantou_shangla_yes);
-                CustomPopWindow_spsx.initPopupWindow(this, rlXuanze2, list,
+                CustomPopWindow_spsx.initPopupWindow(this, rlXuanze2, Arrays.asList(list_shaixuan_sj),
                         new CustomPopWindow_spsx.PopWindowInterface() {
                             @Override
                             public void getPosition(int position) {
                                 iv2.setImageResource(R.drawable.icon_jiantou_xiala_no);
                                 if(position!=-1) {
                                     tv2.setTextColor(getColor(R.color.color_4555a3));
-                                    tv2.setText(list.get(position));
+                                    tv2.setText(list_shaixuan_sj[position]);
+                                    setTimeUi(position);
+
+                                    getTeachingMomentQuery();
                                 }
                             }
                         });
                 break;
             case R.id.rl_xuanze_3:
-                list.clear();
-                list.add("最新1");
-                list.add("最新2");
-                list.add("最新3");
-                list.add("最新间4");
-                list.add("最新5");
                 iv3.setImageResource(R.drawable.icon_jiantou_shangla_yes);
-                CustomPopWindow_spsx.initPopupWindow(this, rlXuanze3, list,
+                CustomPopWindow_spsx.initPopupWindow(this, rlXuanze3, Arrays.asList(list_shaixuan_zx),
                         new CustomPopWindow_spsx.PopWindowInterface() {
                             @Override
                             public void getPosition(int position) {
                                 iv3.setImageResource(R.drawable.icon_jiantou_xiala_no);
                                 if(position!=-1) {
                                     tv3.setTextColor(getColor(R.color.color_4555a3));
-                                    tv3.setText(list.get(position));
+                                    tv3.setText(list_shaixuan_zx[position]);
+                                    sortType = position+1;
+                                    getTeachingMomentQuery();
                                 }
                             }
                         });
                 break;
             case R.id.iv_shaixuan:
-                list.clear();
-                list.add("全部");
-                list.add("最新2");
-                list.add("最新间4");
-                list.add("内容文本1");
-                list.add("内容文本3");
-                list.add("最新间4");
-                list.add("内容文本1");
-                list.add("最新5");
-                list.add("内容文本3");
-                CustomPopWindow_spsx.initPopupWindowAll(this, ll_shaixuan, list,
+                CustomPopWindow_spsx.initPopupWindowAll(this, ll_shaixuan,listsSelect,
+                        list_shaixuan_sb,
+                        Arrays.asList(list_shaixuan_nd),Arrays.asList(list_shaixuan_sj),
+                        list_shaixuan_jl,
                         new CustomPopWindow_spsx.PopWindowInterfaceAll() {
                             @Override
                             public void getPosition(List<String> lists) {
                                 Log.w("--","lists"+lists);
+                                listsSelect = new ArrayList<>(lists);
+                                Log.w("--","listsSelect"+listsSelect);
+                                if(listsSelect.get(0)==null || listsSelect.get(0).equals("null")){
+                                    deviceTypeId = null;
+                                }else{
+                                    deviceTypeId = Integer.parseInt(listsSelect.get(0));
+                                }
+
+                                tv1.setTextColor(getColor(R.color.color_4555a3));
+                                tv1.setText(list_shaixuan_nd[Integer.parseInt(listsSelect.get(1))]);
+
+                                if(Integer.parseInt(listsSelect.get(1))==0){
+                                    difficulty = null;
+                                }else{
+                                    difficulty = Integer.parseInt(listsSelect.get(1));
+                                }
+
+                                tv2.setTextColor(getColor(R.color.color_4555a3));
+                                tv2.setText(list_shaixuan_sj[Integer.parseInt(listsSelect.get(2))]);
+                                setTimeUi(Integer.parseInt(listsSelect.get(2)));
+
+                                if(listsSelect.get(3)==null || listsSelect.get(3).equals("null")){
+                                    starCoachId = null;
+                                }else{
+                                    starCoachId = Long.parseLong(listsSelect.get(3));
+                                }
+                                getTeachingMomentQuery();
                             }
                         });
+                break;
+        }
+    }
+
+    private void setTimeUi(int position) {
+        switch (position){
+            case 0:
+                videoMaxDuration = null;
+                videoMinDuration = null;
+                break;
+            case 1:
+                videoMinDuration = null;
+                videoMaxDuration = 300;
+                break;
+            case 2:
+                videoMinDuration = 300;
+                videoMaxDuration = 600;
+                break;
+            case 3:
+                videoMinDuration = 600;
+                videoMaxDuration = 900;
+                break;
+            case 4:
+                videoMinDuration = 900;
+                videoMaxDuration = 1200;
+                break;
+            case 5:
+                videoMinDuration = 1200;
+                videoMaxDuration = 1500;
+                break;
+            case 6:
+                videoMinDuration = 1500;
+                videoMaxDuration = 1800;
+                break;
+            case 7:
+                videoMinDuration = 1800;
+                videoMaxDuration = null;
                 break;
         }
     }

@@ -154,8 +154,9 @@
             <ImageView
                 android:id="@+id/iv_shaixuan"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="25dp"
                 android:layout_gravity="bottom"
+                android:padding="7dp"
                 android:adjustViewBounds="true"
                 android:layout_marginStart="5dp"
                 android:layout_marginEnd="@dimen/dimen_15dp"

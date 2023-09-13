@@ -22,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.jxkj.fit_5a.MainActivity;
 import com.jxkj.fit_5a.R;
+import com.jxkj.fit_5a.api.ApiService;
 import com.jxkj.fit_5a.api.RetrofitUtil;
 import com.jxkj.fit_5a.base.Result;
 import com.jxkj.fit_5a.conpoment.utils.GuideViewComponent;
@@ -36,10 +37,12 @@ import com.jxkj.fit_5a.conpoment.view.PopupWindowLanYan;
 import com.jxkj.fit_5a.conpoment.view.PopupWindowTopicUtils_Map;
 import com.jxkj.fit_5a.entity.ConnectRoomInfoBean;
 import com.jxkj.fit_5a.entity.ConnectRoomUnfinishedBean;
+import com.jxkj.fit_5a.entity.GageRoomCreateBean;
 import com.jxkj.fit_5a.entity.GameRoomDetailsBean;
 import com.jxkj.fit_5a.entity.GameRoomListBean;
 import com.jxkj.fit_5a.entity.JoinQuickAndStartBean;
 import com.jxkj.fit_5a.entity.MapDetailsBean;
+import com.jxkj.fit_5a.entity.SportLogDetailBean;
 import com.jxkj.fit_5a.lanya.ConstValues_Ly;
 import com.jxkj.fit_5a.netty_client.game.service.GameConnectService;
 import com.jxkj.fit_5a.netty_client.game.service.impl.GameConnectServiceImpl;
@@ -54,6 +57,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.netty.channel.ChannelFuture;
+import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -186,9 +190,14 @@ public class MotorPatternActivity extends Activity {
         /**
          * 是否有未完成的任务
          */
-        RetrofitUtil.getInstance().apiService()
-                .get_unfinished()
-                .observeOn(AndroidSchedulers.mainThread())
+        ApiService mApiService = RetrofitUtil.getInstance().apiService();
+        Observable<Result<ConnectRoomUnfinishedBean>> mObservable;
+        if(StringUtil.getLoginUserType().equals("1")){
+            mObservable = mApiService.get_unfinished_al();
+        }else {
+            mObservable = mApiService.get_unfinished();
+        }
+        mObservable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Observer<Result<ConnectRoomUnfinishedBean>>() {
 
@@ -220,9 +229,14 @@ public class MotorPatternActivity extends Activity {
      * 获取可用的房间列表
      */
     private void get_gameRoomList() {
-        RetrofitUtil.getInstance().apiService()
-                .get_gameRoomList(1,100,ConstValues_Ly.DEVICE_TYPE_ID_URL,roomType)//ConstValues_Ly.DEVICE_TYPE_ID_URL,roomType
-                .observeOn(AndroidSchedulers.mainThread())
+        ApiService mApiService = RetrofitUtil.getInstance().apiService();
+        Observable<Result<GameRoomListBean>> mObservable;
+        if(StringUtil.getLoginUserType().equals("1")){
+            mObservable = mApiService.get_gameRoomList_al(1,100,ConstValues_Ly.DEVICE_TYPE_ID_URL,roomType);//ConstValues_Ly.DEVICE_TYPE_ID_URL,roomType
+        }else {
+            mObservable = mApiService.get_gameRoomList(1,100,ConstValues_Ly.DEVICE_TYPE_ID_URL,roomType);//ConstValues_Ly.DEVICE_TYPE_ID_URL,roomType;
+        }
+        mObservable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Observer<Result<GameRoomListBean>>() {
                     @Override
@@ -255,9 +269,14 @@ public class MotorPatternActivity extends Activity {
      */
     private void get_connect_info() {
         show("链接中...");
-        RetrofitUtil.getInstance().apiService()
-                .get_connect_info()
-                .observeOn(AndroidSchedulers.mainThread())
+        ApiService mApiService = RetrofitUtil.getInstance().apiService();
+        Observable<Result<ConnectRoomInfoBean>> mObservable;
+        if(StringUtil.getLoginUserType().equals("1")){
+            mObservable = mApiService.get_connect_info_al();
+        }else {
+            mObservable = mApiService.get_connect_info();
+        }
+        mObservable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Observer<Result<ConnectRoomInfoBean>>() {
                     @Override
@@ -461,9 +480,14 @@ public class MotorPatternActivity extends Activity {
      */
     private void joinQuickAndStart(String roomId, String password) {
         show("连接中...");
-        RetrofitUtil.getInstance().apiService()
-                .joinQuickAndStart(roomId,password)
-                .observeOn(AndroidSchedulers.mainThread())
+        ApiService mApiService = RetrofitUtil.getInstance().apiService();
+        Observable<Result<JoinQuickAndStartBean>> mObservable;
+        if(StringUtil.getLoginUserType().equals("1")){
+            mObservable = mApiService.joinQuickAndStart_al(roomId,password);
+        }else {
+            mObservable = mApiService.joinQuickAndStart(roomId,password);
+        }
+        mObservable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Observer<Result<JoinQuickAndStartBean>>() {
 
@@ -556,9 +580,14 @@ public class MotorPatternActivity extends Activity {
      */
     private void get_gameRoomQuickStart(String deviceTypeId) {
         show("连接中...");
-        RetrofitUtil.getInstance().apiService()
-                .get_gameRoomQuickStart(deviceTypeId)
-                .observeOn(AndroidSchedulers.mainThread())
+        ApiService mApiService = RetrofitUtil.getInstance().apiService();
+        Observable<Result<JoinQuickAndStartBean>> mObservable;
+        if(StringUtil.getLoginUserType().equals("1")){
+            mObservable = mApiService.get_gameRoomQuickStart_al(deviceTypeId);
+        }else {
+            mObservable = mApiService.get_gameRoomQuickStart(deviceTypeId);
+        }
+        mObservable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Observer<Result<JoinQuickAndStartBean>>() {
                     @Override
@@ -596,9 +625,14 @@ public class MotorPatternActivity extends Activity {
      * 进入房间
      */
     private void gameRoomJoin(String roomId, String password,ConnectRoomUnfinishedBean mConn) {
-        RetrofitUtil.getInstance().apiService()
-                .gameRoomJoin(roomId,password)
-                .observeOn(AndroidSchedulers.mainThread())
+        ApiService mApiService = RetrofitUtil.getInstance().apiService();
+        Observable<Result> mObservable;
+        if(StringUtil.getLoginUserType().equals("1")){
+            mObservable = mApiService.gameRoomJoin_al(roomId,password);
+        }else {
+            mObservable = mApiService.gameRoomJoin(roomId,password);
+        }
+        mObservable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Observer<Result>() {
                     @Override
@@ -701,9 +735,14 @@ public class MotorPatternActivity extends Activity {
      * @param roomId
      */
     public static void intentStartActivityMapExercise(Context mContext ,String roomId, String roomMemberId) {
-        RetrofitUtil.getInstance().apiService()
-                .get_gameRoomDetails(roomId)
-                .observeOn(AndroidSchedulers.mainThread())
+        ApiService mApiService = RetrofitUtil.getInstance().apiService();
+        Observable<Result<GameRoomDetailsBean>> mObservable;
+        if(StringUtil.getLoginUserType().equals("1")){
+            mObservable = mApiService.get_gameRoomDetails_al(roomId);//ConstValues_Ly.DEVICE_TYPE_ID_URL,roomType
+        }else {
+            mObservable = mApiService.get_gameRoomDetails(roomId);//ConstValues_Ly.DEVICE_TYPE_ID_URL,roomType;
+        }
+        mObservable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Observer<Result<GameRoomDetailsBean>>() {
                     @Override
@@ -729,9 +768,14 @@ public class MotorPatternActivity extends Activity {
 
     }
     public static void getMapDetails(Context mContext ,GameRoomDetailsBean mGameRoomDetailsBean, String roomId, String roomMemberId) {
-        RetrofitUtil.getInstance().apiService()
-                .getMapDetails(mGameRoomDetailsBean.getMapId())
-                .observeOn(AndroidSchedulers.mainThread())
+        ApiService mApiService = RetrofitUtil.getInstance().apiService();
+        Observable<Result<MapDetailsBean>> mObservable;
+        if(StringUtil.getLoginUserType().equals("1")){
+            mObservable = mApiService.getMapDetails_al(mGameRoomDetailsBean.getMapId());
+        }else {
+            mObservable = mApiService.getMapDetails(mGameRoomDetailsBean.getMapId());
+        }
+        mObservable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Observer<Result<MapDetailsBean>>() {
                     @Override
@@ -798,9 +842,14 @@ public class MotorPatternActivity extends Activity {
     }
 
     private void gameGivenUp() {
-        RetrofitUtil.getInstance().apiService()
-                .gameGivenUp(roomMemberId)
-                .observeOn(AndroidSchedulers.mainThread())
+        ApiService mApiService = RetrofitUtil.getInstance().apiService();
+        Observable<Result> mObservable;
+        if(StringUtil.getLoginUserType().equals("1")){
+            mObservable = mApiService.gameGivenUp_al(roomMemberId);
+        }else {
+            mObservable = mApiService.gameGivenUp(roomMemberId);
+        }
+        mObservable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Observer<Result>() {
                     @Override

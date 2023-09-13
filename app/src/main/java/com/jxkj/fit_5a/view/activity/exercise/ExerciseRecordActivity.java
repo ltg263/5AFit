@@ -30,6 +30,7 @@ import com.jxkj.fit_5a.AAChartCoreLib.AAOptionsModel.AAOptions;
 import com.jxkj.fit_5a.AAChartCoreLib.AAOptionsModel.AAScrollablePlotArea;
 import com.jxkj.fit_5a.AAChartCoreLib.AAOptionsModel.AATooltip;
 import com.jxkj.fit_5a.R;
+import com.jxkj.fit_5a.api.ApiService;
 import com.jxkj.fit_5a.api.RetrofitUtil;
 import com.jxkj.fit_5a.base.BaseActivity;
 import com.jxkj.fit_5a.base.DeviceTypeData;
@@ -39,6 +40,7 @@ import com.jxkj.fit_5a.conpoment.utils.CustomPopWindow;
 import com.jxkj.fit_5a.conpoment.utils.IntentUtils;
 import com.jxkj.fit_5a.conpoment.utils.StringUtil;
 import com.jxkj.fit_5a.conpoment.view.PopupWindowLanYan;
+import com.jxkj.fit_5a.entity.MapDetailsBean;
 import com.jxkj.fit_5a.entity.SportLogBean;
 import com.jxkj.fit_5a.entity.SportLogStatsBean;
 import com.jxkj.fit_5a.lanya.ConstValues_Ly;
@@ -58,6 +60,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -335,9 +338,14 @@ public class ExerciseRecordActivity extends BaseActivity {
         }
         page = 1;
         getTemplateList();
-        RetrofitUtil.getInstance().apiService()
-                .getSportLogStats(String.valueOf(calendar.getTime().getTime()), String.valueOf(System.currentTimeMillis()), deviceType)
-                .observeOn(AndroidSchedulers.mainThread())
+        ApiService mApiService = RetrofitUtil.getInstance().apiService();
+        Observable<Result<SportLogStatsBean>> mObservable;
+        if(StringUtil.getLoginUserType().equals("1")){
+            mObservable = mApiService.getSportLogStats_al(String.valueOf(calendar.getTime().getTime()), String.valueOf(System.currentTimeMillis()), deviceType);
+        }else {
+            mObservable = mApiService.getSportLogStats(String.valueOf(calendar.getTime().getTime()), String.valueOf(System.currentTimeMillis()), deviceType);
+        }
+        mObservable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Observer<Result<SportLogStatsBean>>() {
                     @Override
@@ -373,9 +381,14 @@ public class ExerciseRecordActivity extends BaseActivity {
     }
 
     private void getTemplateList() {
-        RetrofitUtil.getInstance().apiService()
-                .geSportLogList(String.valueOf(calendar.getTime().getTime()), String.valueOf(System.currentTimeMillis()), deviceType,page, ConstValues.PAGE_SIZE)
-                .observeOn(AndroidSchedulers.mainThread())
+        ApiService mApiService = RetrofitUtil.getInstance().apiService();
+        Observable<Result<SportLogBean>> mObservable;
+        if(StringUtil.getLoginUserType().equals("1")){
+            mObservable = mApiService.geSportLogList_al(String.valueOf(calendar.getTime().getTime()), String.valueOf(System.currentTimeMillis()), deviceType,page, ConstValues.PAGE_SIZE);
+        }else {
+            mObservable = mApiService.geSportLogList(String.valueOf(calendar.getTime().getTime()), String.valueOf(System.currentTimeMillis()), deviceType,page, ConstValues.PAGE_SIZE);
+        }
+        mObservable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Observer<Result<SportLogBean>>() {
                     @Override

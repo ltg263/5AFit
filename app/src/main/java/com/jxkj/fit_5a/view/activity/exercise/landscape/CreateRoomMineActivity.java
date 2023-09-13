@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.jxkj.fit_5a.MainActivity;
 import com.jxkj.fit_5a.R;
+import com.jxkj.fit_5a.api.ApiService;
 import com.jxkj.fit_5a.api.RetrofitUtil;
 import com.jxkj.fit_5a.base.Result;
 import com.jxkj.fit_5a.conpoment.utils.GlideImageUtils;
@@ -28,12 +29,15 @@ import com.jxkj.fit_5a.conpoment.utils.StringUtil;
 import com.jxkj.fit_5a.conpoment.view.DialogUtils;
 import com.jxkj.fit_5a.conpoment.view.SelectableRoundedImageView;
 import com.jxkj.fit_5a.entity.GameRoomDetailsBean;
+import com.jxkj.fit_5a.entity.GameRoomListBean;
+import com.jxkj.fit_5a.lanya.ConstValues_Ly;
 import com.jxkj.fit_5a.view.activity.association.VideoActivity;
 import com.jxkj.fit_5a.view.adapter.LandscapeCreateRoomMineAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -143,9 +147,14 @@ public class CreateRoomMineActivity extends Activity{
 
     GameRoomDetailsBean mData;
     private void get_gameRoomDetails() {
-        RetrofitUtil.getInstance().apiService()
-                .get_gameRoomDetails(roomId)
-                .observeOn(AndroidSchedulers.mainThread())
+        ApiService mApiService = RetrofitUtil.getInstance().apiService();
+        Observable<Result<GameRoomDetailsBean>> mObservable;
+        if(StringUtil.getLoginUserType().equals("1")){
+            mObservable = mApiService.get_gameRoomDetails_al(roomId);//ConstValues_Ly.DEVICE_TYPE_ID_URL,roomType
+        }else {
+            mObservable = mApiService.get_gameRoomDetails(roomId);//ConstValues_Ly.DEVICE_TYPE_ID_URL,roomType;
+        }
+        mObservable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Observer<Result<GameRoomDetailsBean>>() {
 
@@ -279,9 +288,14 @@ public class CreateRoomMineActivity extends Activity{
      * 开始游戏
      */
     private void gameRoomStart(String roomId) {
-        RetrofitUtil.getInstance().apiService()
-                .gameRoomStart(roomId)
-                .observeOn(AndroidSchedulers.mainThread())
+        ApiService mApiService = RetrofitUtil.getInstance().apiService();
+        Observable<Result> mObservable;
+        if(StringUtil.getLoginUserType().equals("1")){
+            mObservable = mApiService.gameRoomStart_al(roomId);
+        }else {
+            mObservable = mApiService.gameRoomStart(roomId);
+        }
+        mObservable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Observer<Result>() {
                     @Override
@@ -317,9 +331,14 @@ public class CreateRoomMineActivity extends Activity{
      * 解散房间
      */
     private void gameRoomDismiss(String roomId) {
-        RetrofitUtil.getInstance().apiService()
-                .gameRoomDismiss(roomId)
-                .observeOn(AndroidSchedulers.mainThread())
+        ApiService mApiService = RetrofitUtil.getInstance().apiService();
+        Observable<Result> mObservable;
+        if(StringUtil.getLoginUserType().equals("1")){
+            mObservable = mApiService.gameRoomDismiss_al(roomId);
+        }else {
+            mObservable = mApiService.gameRoomDismiss(roomId);
+        }
+        mObservable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Observer<Result>() {
                     @Override
@@ -349,9 +368,14 @@ public class CreateRoomMineActivity extends Activity{
      * 退出房间
      */
     private void gameRoomQuit(String roomId) {
-        RetrofitUtil.getInstance().apiService()
-                .gameRoomQuit(roomId)
-                .observeOn(AndroidSchedulers.mainThread())
+        ApiService mApiService = RetrofitUtil.getInstance().apiService();
+        Observable<Result> mObservable;
+        if(StringUtil.getLoginUserType().equals("1")){
+            mObservable = mApiService.gameRoomQuit_al(roomId);
+        }else {
+            mObservable = mApiService.gameRoomQuit(roomId);
+        }
+        mObservable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Observer<Result>() {
                     @Override

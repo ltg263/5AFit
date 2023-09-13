@@ -13,14 +13,19 @@ import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 
 import com.jxkj.fit_5a.R;
+import com.jxkj.fit_5a.api.ApiService;
 import com.jxkj.fit_5a.api.RetrofitUtil;
 import com.jxkj.fit_5a.base.Result;
+import com.jxkj.fit_5a.conpoment.utils.StringUtil;
 import com.jxkj.fit_5a.conpoment.view.DialogUtils;
 import com.jxkj.fit_5a.conpoment.view.PopupWindowTopicUtils;
+import com.jxkj.fit_5a.entity.ConnectRoomUnfinishedBean;
 import com.jxkj.fit_5a.entity.MapDetailsBean;
+import com.jxkj.fit_5a.entity.MapListSposrt;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -128,9 +133,14 @@ public class ClassicExerciseActivity extends Activity {
 
 
     private void gameGivenUp() {
-        RetrofitUtil.getInstance().apiService()
-                .gameGivenUp(getIntent().getStringExtra("mapId"))
-                .observeOn(AndroidSchedulers.mainThread())
+        ApiService mApiService = RetrofitUtil.getInstance().apiService();
+        Observable<Result> mObservable;
+        if(StringUtil.getLoginUserType().equals("1")){
+            mObservable = mApiService.gameGivenUp_al(getIntent().getStringExtra("mapId"));
+        }else {
+            mObservable = mApiService.gameGivenUp(getIntent().getStringExtra("mapId"));
+        }
+        mObservable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Observer<Result>() {
                     @Override
@@ -155,9 +165,15 @@ public class ClassicExerciseActivity extends Activity {
 
     }
     private void getMapDetails() {
-        RetrofitUtil.getInstance().apiService()
-                .getMapDetails(mapId)
-                .observeOn(AndroidSchedulers.mainThread())
+
+        ApiService mApiService = RetrofitUtil.getInstance().apiService();
+        Observable<Result<MapDetailsBean>> mObservable;
+        if(StringUtil.getLoginUserType().equals("1")){
+            mObservable = mApiService.getMapDetails_al(mapId);
+        }else {
+            mObservable = mApiService.getMapDetails(mapId);
+        }
+        mObservable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Observer<Result<MapDetailsBean>>() {
                     @Override

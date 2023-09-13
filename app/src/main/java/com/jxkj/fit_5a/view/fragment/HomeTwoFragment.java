@@ -6,6 +6,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.os.Build;
 import android.util.Log;
 import android.view.View;
@@ -14,6 +15,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
 import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -144,6 +146,7 @@ public class HomeTwoFragment extends BaseFragment {
     private HomeTwoTopAdapter mHomeTwoTopAdapter;
     private HomeTwoBelowAdapter mHomeTwoBelowAdapter;
     String cityAdCode = "";
+
     @Override
     protected int getContentView() {
         return R.layout.fragment_home_two;
@@ -152,7 +155,7 @@ public class HomeTwoFragment extends BaseFragment {
 
     @Override
     protected void initViews() {
-        cityAdCode = SharedUtils.singleton().get(ConstValues.CITY_AD_CODE,"");
+        cityAdCode = SharedUtils.singleton().get(ConstValues.CITY_AD_CODE, "");
         initRvUi();
         refreshLayout.setRefreshHeader(new MaterialHeader(getActivity()).setShowBezierWave(false));
         refreshLayout.setEnableLoadMore(false);
@@ -186,23 +189,23 @@ public class HomeTwoFragment extends BaseFragment {
 
         mFacilityAddSbAdapter = new FacilityAddSbAdapter(null);
         mFacilityAddSbAdapter.setFang(true);
-        rv_sb_list.setLayoutManager(new GridLayoutManager(getActivity(),5));
+        rv_sb_list.setLayoutManager(new GridLayoutManager(getActivity(), 5));
         rv_sb_list.setHasFixedSize(true);
         rv_sb_list.setAdapter(mFacilityAddSbAdapter);
 
         mFacilityAddSbAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                if(isYdQuanXian(getActivity())){
+                if (isYdQuanXian(getActivity())) {
                     return;
                 }
 
 //                PopupWindowLanYan.BleName = list.get(position).getName();
                 ConstValues_Ly.DEVICE_IMG = mFacilityAddSbAdapter.getData().get(position).getImg();
 //                IntentUtils.getInstence().intent(FacilityAddSbActivity.this, FacilityAddPpActivity.class,"bundle",mBundle);
-                ConstValues_Ly.DEVICE_TYPE_ID_URL = mFacilityAddSbAdapter.getData().get(position).getId()+"";
+                ConstValues_Ly.DEVICE_TYPE_ID_URL = mFacilityAddSbAdapter.getData().get(position).getId() + "";
                 FacilityAddSbActivity.getBluetoothChannel(getActivity(),
-                        mFacilityAddSbAdapter.getData().get(position).getName(),mTvZan);
+                        mFacilityAddSbAdapter.getData().get(position).getName(), mTvZan);
 
 //                Bundle mBundle = new Bundle();
 //                mBundle.putString("name",mFacilityAddSbAdapter.getData().get(position).getName());
@@ -226,7 +229,7 @@ public class HomeTwoFragment extends BaseFragment {
         mHomeTwoTopAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                if(isYdQuanXian(getActivity())){
+                if (isYdQuanXian(getActivity())) {
                     return;
                 }
                 if (tv_lianjie.getText().toString().equals("暂未连接设备")) {
@@ -238,33 +241,33 @@ public class HomeTwoFragment extends BaseFragment {
 //                    });
 
                     List<HistoryEquipmentData> historyEquipment = SharedHistoryEquipment.singleton().getSharedHistoryEquipment();
-                    if(historyEquipment==null || historyEquipment.size()==0){
+                    if (historyEquipment == null || historyEquipment.size() == 0) {
                         ToastUtils.showShort("请先链接设备");
                         return;
                     }
                     HistoryEquipmentData historyEquipmentData = historyEquipment.get(0);
-                    Log.w("historyEquipmentData","historyEquipmentData:"+historyEquipmentData.toString());
+                    Log.w("historyEquipmentData", "historyEquipmentData:" + historyEquipmentData.toString());
                     HistoryEquipmentActivity.goLianJie((BaseActivity) getActivity(), historyEquipmentData, new HistoryEquipmentActivity.GoLianJieInterface() {
                         @Override
                         public void bntClickListener(String tvStr, String imgStr) {
                             onResume();
-                            if(ConstValues_Ly.isYalingsheben(PopupWindowLanYan.BleName)){
+                            if (ConstValues_Ly.isYalingsheben(PopupWindowLanYan.BleName)) {
                                 YaLingActivity_1.intentActivity(getActivity());
                             }
                         }
                     });
                     return;
                 }
-                if(!ConstValues_Ly.isA1){
+                if (!ConstValues_Ly.isA1) {
                     initLianZl(new InitLianZlInterface() {
                         @Override
                         public void bntClickListener() {
                             if (list.get(position).equals("在线运动")) {
-                                MotorPatternActivity.startIntentActivity(getActivity(),MotorPatternActivity.ROOM_TYPE[0]);
-                            } else if(list.get(position).equals("经典运动")){
+                                MotorPatternActivity.startIntentActivity(getActivity(), MotorPatternActivity.ROOM_TYPE[0]);
+                            } else if (list.get(position).equals("经典运动")) {
                                 IntentUtils.getInstence().
                                         intent(getActivity(), TaskSelectionActivity.class, "exercise_type", list.get(position));
-                            }else {
+                            } else {
                                 YaLingActivity_1.intentActivity(getActivity());
                             }
                         }
@@ -273,11 +276,11 @@ public class HomeTwoFragment extends BaseFragment {
                 }
 
                 if (list.get(position).equals("在线运动")) {
-                    MotorPatternActivity.startIntentActivity(getActivity(),MotorPatternActivity.ROOM_TYPE[0]);
-                } else if(list.get(position).equals("经典运动")){
+                    MotorPatternActivity.startIntentActivity(getActivity(), MotorPatternActivity.ROOM_TYPE[0]);
+                } else if (list.get(position).equals("经典运动")) {
                     IntentUtils.getInstence().
                             intent(getActivity(), TaskSelectionActivity.class, "exercise_type", list.get(position));
-                }else{
+                } else {
                     YaLingActivity_1.intentActivity(getActivity());
                 }
             }
@@ -286,7 +289,7 @@ public class HomeTwoFragment extends BaseFragment {
         mHomeTwoTopAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
-                if(isYdQuanXian(getActivity())){
+                if (isYdQuanXian(getActivity())) {
                     return;
                 }
 
@@ -299,17 +302,17 @@ public class HomeTwoFragment extends BaseFragment {
 //                    });
 
                     List<HistoryEquipmentData> historyEquipment = SharedHistoryEquipment.singleton().getSharedHistoryEquipment();
-                    if(historyEquipment==null || historyEquipment.size()==0){
+                    if (historyEquipment == null || historyEquipment.size() == 0) {
                         ToastUtils.showShort("请先链接设备");
                         return;
                     }
                     HistoryEquipmentData historyEquipmentData = historyEquipment.get(0);
-                    Log.w("historyEquipmentData","historyEquipmentData:"+historyEquipmentData.toString());
+                    Log.w("historyEquipmentData", "historyEquipmentData:" + historyEquipmentData.toString());
                     HistoryEquipmentActivity.goLianJie((BaseActivity) getActivity(), historyEquipmentData, new HistoryEquipmentActivity.GoLianJieInterface() {
                         @Override
                         public void bntClickListener(String tvStr, String imgStr) {
                             onResume();
-                            if(ConstValues_Ly.isYalingsheben(PopupWindowLanYan.BleName)){
+                            if (ConstValues_Ly.isYalingsheben(PopupWindowLanYan.BleName)) {
                                 YaLingActivity_1.intentActivity(getActivity());
                             }
                         }
@@ -317,15 +320,15 @@ public class HomeTwoFragment extends BaseFragment {
                     return;
                 }
 
-                if(!ConstValues_Ly.isA1){
+                if (!ConstValues_Ly.isA1) {
                     initLianZl(new InitLianZlInterface() {
                         @Override
                         public void bntClickListener() {
                             if (list.get(position).equals("在线运动")) {
                                 if (view.getId() == R.id.tv_go_1) {
-                                    MotorPatternActivity.startIntentActivity(getActivity(),MotorPatternActivity.ROOM_TYPE[0]);
+                                    MotorPatternActivity.startIntentActivity(getActivity(), MotorPatternActivity.ROOM_TYPE[0]);
                                 } else if (view.getId() == R.id.tv_go_2) {
-                                    MotorPatternActivity.startIntentActivity(getActivity(),MotorPatternActivity.ROOM_TYPE[1]);
+                                    MotorPatternActivity.startIntentActivity(getActivity(), MotorPatternActivity.ROOM_TYPE[1]);
                                 }
                             } else {
                                 if (view.getId() == R.id.tv_go_1) {
@@ -340,9 +343,9 @@ public class HomeTwoFragment extends BaseFragment {
                 }
                 if (list.get(position).equals("在线运动")) {
                     if (view.getId() == R.id.tv_go_1) {
-                        MotorPatternActivity.startIntentActivity(getActivity(),MotorPatternActivity.ROOM_TYPE[0]);
+                        MotorPatternActivity.startIntentActivity(getActivity(), MotorPatternActivity.ROOM_TYPE[0]);
                     } else if (view.getId() == R.id.tv_go_2) {
-                        MotorPatternActivity.startIntentActivity(getActivity(),MotorPatternActivity.ROOM_TYPE[1]);
+                        MotorPatternActivity.startIntentActivity(getActivity(), MotorPatternActivity.ROOM_TYPE[1]);
                     }
                 } else {
                     if (view.getId() == R.id.tv_go_1) {
@@ -377,12 +380,14 @@ public class HomeTwoFragment extends BaseFragment {
         IntentFilter filter = new IntentFilter("com.jxkj.fit_5a.view.fragment.HomeTwoFragment");// 创建IntentFilter对象
         getActivity().registerReceiver(mMyReceiver, filter);// 注册Broadcast Receive
     }
+
     MyReceiver mMyReceiver;
+
     public class MyReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
             String type = intent.getStringExtra("type");
-            if(type.equals("-2") && !tv_lianjie.getText().toString().equals("暂未连接设备")){
+            if (type.equals("-2") && !tv_lianjie.getText().toString().equals("暂未连接设备")) {
                 DialogUtils.showUnificationDialog(getContext(), "提示", "您的设备已断开连接\n请重新连接", "确定", false, new DialogUtils.UnificationDialogInterface() {
                     @Override
                     public void bntClickListener(String pos) {
@@ -393,6 +398,7 @@ public class HomeTwoFragment extends BaseFragment {
 
         }
     }
+
     private void initLianZl(InitLianZlInterface zlInterface) {
         show(getActivity());
         new Thread(new Runnable() {
@@ -400,8 +406,8 @@ public class HomeTwoFragment extends BaseFragment {
             public void run() {
                 long s = System.currentTimeMillis();
                 boolean isa1 = false;
-                while (!isa1){
-                    if(ConstValues_Ly.isA1){
+                while (!isa1) {
+                    if (ConstValues_Ly.isA1) {
                         isa1 = true;
                         getActivity().runOnUiThread(new Runnable() {
                             @Override
@@ -411,8 +417,8 @@ public class HomeTwoFragment extends BaseFragment {
                             }
                         });
                     }
-                    if((s+15000)<System.currentTimeMillis()){
-                        if(!ConstValues_Ly.isA1){
+                    if ((s + 15000) < System.currentTimeMillis()) {
+                        if (!ConstValues_Ly.isA1) {
                             isa1 = true;
                             dismiss();
                         }
@@ -430,9 +436,14 @@ public class HomeTwoFragment extends BaseFragment {
     }
 
     private void getSportMapList() {
-        RetrofitUtil.getInstance().apiService()
-                .getSportMapList(1, 1,null)
-                .observeOn(AndroidSchedulers.mainThread())
+        ApiService mApiService = RetrofitUtil.getInstance().apiService();
+        Observable<Result<MapListSposrt>> mObservable;
+        if(StringUtil.getLoginUserType().equals("1")){
+            mObservable = mApiService.getSportMapList_al(1, 1, null);
+        }else {
+            mObservable = mApiService.getSportMapList(1, 1, null);
+        }
+        mObservable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Observer<Result<MapListSposrt>>() {
                     @Override
@@ -458,6 +469,7 @@ public class HomeTwoFragment extends BaseFragment {
                     }
                 });
     }
+
     private void queryDeviceTypeLists() {
         RetrofitUtil.getInstance().apiService()
                 .queryDeviceTypeLists(1)
@@ -471,7 +483,7 @@ public class HomeTwoFragment extends BaseFragment {
 
                     @Override
                     public void onNext(Result<DeviceTypeData> result) {
-                        if(isDataInfoSucceed(result)){
+                        if (isDataInfoSucceed(result)) {
                             mFacilityAddSbAdapter.setNewData(result.getData().getList());
                         }
                     }
@@ -487,14 +499,20 @@ public class HomeTwoFragment extends BaseFragment {
                     }
                 });
     }
+
     public static void goStartMap(Context mContext) {
-        if(true){
+        if (true) {
             mContext.startActivity(new Intent(mContext, CourseStartActivity.class));
             return;
         }
-        RetrofitUtil.getInstance().apiService()
-                .getMapRandomDetails(ConstValues_Ly.DEVICE_TYPE_ID_URL)
-                .observeOn(AndroidSchedulers.mainThread())
+        ApiService mApiService = RetrofitUtil.getInstance().apiService();
+        Observable<Result<MapDetailsBean>> mObservable;
+        if(StringUtil.getLoginUserType().equals("1")){
+            mObservable = mApiService.getMapRandomDetails_al(ConstValues_Ly.DEVICE_TYPE_ID_URL);
+        }else {
+            mObservable = mApiService.getMapRandomDetails(ConstValues_Ly.DEVICE_TYPE_ID_URL);
+        }
+        mObservable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Observer<Result<MapDetailsBean>>() {
                     @Override
@@ -526,21 +544,21 @@ public class HomeTwoFragment extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
-        GlideImageUtils.setGlideImage(getActivity(),R.drawable.ic_moren,iv_two_img);
+        GlideImageUtils.setGlideImage(getActivity(), R.drawable.ic_moren, iv_two_img);
         if (StringUtil.isNotBlank(PopupWindowLanYan.BleName)) {
             rl_lianya_yes.setVisibility(View.VISIBLE);
             rl_lianya_no.setVisibility(View.GONE);
             tv_lianjie.setText(PopupWindowLanYan.BleName);
             if (StringUtil.isNotBlank(ConstValues_Ly.DEVICE_IMG)) {
-                GlideImageUtils.setGlideImage(getActivity(),ConstValues_Ly.DEVICE_IMG,iv_two_img);
+                GlideImageUtils.setGlideImage(getActivity(), ConstValues_Ly.DEVICE_IMG, iv_two_img);
             }
             List<HistoryEquipmentData> lists = SharedHistoryEquipment.singleton().getSharedHistoryEquipment();
-            for(int i=0;i<lists.size();i++){
-                if(PopupWindowLanYan.BleName.equals(lists.get(i).getName())){
+            for (int i = 0; i < lists.size(); i++) {
+                if (PopupWindowLanYan.BleName.equals(lists.get(i).getName())) {
                     tv_time.setText(lists.get(i).getTime());
                 }
             }
-        }else{
+        } else {
             dismiss();
             ConstValues_Ly.isA1 = false;
             tv_lianjie.setText("暂未连接设备");
@@ -560,16 +578,16 @@ public class HomeTwoFragment extends BaseFragment {
     }
 
 
-    @OnClick({R.id.tv_left_text,R.id.tv_all_guo,R.id.tv_tong_cheng,R.id.tv_two_ri, R.id.tv_two_zhou, R.id.tv_two_yue, R.id.tv_go_find, R.id.tv_right_text})
+    @OnClick({R.id.tv_left_text, R.id.tv_all_guo, R.id.tv_tong_cheng, R.id.tv_two_ri, R.id.tv_two_zhou, R.id.tv_two_yue, R.id.tv_go_find, R.id.tv_right_text})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_left_text:
-                if(isYdQuanXian(getActivity())){
+                if (isYdQuanXian(getActivity())) {
                     return;
                 }
                 List<HistoryEquipmentData> lists = SharedHistoryEquipment.singleton().getSharedHistoryEquipment();
                 if (lists != null && lists.size() > 0) {
-                    if(!ConstValues_Ly.isA1 && StringUtil.isNotBlank(PopupWindowLanYan.BleName)){
+                    if (!ConstValues_Ly.isA1 && StringUtil.isNotBlank(PopupWindowLanYan.BleName)) {
                         initLianZl(new InitLianZlInterface() {
                             @Override
                             public void bntClickListener() {
@@ -584,7 +602,7 @@ public class HomeTwoFragment extends BaseFragment {
                 FacilityAddSbActivity.intentActivity(getActivity());
                 break;
             case R.id.tv_all_guo:
-                isQuanGuo =true;
+                isQuanGuo = true;
                 tv_all_guo.setTextColor(getActivity().getColor(R.color.color_4555a3));
                 tv_tong_cheng.setTextColor(getActivity().getColor(R.color.color_333333));
                 view_all_guo.setVisibility(View.VISIBLE);
@@ -592,7 +610,7 @@ public class HomeTwoFragment extends BaseFragment {
                 getRankList(typeD);
                 break;
             case R.id.tv_tong_cheng:
-                isQuanGuo =false;
+                isQuanGuo = false;
                 tv_all_guo.setTextColor(getActivity().getColor(R.color.color_333333));
                 tv_tong_cheng.setTextColor(getActivity().getColor(R.color.color_4555a3));
                 view_all_guo.setVisibility(View.INVISIBLE);
@@ -612,7 +630,7 @@ public class HomeTwoFragment extends BaseFragment {
                 startActivity(new Intent(getActivity(), RankListActivity.class));
                 break;
             case R.id.tv_right_text:
-                if(isYdQuanXian(getActivity())){
+                if (isYdQuanXian(getActivity())) {
                     return;
                 }
                 startActivity(new Intent(getActivity(), ExerciseRecordActivity.class));
@@ -723,85 +741,102 @@ public class HomeTwoFragment extends BaseFragment {
         typeD = type;
         ApiService mApiService = RetrofitUtil.getInstance().apiService();
         Observable<Result<RankStatsData>> mObservable;
-        if(!isQuanGuo){
-            mObservable = mApiService.getRankStatsList_city(type, cityAdCode)
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribeOn(Schedulers.io());
-        }else{
-            mObservable = mApiService.getRankStatsList(type)
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribeOn(Schedulers.io());
+        if (StringUtil.getLoginUserType().equals("1")) {
+            if (!isQuanGuo) {
+                mObservable = mApiService.getRankStatsList_city_al(type, cityAdCode)
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribeOn(Schedulers.io());
+            } else {
+                mObservable = mApiService.getRankStatsList_al(type)
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribeOn(Schedulers.io());
+            }
+        } else {
+            if (!isQuanGuo) {
+                mObservable = mApiService.getRankStatsList_city(type, cityAdCode)
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribeOn(Schedulers.io());
+            } else {
+                mObservable = mApiService.getRankStatsList(type)
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribeOn(Schedulers.io());
+            }
         }
         show(getActivity());
         mObservable.subscribe(new Observer<Result<RankStatsData>>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
+            @Override
+            public void onSubscribe(Disposable d) {
 
+            }
+
+            @Override
+            public void onNext(Result<RankStatsData> result) {
+                if (isDataInfoSucceed(result)) {
+                    RankStatsData.UserBean userData = result.getData().getUser();
+                    if (userData != null) {
                     }
-
-                    @Override
-                    public void onNext(Result<RankStatsData> result) {
-                        if (isDataInfoSucceed(result)) {
-                            RankStatsData.UserBean userData = result.getData().getUser();
-                            if(userData!=null){
-                            }
-                            mTvName.setText(userData.getNickName());
-                            GlideImageUtils.setGlideImage(getActivity(), userData.getAvatar(), iv_head);
-                            mTvZan.setText(result.getData().getLikeCount());
-                            mTvDll.setText(result.getData().getCalories() + "kcal");
-                            mTvMingc.setText("未上榜");
-                            if (result.getData().getRanking() != 0) {
-                                mTvMingc.setText("No." + result.getData().getRanking());
-                            }
+                    mTvName.setText(userData.getNickName());
+                    GlideImageUtils.setGlideImage(getActivity(), userData.getAvatar(), iv_head);
+                    mTvZan.setText(result.getData().getLikeCount());
+                    mTvDll.setText(result.getData().getCalories() + "kcal");
+                    mTvMingc.setText("未上榜");
+                    if (result.getData().getRanking() != 0) {
+                        mTvMingc.setText("No." + result.getData().getRanking());
+                    }
 //                            Glide.with(getActivity()).load(R.drawable.icon_zan_no).into((ImageView) helper.getView(R.id.iv_3));
 //                            if(result.getData().isLike()){
 //                                Glide.with(mContext).load(R.drawable.icon_zan_yes).into((ImageView) helper.getView(R.id.iv_3));
 //                            }
-                            mTvTwoYue.setBackgroundColor(0);
-                            mTvTwoZhou.setBackgroundColor(0);
-                            mTvTwoRi.setBackgroundColor(0);
-                            mTvTwoYue.setTextColor(getActivity().getColor(R.color.color_000000));
-                            mTvTwoZhou.setTextColor(getActivity().getColor(R.color.color_000000));
-                            mTvTwoRi.setTextColor(getActivity().getColor(R.color.color_000000));
-                            if (typeD == 3) {
-                                mTvTwoYue.setTextColor(getActivity().getColor(R.color.white));
-                                mTvTwoYue.setBackground(getActivity().getDrawable(R.drawable.bj_circle_theme_10));
-                            }
-                            if (typeD == 2) {
-                                mTvTwoZhou.setTextColor(getActivity().getColor(R.color.white));
-                                mTvTwoZhou.setBackground(getActivity().getDrawable(R.drawable.bj_circle_theme_10));
-                            }
-                            if (typeD == 1) {
-                                mTvTwoRi.setTextColor(getActivity().getColor(R.color.white));
-                                mTvTwoRi.setBackground(getActivity().getDrawable(R.drawable.bj_circle_theme_10));
-                            }
-                            List<RankStatsData.CaloriesRankingListBean> mCaloriesRankingList = result.getData().getCaloriesRankingList();
-                            if(mCaloriesRankingList.size()>10){
-                                mCaloriesRankingList = mCaloriesRankingList.subList(0,10);
-                            }
-                            mHomeTwoBelowAdapter.setNewData(mCaloriesRankingList);
-                        }
+                    mTvTwoYue.setBackgroundColor(0);
+                    mTvTwoZhou.setBackgroundColor(0);
+                    mTvTwoRi.setBackgroundColor(0);
+                    mTvTwoYue.setTextColor(getActivity().getColor(R.color.color_000000));
+                    mTvTwoZhou.setTextColor(getActivity().getColor(R.color.color_000000));
+                    mTvTwoRi.setTextColor(getActivity().getColor(R.color.color_000000));
+                    if (typeD == 3) {
+                        mTvTwoYue.setTextColor(getActivity().getColor(R.color.white));
+                        mTvTwoYue.setBackground(getActivity().getDrawable(R.drawable.bj_circle_theme_10));
                     }
+                    if (typeD == 2) {
+                        mTvTwoZhou.setTextColor(getActivity().getColor(R.color.white));
+                        mTvTwoZhou.setBackground(getActivity().getDrawable(R.drawable.bj_circle_theme_10));
+                    }
+                    if (typeD == 1) {
+                        mTvTwoRi.setTextColor(getActivity().getColor(R.color.white));
+                        mTvTwoRi.setBackground(getActivity().getDrawable(R.drawable.bj_circle_theme_10));
+                    }
+                    List<RankStatsData.CaloriesRankingListBean> mCaloriesRankingList = result.getData().getCaloriesRankingList();
+                    if (mCaloriesRankingList.size() > 10) {
+                        mCaloriesRankingList = mCaloriesRankingList.subList(0, 10);
+                    }
+                    mHomeTwoBelowAdapter.setNewData(mCaloriesRankingList);
+                }
+            }
 
-                    @Override
-                    public void onError(Throwable e) {
-                        dismiss();
-                    }
+            @Override
+            public void onError(Throwable e) {
+                dismiss();
+            }
 
-                    @Override
-                    public void onComplete() {
-                        dismiss();
-                        refreshLayout.finishRefresh();
-                    }
-                });
+            @Override
+            public void onComplete() {
+                dismiss();
+                refreshLayout.finishRefresh();
+            }
+        });
     }
 
 
     private void getStatsZan(String calRankId, int dimension, boolean hasZan) {
         if (!hasZan) {
-            RetrofitUtil.getInstance().apiService()
-                    .getStatsZan(calRankId, dimension)
-                    .observeOn(AndroidSchedulers.mainThread())
+            ApiService mApiService = RetrofitUtil.getInstance().apiService();
+            Observable<Result> mObservable;
+            if(StringUtil.getLoginUserType().equals("1")){
+                mObservable = mApiService.getStatsZan_al(calRankId, dimension);
+            }else {
+                mObservable = mApiService.getStatsZan(calRankId, dimension);
+            }
+            mObservable.observeOn(AndroidSchedulers.mainThread())
                     .subscribeOn(Schedulers.io())
                     .subscribe(new Observer<Result>() {
                         @Override
@@ -827,9 +862,14 @@ public class HomeTwoFragment extends BaseFragment {
                         }
                     });
         } else {
-            RetrofitUtil.getInstance().apiService()
-                    .getCancelStatsZan(calRankId, dimension)
-                    .observeOn(AndroidSchedulers.mainThread())
+            ApiService mApiService = RetrofitUtil.getInstance().apiService();
+            Observable<Result> mObservable;
+            if(StringUtil.getLoginUserType().equals("1")){
+                mObservable = mApiService.getCancelStatsZan_al(calRankId, dimension);
+            }else {
+                mObservable = mApiService.getCancelStatsZan(calRankId, dimension);
+            }
+            mObservable.observeOn(AndroidSchedulers.mainThread())
                     .subscribeOn(Schedulers.io())
                     .subscribe(new Observer<Result>() {
                         @Override
@@ -858,7 +898,7 @@ public class HomeTwoFragment extends BaseFragment {
     }
 
     //先检查权限 anroid 6.0以上 需要动态获取 位置权限
-    public static boolean isYdQuanXian(Context mContext){
+    public static boolean isYdQuanXian(Context mContext) {
         if (Build.VERSION.SDK_INT < 23) {
             return true;
         }
@@ -866,15 +906,15 @@ public class HomeTwoFragment extends BaseFragment {
                 Manifest.permission.READ_EXTERNAL_STORAGE,
                 Manifest.permission.ACCESS_COARSE_LOCATION,
                 Manifest.permission.ACCESS_FINE_LOCATION};
-        if(!EasyPermissions.hasPermissions(mContext, permissions)){
+        if (!EasyPermissions.hasPermissions(mContext, permissions)) {
             EasyPermissions.requestPermissions((BaseActivity) mContext, "为了您更好使用本应用，请允许应用获取以下权限", 1, permissions);
             return true;
         }
 
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.S){
-            String[] permissions_12 = new String[]{Manifest.permission.BLUETOOTH_CONNECT,Manifest.permission.BLUETOOTH_SCAN};
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            String[] permissions_12 = new String[]{Manifest.permission.BLUETOOTH_CONNECT, Manifest.permission.BLUETOOTH_SCAN};
             // 只包括蓝牙这部分的权限，其余的需要什么权限自己添加
-            if(!EasyPermissions.hasPermissions(mContext, permissions_12)){
+            if (!EasyPermissions.hasPermissions(mContext, permissions_12)) {
                 EasyPermissions.requestPermissions((BaseActivity) mContext, "为了您更好使用本应用，请允许应用获取以下权限", 1, permissions_12);
                 return true;
             }
@@ -883,13 +923,24 @@ public class HomeTwoFragment extends BaseFragment {
         BluetoothManager bluetoothManager = (BluetoothManager) mContext.getSystemService(Context.BLUETOOTH_SERVICE);
 
         //不支持 蓝牙
-        if (bluetoothManager.getAdapter() == null){
+        if (bluetoothManager.getAdapter() == null) {
             ToastUtils.showShort("不支持蓝牙");
             return true;
         }
 
         //没有打开蓝牙
         if (!bluetoothManager.getAdapter().isEnabled()) {
+            if (ActivityCompat.checkSelfPermission(mContext, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+                Log.w("bluetoothManager","bluetoothManager******************");
+                // TODO: Consider calling
+                //    ActivityCompat#requestPermissions
+                // here to request the missing permissions, and then overriding
+                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                //                                          int[] grantResults)
+                // to handle the case where the user grants the permission. See the documentation
+                // for ActivityCompat#requestPermissions for more details.
+                return true;
+            }
             bluetoothManager.getAdapter().enable();
             return true;
         }

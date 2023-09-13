@@ -97,15 +97,15 @@ public class LoginActivity extends BaseActivity{
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_login_al:
-                if(StringUtil.getLoginUserType().equals("1")){
-                    iv_icon.setImageResource(R.mipmap.ic_launcher);
-                    iv_login_al.setImageResource(R.drawable.icon_login_5a);
-                    SharedUtils.singleton().put(ConstValues.LOGIN_USER_TYPE,"0");
-                }else{
-                    iv_icon.setImageResource(R.drawable.icon_login_allog);
-                    iv_login_al.setImageResource(R.drawable.icon_login_al);
-                    SharedUtils.singleton().put(ConstValues.LOGIN_USER_TYPE,"1");
-                }
+//                if(StringUtil.getLoginUserType().equals("1")){
+//                    iv_icon.setImageResource(R.mipmap.ic_launcher);
+//                    iv_login_al.setImageResource(R.drawable.icon_login_al);
+//                    SharedUtils.singleton().put(ConstValues.LOGIN_USER_TYPE,"0");
+//                }else{
+//                    iv_icon.setImageResource(R.drawable.icon_login_allog);
+//                    iv_login_al.setImageResource(R.drawable.icon_login_5a);
+//                    SharedUtils.singleton().put(ConstValues.LOGIN_USER_TYPE,"1");
+//                }
                 break;
             case R.id.tv_login_yzm:
                 if(loginType==1){
@@ -206,13 +206,13 @@ public class LoginActivity extends BaseActivity{
             }
         }
 
-        if(StringUtil.getLoginUserType().equals("1")){
-            iv_icon.setImageResource(R.drawable.icon_login_allog);
-            iv_login_al.setImageResource(R.drawable.icon_login_al);
-        }else{
-            iv_icon.setImageResource(R.mipmap.ic_launcher);
-            iv_login_al.setImageResource(R.drawable.icon_login_5a);
-        }
+//        if(StringUtil.getLoginUserType().equals("1")){
+//            iv_icon.setImageResource(R.drawable.icon_login_allog);
+//            iv_login_al.setImageResource(R.drawable.icon_login_al);
+//        }else{
+//            iv_icon.setImageResource(R.mipmap.ic_launcher);
+//            iv_login_al.setImageResource(R.drawable.icon_login_5a);
+//        }
     }
 
     /**
@@ -417,6 +417,11 @@ public class LoginActivity extends BaseActivity{
         SharedUtils.singleton().put(ConstValues.USER_IMG,data.getUserPermissionBaseDTO().getAvatar());
         SharedUtils.singleton().put(ConstValues.USER_AGE,data.getUserPermissionBaseDTO().getAge());
         SharedUtils.singleton().put(ConstValues.USER_GENDER,data.getUserPermissionBaseDTO().getGender());
+        if(data.getUserPermissionBaseDTO().getUserType()==2){
+            SharedUtils.singleton().put(ConstValues.LOGIN_USER_TYPE,"1");
+        } else {
+            SharedUtils.singleton().put(ConstValues.LOGIN_USER_TYPE,"0");
+        }
     }
 
 

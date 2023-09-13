@@ -35,6 +35,7 @@ import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.jxkj.fit_5a.MainActivity;
 import com.jxkj.fit_5a.R;
+import com.jxkj.fit_5a.api.ApiService;
 import com.jxkj.fit_5a.api.RetrofitUtil;
 import com.jxkj.fit_5a.base.GiftListData;
 import com.jxkj.fit_5a.base.PostUser;
@@ -85,6 +86,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.jzvd.JZMediaSystem;
+import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -168,9 +170,14 @@ public class MapExerciseActivity_Zx extends Activity{
     }
 
     private void gameGivenUp() {
-        RetrofitUtil.getInstance().apiService()
-                .gameGivenUp(roomMemberId)
-                .observeOn(AndroidSchedulers.mainThread())
+        ApiService mApiService = RetrofitUtil.getInstance().apiService();
+        Observable<Result> mObservable;
+        if(StringUtil.getLoginUserType().equals("1")){
+            mObservable = mApiService.gameGivenUp_al(roomMemberId);
+        }else {
+            mObservable = mApiService.gameGivenUp(roomMemberId);
+        }
+        mObservable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Observer<Result>() {
                     @Override
@@ -988,9 +995,14 @@ public class MapExerciseActivity_Zx extends Activity{
      * 退出房间
      */
     private void gameRoomQuit(String roomId) {
-        RetrofitUtil.getInstance().apiService()
-                .gameRoomQuit(roomId)
-                .observeOn(AndroidSchedulers.mainThread())
+        ApiService mApiService = RetrofitUtil.getInstance().apiService();
+        Observable<Result> mObservable;
+        if(StringUtil.getLoginUserType().equals("1")){
+            mObservable = mApiService.gameRoomQuit_al(roomId);
+        }else {
+            mObservable = mApiService.gameRoomQuit(roomId);
+        }
+        mObservable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Observer<Result>() {
                     @Override
@@ -1112,9 +1124,14 @@ public class MapExerciseActivity_Zx extends Activity{
 
     private void gamComplete(String sportLogId) {
         show("加载中...");
-        RetrofitUtil.getInstance().apiService()
-                .gamComplete(Calories+"",postUserOkDistance+"",roomMemberId,sportLogId)
-                .observeOn(AndroidSchedulers.mainThread())
+        ApiService mApiService = RetrofitUtil.getInstance().apiService();
+        Observable<Result<GameCompleteBean>> mObservable;
+        if(StringUtil.getLoginUserType().equals("1")){
+            mObservable = mApiService.gamComplete_al(Calories+"",postUserOkDistance+"",roomMemberId,sportLogId);
+        }else {
+            mObservable = mApiService.gamComplete(Calories+"",postUserOkDistance+"",roomMemberId,sportLogId);
+        }
+        mObservable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Observer<Result<GameCompleteBean>>() {
                     @Override
@@ -1555,9 +1572,14 @@ public class MapExerciseActivity_Zx extends Activity{
     private void getBoxReceive(int pos) {
         String sportBoxId = mBoxs.get(pos).getSportBoxId();
         mBoxs.get(pos).getReceiveInfo().setHaving(true);
-        RetrofitUtil.getInstance().apiService()
-                .getBoxReceive(sportBoxId,mapId)
-                .observeOn(AndroidSchedulers.mainThread())
+        ApiService mApiService = RetrofitUtil.getInstance().apiService();
+        Observable<Result<BoxReceiveBean>> mObservable;
+        if(StringUtil.getLoginUserType().equals("1")){
+            mObservable = mApiService.getBoxReceive_al(sportBoxId,mapId);
+        }else {
+            mObservable = mApiService.getBoxReceive(sportBoxId,mapId);
+        }
+        mObservable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Observer<Result<BoxReceiveBean>>() {
                     @Override

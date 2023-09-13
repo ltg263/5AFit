@@ -281,6 +281,7 @@
                         android:id="@+id/iv_login_al"
                         android:layout_width="@dimen/dimen_45dp"
                         android:layout_height="@dimen/dimen_45dp"
+                        android:visibility="gone"
                         android:layout_margin="@dimen/dp_10"
                         android:src="@drawable/icon_login_al" />
 

@@ -29,6 +29,7 @@ import com.jxkj.fit_5a.entity.OssInfoBean;
 import com.jxkj.fit_5a.entity.ParameterBean;
 import com.jxkj.fit_5a.entity.StsTokenBean;
 import com.jxkj.fit_5a.entity.SubmitFilesBean;
+import com.jxkj.fit_5a.entity.TemplateBean;
 import com.jxkj.fit_5a.entity.VideoInfoBean;
 import com.jxkj.fit_5a.entity.VideoPlayInfoBean;
 import com.jxkj.fit_5a.precache.PreloadManager;
@@ -216,9 +217,14 @@ public class HttpRequestUtils {
             return;
         }
         Log.w("-------------->>>>>","sportLogInfo:"+sportLogInfo.toString());
-        RetrofitUtil.getInstance().apiService()
-                .psotUserSportLog(sportLogInfo)
-                .observeOn(AndroidSchedulers.mainThread())
+        ApiService mApiService = RetrofitUtil.getInstance().apiService();
+        Observable<Result<String>> mObservable;
+        if(StringUtil.getLoginUserType().equals("1")){
+            mObservable = mApiService.psotUserSportLog_al(sportLogInfo);
+        }else {
+            mObservable = mApiService.psotUserSportLog(sportLogInfo);
+        }
+        mObservable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Observer<Result<String>>() {
                     @Override

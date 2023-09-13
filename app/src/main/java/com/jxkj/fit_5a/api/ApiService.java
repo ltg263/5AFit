@@ -41,6 +41,7 @@ import com.jxkj.fit_5a.entity.ConnectRoomInfoBean;
 import com.jxkj.fit_5a.entity.ConnectRoomUnfinishedBean;
 import com.jxkj.fit_5a.entity.CreateOrderBean;
 import com.jxkj.fit_5a.entity.DeviceProtocolCheckData;
+import com.jxkj.fit_5a.entity.DeviceTypeCoachData;
 import com.jxkj.fit_5a.entity.DiscountUsableNotBean;
 import com.jxkj.fit_5a.entity.FavoriteQueryList;
 import com.jxkj.fit_5a.entity.FollowFansList;
@@ -131,6 +132,14 @@ public interface ApiService {
      */
     @GET(ConstValues.PORT_TASK + "api/v1/user/task/list")
     Observable<Result<TaskListBase>> getUserTaskList(@Query("type") Integer type);
+
+    /**
+     * 任务列表
+     *
+     * @return 任务类型1:圈子任务2:日常任务3签到任务4活动任务
+     */
+    @GET(ConstValues.PORT_TASK + "api/v1/user/task/list")
+    Observable<Result<TaskListBase>> getUserTaskList(@Query("type") Integer type,@Query("status") Integer status);
 
     /**
      * 任务进度更新
@@ -227,6 +236,19 @@ public interface ApiService {
     @GET(ConstValues.PORT_21 + "api/v1/teaching/moment/query")
     Observable<Result<List<TeachingMomentBean>>> getTeachingMomentQuery(@Query("keyword") String keyword,
             @Query("classificationId") Integer classificationId,@Query("deviceTypeId") Integer deviceTypeId,@Query("page") int page,@Query("pageSize") int pageSize);
+    /**
+     * 获取教学视频动态信息
+     * @return
+     */
+    @GET(ConstValues.PORT_21 + "api/v1/teaching/moment/query")
+    Observable<Result<List<TeachingMomentBean>>> getTeachingMomentQuery(@Query("classificationId") Integer classificationId,
+                                                                        @Query("difficulty") Integer difficulty,
+                                                                        @Query("sortType") Integer sortType,
+                                                                        @Query("deviceTypeId") Integer deviceTypeId,
+                                                                        @Query("starCoachId") Long starCoachId,
+                                                                        @Query("videoMaxDuration") Integer videoMaxDuration,
+                                                                        @Query("videoMinDuration") Integer videoMinDuration,
+                                                                        @Query("page") int page,@Query("pageSize") int pageSize);
 
     /**
      * 收藏  教学视频动态收藏相关
@@ -449,32 +471,6 @@ public interface ApiService {
     Observable<Result<RankDetailsData>> getRankDetails(@Query("rankId") Integer rankId);
 
     /**
-     * 排行榜排名\
-     * 维度(1:天;2:周;3:月)
-     */
-    @GET(ConstValues.PORT_4 + "api/v1/user/sport/ranking/list/stats/calories/current")
-    Observable<Result<RankStatsData>> getRankStatsList(@Query("dimension") int dimension);
-
-    /**
-     * 排行榜排名\
-     * 维度(1:天;2:周;3:月)
-     */
-    @GET(ConstValues.PORT_4 + "api/v1/user/sport/ranking/list/stats/city/calories/current")
-    Observable<Result<RankStatsData>> getRankStatsList_city(@Query("dimension") int dimension,@Query("cityAdCode") String cityAdCode);
-
-    /**
-     * 排行榜点赞
-     */
-    @GET(ConstValues.PORT_4 + "api/v1/user/cal/rank/zan/day/like")
-    Observable<Result> getStatsZan(@Query("calRankId") String calStatsId, @Query("dimension") int dimension);
-    /**
-     * 排行榜取消点赞
-     */
-    @GET(ConstValues.PORT_4 + "api/v1/user/cal/rank/zan/day/cancel_like")
-    Observable<Result> getCancelStatsZan(@Query("calRankId") String calStatsId, @Query("dimension") int dimension);
-
-
-    /**
      * 注册成功后————兴趣列表
      *
      * @return
@@ -535,6 +531,13 @@ public interface ApiService {
      */
     @GET(ConstValues.PORT_2 + "api/v1/device/type/query")
     Observable<Result<DeviceTypeData>> queryDeviceTypeLists(@Query("type") int type);
+
+    /**
+     * 获取所有教练信息
+     * @return
+     */
+    @GET(ConstValues.PORT_21 + "api/v1/teaching/moment/coach/query-all")
+    Observable<Result<List<DeviceTypeCoachData>>> queryDeviceCoachLists();
 
     /**
      * 设备品牌列表
@@ -671,6 +674,7 @@ public interface ApiService {
     @POST(ConstValues.PORT_5 + "api/v1/user/verify/register")
     Observable<Result<LoginInfo>> userVerifyRegister(@Query("clientType") int clientType,
                                           @Query("phone") String phone, @Query("password") String password,
+                                          @Query("userType") int userType,
                                           @Query("verify") String verify);
 
     /**
@@ -970,41 +974,6 @@ public interface ApiService {
     Observable<Result<OrderDetailsData>> getOrderDetails(@Query("id") String id);
 
 
-    /**
-     * 地图列表
-     */
-    @GET(ConstValues.PORT_4 + "api/v1/sport/map/list")
-    Observable<Result<MapListSposrt>> getSportMapList(@Query("page") int page, @Query("pageSize") int pageSize,@Query("deviceTypeId") String deviceTypeId);
-
-
-    /**
-     * 地图详情
-     *
-     * @param id
-     */
-    @GET(ConstValues.PORT_4 + "api/v1/user/sport/map/details")
-    Observable<Result<MapDetailsBean>> getMapDetails(@Query("id") String id);
-
-    /**
-     * 地图详情-随机
-     * @param deviceTypeId
-     */
-    @GET(ConstValues.PORT_4 + "api/v1/user/sport/map/random")
-    Observable<Result<MapDetailsBean>> getMapRandomDetails(@Query("deviceTypeId") String deviceTypeId);
-
-    /**
-     * 运动记录统计
-     */
-    @GET(ConstValues.PORT_4 + "api/v1/user/sport/log/stats")
-    Observable<Result<SportLogStatsBean>> getSportLogStats(@Query("beignCreateTimestamp") String beignCreateTimestamp,
-                                                           @Query("endCreateTimestamp") String endCreateTimestamp, @Query("deviceTypeId") String deviceTypeId);
-
-    /**
-     * 宝箱领取
-     * @param
-     */
-    @GET(ConstValues.PORT_4 + "api/v1/user/sport/log/user_sync_iconsole")
-    Observable<Result> getBoxReceive();
 
     /**
      * 任务奖励记录列表
@@ -1012,41 +981,6 @@ public interface ApiService {
      */
     @GET(ConstValues.PORT_1 + "api/v1/task/reward/log/query")
     Observable<Result<RewardLogBean>> getRewardLogQuery(@Query("type") int type,@Query("beginCreateTime") String beginCreateTime,@Query("isGetFinishTask") Boolean isGetFinishTask);
-    /**
-     * 宝箱领取
-     * @param
-     */
-    @GET(ConstValues.PORT_4 + "api/v1/user/box/receive")
-    Observable<Result<BoxReceiveBean>> getBoxReceive(@Query("boxId") String boxId, @Query("mapId") String mapId);
-
-
-    /**
-     * 文字模板列表
-     */
-    @GET(ConstValues.PORT_4 + "api/v1/str/template/query")
-    Observable<Result<TemplateBean>> getTemplateList();
-
-
-    /**
-     * 运动记录添加
-     */
-    @POST(ConstValues.PORT_4 + "api/v1/user/sport/log/add")
-    Observable<Result<String>> psotUserSportLog(@Body PostUser.SportLogInfo postUser);
-
-
-    /**
-     * 运动记录列表
-     */
-    @GET(ConstValues.PORT_4 + "api/v1/user/sport/log/list")
-    Observable<Result<SportLogBean>> geSportLogList(@Query("beignCreateTimestamp") String beignCreateTimestamp,
-                                                    @Query("endCreateTimestamp") String endCreateTimestamp,@Query("deviceTypeId") String deviceTypeId,@Query("page") int page, @Query("pageSize") int pageSize);
-
-    /**
-     * 运动记录详情
-     */
-    @GET(ConstValues.PORT_4 + "api/v1/user/sport/log/details")
-    Observable<Result<SportLogDetailBean>> geSportLogDetails(@Query("id") String logid);
-
 
     /**
      * 余额详情  	余额类型1金豆,2卡路里
@@ -1693,11 +1627,6 @@ public interface ApiService {
 
     /*在线运动房间服务（sport-room）-------------------------------↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓*/
 
-    /**
-     * 获取未完成的游戏
-     */
-    @POST(ConstValues.SPORT_GAME_SERVER + "api/v1/game/get_unfinished")
-    Observable<Result<ConnectRoomUnfinishedBean>> get_unfinished();
 
     /**
      * 获取tcp连接信息
@@ -1759,7 +1688,11 @@ public interface ApiService {
      */
     @POST(ConstValues.SPORT_ROOM_SERVER + "api/v1/game/room/create")
     Observable<Result<GageRoomCreateBean>> gameCreateRoom(@Query("limitNumber") int limitNumber, @Query("mapId") String mapId, @Query("name") String name, @Query("password") String password, @Query("verification") boolean verification,@Query("type") String type);
-
+    /**
+     * 获取未完成的游戏
+     */
+    @POST(ConstValues.SPORT_GAME_SERVER + "api/v1/game/get_unfinished")
+    Observable<Result<ConnectRoomUnfinishedBean>> get_unfinished();
 
     /**
      * 放弃游戏
@@ -1772,6 +1705,94 @@ public interface ApiService {
      */
     @POST(ConstValues.SPORT_GAME_SERVER + "api/v1/game/complete")
     Observable<Result<GameCompleteBean>> gamComplete(@Query("calories") String calories, @Query("distance") String distance, @Query("roomMemberId") String roomMemberId, @Query("sportLogId") String sportLogId);
+
+    /**
+     * 排行榜排名\
+     * 维度(1:天;2:周;3:月)
+     */
+    @GET(ConstValues.PORT_4 + "api/v1/user/sport/ranking/list/stats/calories/current")
+    Observable<Result<RankStatsData>> getRankStatsList(@Query("dimension") int dimension);
+
+    /**
+     * 排行榜排名\
+     * 维度(1:天;2:周;3:月)
+     */
+    @GET(ConstValues.PORT_4 + "api/v1/user/sport/ranking/list/stats/city/calories/current")
+    Observable<Result<RankStatsData>> getRankStatsList_city(@Query("dimension") int dimension,@Query("cityAdCode") String cityAdCode);
+
+    /**
+     * 排行榜点赞
+     */
+    @GET(ConstValues.PORT_4 + "api/v1/user/cal/rank/zan/day/like")
+    Observable<Result> getStatsZan(@Query("calRankId") String calStatsId, @Query("dimension") int dimension);
+    /**
+     * 排行榜取消点赞
+     */
+    @GET(ConstValues.PORT_4 + "api/v1/user/cal/rank/zan/day/cancel_like")
+    Observable<Result> getCancelStatsZan(@Query("calRankId") String calStatsId, @Query("dimension") int dimension);
+
+    /**
+     * 地图列表
+     */
+    @GET(ConstValues.PORT_4 + "api/v1/sport/map/list")
+    Observable<Result<MapListSposrt>> getSportMapList(@Query("page") int page, @Query("pageSize") int pageSize,@Query("deviceTypeId") String deviceTypeId);
+
+
+    /**
+     * 地图详情
+     *
+     * @param id
+     */
+    @GET(ConstValues.PORT_4 + "api/v1/user/sport/map/details")
+    Observable<Result<MapDetailsBean>> getMapDetails(@Query("id") String id);
+
+    /**
+     * 地图详情-随机
+     * @param deviceTypeId
+     */
+    @GET(ConstValues.PORT_4 + "api/v1/user/sport/map/random")
+    Observable<Result<MapDetailsBean>> getMapRandomDetails(@Query("deviceTypeId") String deviceTypeId);
+
+    /**
+     * 运动记录统计
+     */
+    @GET(ConstValues.PORT_4 + "api/v1/user/sport/log/stats")
+    Observable<Result<SportLogStatsBean>> getSportLogStats(@Query("beignCreateTimestamp") String beignCreateTimestamp,
+                                                           @Query("endCreateTimestamp") String endCreateTimestamp, @Query("deviceTypeId") String deviceTypeId);
+    /**
+     * 宝箱领取
+     * @param
+     */
+    @GET(ConstValues.PORT_4 + "api/v1/user/box/receive")
+    Observable<Result<BoxReceiveBean>> getBoxReceive(@Query("boxId") String boxId, @Query("mapId") String mapId);
+
+
+    /**
+     * 文字模板列表
+     */
+    @GET(ConstValues.PORT_4 + "api/v1/str/template/query")
+    Observable<Result<TemplateBean>> getTemplateList();
+
+
+    /**
+     * 运动记录添加
+     */
+    @POST(ConstValues.PORT_4 + "api/v1/user/sport/log/add")
+    Observable<Result<String>> psotUserSportLog(@Body PostUser.SportLogInfo postUser);
+
+
+    /**
+     * 运动记录列表
+     */
+    @GET(ConstValues.PORT_4 + "api/v1/user/sport/log/list")
+    Observable<Result<SportLogBean>> geSportLogList(@Query("beignCreateTimestamp") String beignCreateTimestamp,
+                                                    @Query("endCreateTimestamp") String endCreateTimestamp,@Query("deviceTypeId") String deviceTypeId,@Query("page") int page, @Query("pageSize") int pageSize);
+
+    /**
+     * 运动记录详情
+     */
+    @GET(ConstValues.PORT_4 + "api/v1/user/sport/log/details")
+    Observable<Result<SportLogDetailBean>> geSportLogDetails(@Query("id") String logid);
 
     /** ********************涉及到安利用户的接口*******************************/
 
@@ -1787,4 +1808,175 @@ public interface ApiService {
     Observable<Result<LoginInfo>> userVerifyLogin_al(@Query("clientType") int clientType,
                                                      @Query("phone") String phone, @Query("password") String password,
                                                      @Query("verify") String verify);
+
+    /**
+     * 排行榜排名\
+     * 维度(1:天;2:周;3:月)
+     */
+    @GET(ConstValues.PORT_4_AL + "api/v1/user/sport/ranking/list/stats/calories/current")
+    Observable<Result<RankStatsData>> getRankStatsList_al(@Query("dimension") int dimension);
+
+    /**
+     * 排行榜排名\
+     * 维度(1:天;2:周;3:月)
+     */
+    @GET(ConstValues.PORT_4_AL + "api/v1/user/sport/ranking/list/stats/city/calories/current")
+    Observable<Result<RankStatsData>> getRankStatsList_city_al(@Query("dimension") int dimension,@Query("cityAdCode") String cityAdCode);
+
+    /**
+     * 排行榜点赞
+     */
+    @GET(ConstValues.PORT_4_AL + "api/v1/user/cal/rank/zan/day/like")
+    Observable<Result> getStatsZan_al(@Query("calRankId") String calStatsId, @Query("dimension") int dimension);
+    /**
+     * 排行榜取消点赞
+     */
+    @GET(ConstValues.PORT_4_AL + "api/v1/user/cal/rank/zan/day/cancel_like")
+    Observable<Result> getCancelStatsZan_al(@Query("calRankId") String calStatsId, @Query("dimension") int dimension);
+
+    /**
+     * 地图列表
+     */
+    @GET(ConstValues.PORT_4_AL + "api/v1/sport/map/list")
+    Observable<Result<MapListSposrt>> getSportMapList_al(@Query("page") int page, @Query("pageSize") int pageSize,@Query("deviceTypeId") String deviceTypeId);
+
+
+    /**
+     * 地图详情
+     *
+     * @param id
+     */
+    @GET(ConstValues.PORT_4_AL + "api/v1/user/sport/map/details")
+    Observable<Result<MapDetailsBean>> getMapDetails_al(@Query("id") String id);
+
+    /**
+     * 地图详情-随机
+     * @param deviceTypeId
+     */
+    @GET(ConstValues.PORT_4_AL + "api/v1/user/sport/map/random")
+    Observable<Result<MapDetailsBean>> getMapRandomDetails_al(@Query("deviceTypeId") String deviceTypeId);
+
+    /**
+     * 运动记录统计
+     */
+    @GET(ConstValues.PORT_4_AL + "api/v1/user/sport/log/stats")
+    Observable<Result<SportLogStatsBean>> getSportLogStats_al(@Query("beignCreateTimestamp") String beignCreateTimestamp,
+                                                           @Query("endCreateTimestamp") String endCreateTimestamp, @Query("deviceTypeId") String deviceTypeId);
+    /**
+     * 宝箱领取
+     * @param
+     */
+    @GET(ConstValues.PORT_4_AL + "api/v1/user/box/receive")
+    Observable<Result<BoxReceiveBean>> getBoxReceive_al(@Query("boxId") String boxId, @Query("mapId") String mapId);
+
+
+    /**
+     * 文字模板列表
+     */
+    @GET(ConstValues.PORT_4_AL + "api/v1/str/template/query")
+    Observable<Result<TemplateBean>> getTemplateList_al();
+
+
+    /**
+     * 运动记录添加
+     */
+    @POST(ConstValues.PORT_4_AL + "api/v1/user/sport/log/add")
+    Observable<Result<String>> psotUserSportLog_al(@Body PostUser.SportLogInfo postUser);
+
+
+    /**
+     * 运动记录列表
+     */
+    @GET(ConstValues.PORT_4_AL + "api/v1/user/sport/log/list")
+    Observable<Result<SportLogBean>> geSportLogList_al(@Query("beignCreateTimestamp") String beignCreateTimestamp,
+                                                    @Query("endCreateTimestamp") String endCreateTimestamp,@Query("deviceTypeId") String deviceTypeId,@Query("page") int page, @Query("pageSize") int pageSize);
+
+    /**
+     * 运动记录详情
+     */
+    @GET(ConstValues.PORT_4_AL + "api/v1/user/sport/log/details")
+    Observable<Result<SportLogDetailBean>> geSportLogDetails_al(@Query("id") String logid);
+
+
+    /*在线运动房间服务（sport-room）-------------------------------↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓*/
+
+
+    /**
+     * 获取tcp连接信息
+     */
+    @GET(ConstValues.SPORT_ROOM_SERVER_AL + "api/v1/game/room/get_connect_info")
+    Observable<Result<ConnectRoomInfoBean>> get_connect_info_al();
+
+    /**
+     * 进入房间
+     */
+    @POST(ConstValues.SPORT_ROOM_SERVER_AL + "api/v1/game/room/join")
+    Observable<Result> gameRoomJoin_al(@Query("roomId") String roomId,@Query("password") String password);
+
+    /**
+     * 退出房间
+     */
+    @POST(ConstValues.SPORT_ROOM_SERVER_AL + "api/v1/game/room/quit")
+    Observable<Result> gameRoomQuit_al(@Query("roomId") String roomId);
+
+    /**
+     * 解散房间
+     */
+    @POST(ConstValues.SPORT_ROOM_SERVER_AL + "api/v1/game/room/dismiss")
+    Observable<Result> gameRoomDismiss_al(@Query("roomId") String roomId);
+
+    /**
+     * 开始游戏
+     */
+    @POST(ConstValues.SPORT_ROOM_SERVER_AL + "api/v1/game/room/start")
+    Observable<Result> gameRoomStart_al(@Query("roomId") String roomId);
+
+    /**
+     * 进入即时房间并开始游戏
+     */
+    @POST(ConstValues.SPORT_ROOM_SERVER_AL + "api/v1/game/room/join_quick_and_start")
+    Observable<Result<JoinQuickAndStartBean>> joinQuickAndStart_al(@Query("roomId") String roomId, @Query("password") String password);
+
+
+    /**
+     * 快速开始游戏
+     */
+    @POST(ConstValues.SPORT_ROOM_SERVER_AL + "api/v1/game/room/quick-start")
+    Observable<Result<JoinQuickAndStartBean>> get_gameRoomQuickStart_al(@Query("deviceTypeId") String deviceTypeId);
+    /**
+     * 获取可用的房间列表
+     */
+    @GET(ConstValues.SPORT_ROOM_SERVER_AL + "api/v1/game/room/list")
+    Observable<Result<GameRoomListBean>> get_gameRoomList_al(@Query("page") int page, @Query("pageSize") int pageSize,@Query("deviceTypeId") String deviceTypeId,@Query("type") String type);
+
+    /**
+     * 房间详情
+     */
+    @GET(ConstValues.SPORT_ROOM_SERVER_AL + "api/v1/game/room/details")
+    Observable<Result<GameRoomDetailsBean>> get_gameRoomDetails_al(@Query("roomId") String roomId);
+
+
+    /**
+     * 创建房间
+     */
+    @POST(ConstValues.SPORT_ROOM_SERVER_AL + "api/v1/game/room/create")
+    Observable<Result<GageRoomCreateBean>> gameCreateRoom_al(@Query("limitNumber") int limitNumber, @Query("mapId") String mapId, @Query("name") String name, @Query("password") String password, @Query("verification") boolean verification,@Query("type") String type);
+
+    /**
+     * 获取未完成的游戏
+     */
+    @POST(ConstValues.SPORT_GAME_SERVER_AL + "api/v1/game/get_unfinished")
+    Observable<Result<ConnectRoomUnfinishedBean>> get_unfinished_al();
+
+    /**
+     * 放弃游戏
+     */
+    @POST(ConstValues.SPORT_GAME_SERVER_AL + "api/v1/game/given_up")
+    Observable<Result> gameGivenUp_al(@Query("roomMemberId") String roomMemberId);
+
+    /**
+     * 完成游戏
+     */
+    @POST(ConstValues.SPORT_GAME_SERVER_AL + "api/v1/game/complete")
+    Observable<Result<GameCompleteBean>> gamComplete_al(@Query("calories") String calories, @Query("distance") String distance, @Query("roomMemberId") String roomMemberId, @Query("sportLogId") String sportLogId);
 }

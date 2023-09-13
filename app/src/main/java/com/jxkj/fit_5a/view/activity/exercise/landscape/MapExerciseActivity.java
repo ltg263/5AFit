@@ -27,6 +27,7 @@ import androidx.annotation.Nullable;
 
 import com.bumptech.glide.Glide;
 import com.jxkj.fit_5a.R;
+import com.jxkj.fit_5a.api.ApiService;
 import com.jxkj.fit_5a.api.RetrofitUtil;
 import com.jxkj.fit_5a.base.PostUser;
 import com.jxkj.fit_5a.base.Result;
@@ -60,6 +61,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.jzvd.JZMediaSystem;
+import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -472,9 +474,14 @@ public class MapExerciseActivity extends Activity {
     private List<MapDetailsBean.BoxsBean> mBoxs;
 
     private void getMapDetails() {
-        RetrofitUtil.getInstance().apiService()
-                .getMapDetails(mapId)
-                .observeOn(AndroidSchedulers.mainThread())
+        ApiService mApiService = RetrofitUtil.getInstance().apiService();
+        Observable<Result<MapDetailsBean>> mObservable;
+        if(StringUtil.getLoginUserType().equals("1")){
+            mObservable = mApiService.getMapDetails_al(mapId);
+        }else {
+            mObservable = mApiService.getMapDetails(mapId);
+        }
+        mObservable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Observer<Result<MapDetailsBean>>() {
                     @Override
@@ -498,9 +505,14 @@ public class MapExerciseActivity extends Activity {
 
     }
     private void getMapRandomDetails() {
-        RetrofitUtil.getInstance().apiService()
-                .getMapRandomDetails(ConstValues_Ly.DEVICE_TYPE_ID_URL)
-                .observeOn(AndroidSchedulers.mainThread())
+        ApiService mApiService = RetrofitUtil.getInstance().apiService();
+        Observable<Result<MapDetailsBean>> mObservable;
+        if(StringUtil.getLoginUserType().equals("1")){
+            mObservable = mApiService.getMapRandomDetails_al(ConstValues_Ly.DEVICE_TYPE_ID_URL);
+        }else {
+            mObservable = mApiService.getMapRandomDetails(ConstValues_Ly.DEVICE_TYPE_ID_URL);
+        }
+        mObservable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Observer<Result<MapDetailsBean>>() {
 
@@ -866,9 +878,14 @@ public class MapExerciseActivity extends Activity {
     private void getBoxReceive(int pos) {
         String sportBoxId = mBoxs.get(pos).getSportBoxId();
         mBoxs.get(pos).getReceiveInfo().setHaving(true);
-        RetrofitUtil.getInstance().apiService()
-                .getBoxReceive(sportBoxId,mapId)
-                .observeOn(AndroidSchedulers.mainThread())
+        ApiService mApiService = RetrofitUtil.getInstance().apiService();
+        Observable<Result<BoxReceiveBean>> mObservable;
+        if(StringUtil.getLoginUserType().equals("1")){
+            mObservable = mApiService.getBoxReceive_al(sportBoxId,mapId);
+        }else {
+            mObservable = mApiService.getBoxReceive(sportBoxId,mapId);
+        }
+        mObservable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Observer<Result<BoxReceiveBean>>() {
                     @Override

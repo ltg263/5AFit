@@ -2,6 +2,7 @@ package com.jxkj.fit_5a.view.activity.exercise;
 
 
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -10,18 +11,24 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.jxkj.fit_5a.R;
 import com.jxkj.fit_5a.api.RetrofitUtil;
 import com.jxkj.fit_5a.base.BaseActivity;
-import com.jxkj.fit_5a.base.ResultList;
+import com.jxkj.fit_5a.base.DeviceTypeData;
+import com.jxkj.fit_5a.base.Result;
+import com.jxkj.fit_5a.base.TaskListBase;
 import com.jxkj.fit_5a.conpoment.utils.GlideImageLoader;
 import com.jxkj.fit_5a.conpoment.utils.IntentUtils;
 import com.jxkj.fit_5a.entity.AdListData;
-import com.jxkj.fit_5a.entity.CircleTaskData;
 import com.jxkj.fit_5a.lanya.ConstValues_Ly;
-import com.jxkj.fit_5a.view.adapter.HomeTwoTaskSelect;
+import com.jxkj.fit_5a.view.activity.login_other.FacilityAddSbActivity;
+import com.jxkj.fit_5a.view.activity.mine.JiaoXueSpXpActivity;
+import com.jxkj.fit_5a.view.adapter.MineRwzxDzAdapter;
 import com.jxkj.fit_5a.view.search.SearchGoodsActivity;
 import com.jxkj.fit_5a.view.search.SearchResultGoodsActivity;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.listener.OnBannerListener;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +45,9 @@ public class TaskSelectionOneActivity extends BaseActivity {
     RecyclerView mRvList;
     @BindView(R.id.banner)
     Banner mBanner;
-    private HomeTwoTaskSelect mHomeTwoTaskSelect;
+    @BindView(R.id.tv_title)
+    TextView tv_title;
+    private MineRwzxDzAdapter mMineRwzxDzAdapter;
     private String exercise_type;
 
 
@@ -50,25 +59,56 @@ public class TaskSelectionOneActivity extends BaseActivity {
     @Override
     protected void initViews() {
         exercise_type = getIntent().getStringExtra("exercise_type");
-        mHomeTwoTaskSelect = new HomeTwoTaskSelect(null);
+        mMineRwzxDzAdapter = new MineRwzxDzAdapter(null);
         mRvList.setLayoutManager(new LinearLayoutManager(this));
         mRvList.setHasFixedSize(true);
-        mRvList.setAdapter(mHomeTwoTaskSelect);
-        mHomeTwoTaskSelect.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+        mRvList.setAdapter(mMineRwzxDzAdapter);
+        mMineRwzxDzAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                List<CircleTaskData> data = mHomeTwoTaskSelect.getData();
-                for (int i = 0; i < data.size(); i++) {
-                    data.get(i).setSelect(false);
-                }
-                data.get(position).setSelect(true);
-                mHomeTwoTaskSelect.notifyDataSetChanged();
             }
         });
-        initBannerOne();
-        getCircleTaskList();
+        mMineRwzxDzAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
+            @Override
+            public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
+                ConstValues_Ly.DEVICE_IMG = mMineRwzxDzAdapter.getData().get(position).getImg_rs();
+                ConstValues_Ly.DEVICE_TYPE_ID_URL = mMineRwzxDzAdapter.getData().get(position).getId_rw()+"";
+                FacilityAddSbActivity.getBluetoothChannel(TaskSelectionOneActivity.this,mMineRwzxDzAdapter.getData().get(position).getName_rw(),tv_title);
+            }
+        });
+        getAdList();
+        queryDeviceTypeLists();
     }
+    private void queryDeviceTypeLists() {
+        RetrofitUtil.getInstance().apiService()
+                .queryDeviceTypeLists(1)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new Observer<Result<DeviceTypeData>>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
 
+                    }
+
+                    @Override
+                    public void onNext(Result<DeviceTypeData> result) {
+                        if (isDataInfoSucceed(result)) {
+                            mMineRwzxDzAdapter.setList(result.getData().getList());
+                            getCircleTaskList();
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
     @OnClick({R.id.iv_back,R.id.tv_search})
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -81,17 +121,58 @@ public class TaskSelectionOneActivity extends BaseActivity {
                 break;
         }
     }
-    private void initBannerOne() {
+    private void getAdList() {
+        RetrofitUtil.getInstance().apiService()
+                .getAdList("2")
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new Observer<Result<AdListData>>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(Result<AdListData> result) {
+                        if (isDataInfoSucceed(result)) {
+                            List<AdListData.ListBean> data = result.getData().getList();
+                            initBannerOne(data);
+                        }
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
+    private void initBannerOne(List<AdListData.ListBean> data ) {
         ArrayList<String> list_path = new ArrayList<>();
-        list_path.add("https://oss.5afit.com/tcYcVPO4CuWZ4vh0OUH4Mw.jpeg");
-        list_path.add("https://oss.5afit.com/tcYcVPO4CuWZ4vh0OUH4Mw.jpeg");
-        list_path.add("https://oss.5afit.com/tcYcVPO4CuWZ4vh0OUH4Mw.jpeg");
+        if(data!=null){
+            for(int i= 0;i<data.size();i++){
+                list_path.add(data.get(i).getImgUrl());
+            }
+        }
         mBanner.setOnBannerListener(new OnBannerListener() {
             @Override
             public void OnBannerClick(int position) {
-//                IntentUtils.getInstence().intent(getActivity(),JiaoXueSpXpActivity.class,
-//                        "momentId",data.get(position).getMomentId()+"",
-//                        "publisherId",data.get(position).getPublisherId()+"");
+                // "{\"title\":\"炫彩哑铃系列 全身训练\",\"mid\":1693983856127000,\"pid\":-1}",
+                String mCon = data.get(position).getContent();
+                try {
+                    JSONObject object = new JSONObject(mCon);
+                    IntentUtils.getInstence().intent(TaskSelectionOneActivity.this, JiaoXueSpXpActivity.class,
+                            "momentId",object.getString("mid"),
+                            "publisherId",object.getString("pid"));
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+                }
+
             }
         });
 
@@ -114,19 +195,19 @@ public class TaskSelectionOneActivity extends BaseActivity {
     }
     private void getCircleTaskList() {
         RetrofitUtil.getInstance().apiService()
-                .getCircleTaskList(null,null)
+                .getUserTaskList(6,1)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(new Observer<ResultList<CircleTaskData>>() {
+                .subscribe(new Observer<Result<TaskListBase>>() {
                     @Override
                     public void onSubscribe(Disposable d) {
 
                     }
 
                     @Override
-                    public void onNext(ResultList<CircleTaskData> result) {
+                    public void onNext(Result<TaskListBase> result) {
                         if(isDataInfoSucceed(result)){
-                            mHomeTwoTaskSelect.setNewData(result.getData());
+                            mMineRwzxDzAdapter.setNewData(result.getData().getList());
                         }
                     }
 

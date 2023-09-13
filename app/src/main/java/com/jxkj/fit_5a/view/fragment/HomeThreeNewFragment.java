@@ -50,7 +50,7 @@ public class HomeThreeNewFragment extends BaseFragment {
     ImageView tv_add_dt;
 //    private CustomPopWindow distancePopWindow;
     //
-    private static final String[] CHANNELS = new String[]{"关注", "精选", "圈子","栏目"};
+    private static final String[] CHANNELS = new String[]{"关注", "精选", "圈子"};//,"栏目"
     private List<String> mDataList = Arrays.asList(CHANNELS);
 
     @Override
@@ -118,9 +118,9 @@ public class HomeThreeNewFragment extends BaseFragment {
                 case 2:
                     ((HomeThreeFragment_qz)fragments.get(mViewPager.getCurrentItem())).setDoubleClicked();
                     break;
-                case 3:
-                    ((HomeThreeFragment_lm)fragments.get(mViewPager.getCurrentItem())).setDoubleClicked();
-                    break;
+//                case 3:
+//                    ((HomeThreeFragment_lm)fragments.get(mViewPager.getCurrentItem())).setDoubleClicked();
+//                    break;
             }
         }
     }
@@ -180,10 +180,10 @@ public class HomeThreeNewFragment extends BaseFragment {
 //            fragment.setArguments(bundle);
         fragments.add(fragment_qz);
 
-        HomeThreeFragment_lm fragment_tg = new HomeThreeFragment_lm();
-//            Bundle bundle = new Bundle();
-//            fragment.setArguments(bundle);
-        fragments.add(fragment_tg);
+//        HomeThreeFragment_lm fragment_tg = new HomeThreeFragment_lm();
+////            Bundle bundle = new Bundle();
+////            fragment.setArguments(bundle);
+//        fragments.add(fragment_tg);
         return fragments;
     }
 

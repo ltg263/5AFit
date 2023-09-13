@@ -45,6 +45,7 @@ public class LoginInfo {
          * sign :
          * birthday :
          * age : 0
+         * userType:
          * height : 193
          * weight : 71
          */
@@ -68,6 +69,15 @@ public class LoginInfo {
         private String age;
         private String height;
         private String weight;
+        private int userType;
+
+        public void setUserType(int userType) {
+            this.userType = userType;
+        }
+
+        public int getUserType() {
+            return userType;
+        }
 
         public int getId() {
             return id;

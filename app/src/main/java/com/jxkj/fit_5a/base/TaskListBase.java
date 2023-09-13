@@ -64,8 +64,11 @@ public class TaskListBase {
         private String finishTime;
         private String hasDisplay;
         private String id;
+        private int id_rw;
         private String img;
+        private String img_rs;
         private String name;
+        private String name_rw;
         private String resetTime;
         private String resetType;
         private String roundCount;
@@ -75,6 +78,30 @@ public class TaskListBase {
         private String userId;
         private List<RewardsBean> rewards;
         private List<SpeedsBean> speeds;
+
+        public void setId_rw(int id_rw) {
+            this.id_rw = id_rw;
+        }
+
+        public int getId_rw() {
+            return id_rw;
+        }
+
+        public void setImg_rs(String img_rs) {
+            this.img_rs = img_rs;
+        }
+
+        public String getImg_rs() {
+            return img_rs;
+        }
+
+        public void setName_rw(String name_rw) {
+            this.name_rw = name_rw;
+        }
+
+        public String getName_rw() {
+            return name_rw;
+        }
 
         public void setReward(String reward) {
             this.reward = reward;

@@ -15,6 +15,7 @@ import android.widget.TextView;
 import androidx.core.widget.NestedScrollView;
 
 import com.jxkj.fit_5a.R;
+import com.jxkj.fit_5a.api.ApiService;
 import com.jxkj.fit_5a.api.RetrofitUtil;
 import com.jxkj.fit_5a.base.BaseActivity;
 import com.jxkj.fit_5a.base.PostUser;
@@ -30,6 +31,7 @@ import org.json.JSONObject;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -66,9 +68,14 @@ public class YaLingActivity_3 extends BaseActivity {
     }
     private void geSportLogDetails() {
         show();
-        RetrofitUtil.getInstance().apiService()
-                .geSportLogDetails(getIntent().getStringExtra("data_id"))
-                .observeOn(AndroidSchedulers.mainThread())
+        ApiService mApiService = RetrofitUtil.getInstance().apiService();
+        Observable<Result<SportLogDetailBean>> mObservable;
+        if(StringUtil.getLoginUserType().equals("1")){
+            mObservable = mApiService.geSportLogDetails_al(getIntent().getStringExtra("data_id"));
+        }else {
+            mObservable = mApiService.geSportLogDetails(getIntent().getStringExtra("data_id"));
+        }
+        mObservable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Observer<Result<SportLogDetailBean>>() {
                     @Override

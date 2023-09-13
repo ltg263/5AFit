@@ -84,6 +84,7 @@ public class ConstValues {
     public static final String PORT_3 = "shop/";//商城
 //    public static final String PORT_3 = "http://192.168.2.175:9503/";//商城
     public static final String PORT_4 = "sport/";//运动
+    public static final String PORT_4_AL = "sport-al/";//安利运动
     public static final String PORT_5 = "third/";//第三方登录 third
 //    public static final String PORT_5 = "http://192.168.2.145:9505/";//积分商城
     public static final String PORT_8 = "pay/";//支付相关 pay
@@ -93,7 +94,10 @@ public class ConstValues {
 //    public static final String PORT_21 = "http://192.168.2.145:9021/";//社群
     public static final String POPT_LS = "";//没有
     public static final String SPORT_ROOM_SERVER = "sport-room/";//在线运动房间服务（sport-room）
+    public static final String SPORT_ROOM_SERVER_AL = "sport-al-room/";//在线运动房间服务（sport-room）
     public static final String SPORT_GAME_SERVER = "sport-game/";//在线运动游戏服务（sport-game）
+
+    public static final String SPORT_GAME_SERVER_AL = "sport-al-game/";//在线运动游戏服务（sport-game）
 
     //默认连接超时时间
     public static final int DEFAULT_TIMEOUT =60;
