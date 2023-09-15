@@ -173,15 +173,16 @@ public class HttpRequestUtils {
     }
 
     public static void userVerifyLogin() {
-
+        String registrationId = SharedUtils.singleton().get("registrationId","");
+        Log.w("registrationId","registrationId:"+registrationId);
         ApiService mApiService = RetrofitUtil.getInstance().apiService();
         Observable<Result<LoginInfo>> mObservable;
         if(StringUtil.getLoginUserType().equals("1")){
             mObservable = mApiService.userVerifyLogin_al(3,SharedUtils.singleton().get(ConstValues.USER_PHONE,""),
-                    SharedUtils.singleton().get(ConstValues.USER_PASSWORD,""),null);
+                    SharedUtils.singleton().get(ConstValues.USER_PASSWORD,""),registrationId,null);
         }else {
             mObservable = mApiService.userVerifyLogin(3,SharedUtils.singleton().get(ConstValues.USER_PHONE,""),
-                    SharedUtils.singleton().get(ConstValues.USER_PASSWORD,""),null);
+                    SharedUtils.singleton().get(ConstValues.USER_PASSWORD,""),registrationId,null);
         }
         mObservable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())

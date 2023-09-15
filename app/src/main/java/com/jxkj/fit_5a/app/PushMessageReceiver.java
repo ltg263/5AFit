@@ -2,9 +2,10 @@ package com.jxkj.fit_5a.app;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
 
-import com.jxkj.fit_5a.MainActivity;
+import com.jxkj.fit_5a.view.activity.mine.MineMessageActivity;
 
 import cn.jpush.android.api.CmdMessage;
 import cn.jpush.android.api.CustomMessage;
@@ -25,8 +26,18 @@ public class PushMessageReceiver extends JPushMessageReceiver {
     @Override
     public void onNotifyMessageOpened(Context context, NotificationMessage message) {
         Log.e(TAG, "[onNotifyMessageOpened] " + message);
-        Intent i = new Intent(context, MainActivity.class);
-        context.startActivity(i);
+        try{
+            //打开自定义的Activity
+            Intent i = new Intent(context, MineMessageActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putString(JPushInterface.EXTRA_NOTIFICATION_TITLE,message.notificationTitle);
+            bundle.putString(JPushInterface.EXTRA_ALERT,message.notificationContent);
+            i.putExtras(bundle);
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP );
+            context.startActivity(i);
+        }catch (Throwable throwable){
+
+        }
     }
 
     @Override
@@ -48,6 +59,7 @@ public class PushMessageReceiver extends JPushMessageReceiver {
         } else {
             Log.e(TAG, "[onMultiActionClicked] 用户点击通知栏按钮未定义");
         }
+        context.startActivity(new Intent(context, MineMessageActivity.class));
     }
 
     @Override
@@ -71,6 +83,7 @@ public class PushMessageReceiver extends JPushMessageReceiver {
 
     @Override
     public void onRegister(Context context, String registrationId) {
+        Log.e(TAG, "registrationId " + registrationId);
 //        SPUtils.put("registrationId", registrationId);
     }
 

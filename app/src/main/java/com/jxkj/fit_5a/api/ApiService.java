@@ -666,16 +666,6 @@ public interface ApiService {
     @GET(ConstValues.PORT_5 + "api/v1/user/verify/getVerifyCode")
     Observable<Result> getVerifyCode(@Query("mobile") String mobile, @Query("type") int type);
 
-    /**
-     * 注册
-     *
-     * @return type:客户端类型1web2IOS3安卓4微信
-     */
-    @POST(ConstValues.PORT_5 + "api/v1/user/verify/register")
-    Observable<Result<LoginInfo>> userVerifyRegister(@Query("clientType") int clientType,
-                                          @Query("phone") String phone, @Query("password") String password,
-                                          @Query("userType") int userType,
-                                          @Query("verify") String verify);
 
     /**
      * 忘记密码
@@ -1803,12 +1793,25 @@ public interface ApiService {
     @POST(ConstValues.PORT_5 + "api/v1/user/verify/login")
     Observable<Result<LoginInfo>> userVerifyLogin(@Query("clientType") int clientType,
                                                   @Query("phone") String phone, @Query("password") String password,
+                                                  @Query("registrationId") String registrationId,
                                                   @Query("verify") String verify);
     @POST(ConstValues.PORT_5 + "api/v1/user/verify/login")
     Observable<Result<LoginInfo>> userVerifyLogin_al(@Query("clientType") int clientType,
                                                      @Query("phone") String phone, @Query("password") String password,
+                                                     @Query("registrationId") String registrationId,
                                                      @Query("verify") String verify);
 
+    /**
+     * 注册
+     *
+     * @return type:客户端类型1web2IOS3安卓4微信
+     */
+    @POST(ConstValues.PORT_5 + "api/v1/user/verify/register")
+    Observable<Result<LoginInfo>> userVerifyRegister(@Query("clientType") int clientType,
+                                                     @Query("phone") String phone, @Query("password") String password,
+                                                     @Query("userType") int userType,
+                                                     @Query("registrationId") String registrationId,
+                                                     @Query("verify") String verify);
     /**
      * 排行榜排名\
      * 维度(1:天;2:周;3:月)

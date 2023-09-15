@@ -131,7 +131,7 @@ public class RegisterActivity extends BaseActivity {
         show();
         //userType	用户类型:1,海德;2,安利
         RetrofitUtil.getInstance().apiService()
-                .userVerifyRegister(3,sjh,mm,userTyp.equals("1")?2:1,yzm)
+                .userVerifyRegister(3,sjh,mm,userTyp.equals("1")?2:1,SharedUtils.singleton().get("registrationId",""),yzm)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Observer<Result<LoginInfo>>() {

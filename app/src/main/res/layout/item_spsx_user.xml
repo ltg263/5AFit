@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll_select_yes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.jxkj.fit_5a.conpoment.view.SquareRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:background="@drawable/bj_circle_line_4555a3">
+
+
+            <com.jxkj.fit_5a.conpoment.view.RoundImageView
+                android:id="@+id/iv_img"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="1dp"
+                android:scaleType="fitXY"
+                android:src="@mipmap/ic_7"
+                app:type="circle" />
+
+        </com.jxkj.fit_5a.conpoment.view.SquareRelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="HAHA"
+            android:textColor="@color/color_4555a3"
+            android:textSize="13sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_select_no"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.jxkj.fit_5a.conpoment.view.SquareRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:layout_marginBottom="@dimen/dp_10">
+
+
+            <com.jxkj.fit_5a.conpoment.view.RoundImageView
+                android:id="@+id/iv_img_no"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="1dp"
+                android:scaleType="fitXY"
+                android:src="@mipmap/ic_7"
+                app:type="circle" />
+
+        </com.jxkj.fit_5a.conpoment.view.SquareRelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_name_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="HAHA"
+            android:textColor="@color/color_333333"
+            android:textSize="13sp" />
+    </LinearLayout>
+</LinearLayout>

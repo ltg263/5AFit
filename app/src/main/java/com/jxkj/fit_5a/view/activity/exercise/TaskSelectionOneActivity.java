@@ -21,6 +21,7 @@ import com.jxkj.fit_5a.lanya.ConstValues_Ly;
 import com.jxkj.fit_5a.view.activity.login_other.FacilityAddSbActivity;
 import com.jxkj.fit_5a.view.activity.mine.JiaoXueSpXpActivity;
 import com.jxkj.fit_5a.view.adapter.MineRwzxDzAdapter;
+import com.jxkj.fit_5a.view.fragment.HomeTwoFragment;
 import com.jxkj.fit_5a.view.search.SearchGoodsActivity;
 import com.jxkj.fit_5a.view.search.SearchResultGoodsActivity;
 import com.youth.banner.Banner;
@@ -71,6 +72,9 @@ public class TaskSelectionOneActivity extends BaseActivity {
         mMineRwzxDzAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
+                if (HomeTwoFragment.isYdQuanXian(TaskSelectionOneActivity.this)) {
+                    return;
+                }
                 ConstValues_Ly.DEVICE_IMG = mMineRwzxDzAdapter.getData().get(position).getImg_rs();
                 ConstValues_Ly.DEVICE_TYPE_ID_URL = mMineRwzxDzAdapter.getData().get(position).getId_rw()+"";
                 FacilityAddSbActivity.getBluetoothChannel(TaskSelectionOneActivity.this,mMineRwzxDzAdapter.getData().get(position).getName_rw(),tv_title);

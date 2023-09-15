@@ -16,6 +16,9 @@
     <uses-feature android:name="android.hardware.Camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
     <permission android:name="com.jxkj.fit_5a.permission.JOPERATE_MESSAGE" android:protectionLevel="signature"/>
+
+    <uses-permission android:name="android.permission.LOCAL_MAC_ADDRESS"
+        tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="com.jxkj.fit_5a.permission.JOPERATE_MESSAGE" />
 
     <uses-permission android:name="android.permission.BLUETOOTH" />

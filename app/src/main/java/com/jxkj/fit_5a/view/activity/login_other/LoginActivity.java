@@ -40,6 +40,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import cn.jpush.android.api.JPushInterface;
 import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -90,6 +91,7 @@ public class LoginActivity extends BaseActivity{
         mLl2.setVisibility(View.INVISIBLE);
         mLl3.setVisibility(View.VISIBLE);
         mTvLoginWjmm.setVisibility(View.INVISIBLE);
+        SharedUtils.singleton().put("registrationId",JPushInterface.getRegistrationID(this));
     }
 
     @OnClick({R.id.iv_login_al,R.id.tv_login_yzm, R.id.tv_login_wjmm, R.id.iv_login_wx,R.id.iv_login_qq,
@@ -338,7 +340,8 @@ public class LoginActivity extends BaseActivity{
         String sjh = mEtInputSjh.getText().toString();
         String yzm = mEtInputYzm.getText().toString();
         String mm = mEtInputMm.getText().toString();
-
+        String registrationId = SharedUtils.singleton().get("registrationId","");
+        Log.w("registrationId","registrationId:"+registrationId);
         if(StringUtil.isBlank(sjh)){
             ToastUtils.showShort("填写不完整");
             return;
@@ -366,9 +369,9 @@ public class LoginActivity extends BaseActivity{
         ApiService mApiService = RetrofitUtil.getInstance().apiService();
         Observable<Result<LoginInfo>> mObservable;
         if(StringUtil.getLoginUserType().equals("1")){
-            mObservable = mApiService.userVerifyLogin_al(3, sjh, mm, yzm);
+            mObservable = mApiService.userVerifyLogin_al(3, sjh, mm, registrationId,yzm);
         }else {
-            mObservable = mApiService.userVerifyLogin(3, sjh, mm, yzm);
+            mObservable = mApiService.userVerifyLogin(3, sjh, mm,registrationId,yzm);
         }
         mObservable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())

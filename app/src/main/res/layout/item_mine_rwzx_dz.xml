@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimen_15dp"
+        android:layout_marginBottom="15dp"
+        android:padding="10dp"
+        android:background="@drawable/bj_circle_fff_10"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/iv"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:visibility="gone"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:src="@drawable/icon_rwzx_4" />
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/iv"
+            android:text="---"
+            android:textColor="@color/color_000000"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv1"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@id/iv"
+            android:text="---"
+            android:textColor="@color/color_999999"
+            android:textSize="12sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginTop="25dp"
+            android:layout_below="@id/tv2">
+
+            <TextView
+                android:id="@+id/tv3"
+                android:layout_width="wrap_content"
+                android:paddingVertical="5dp"
+                android:paddingHorizontal="15dp"
+                android:layout_height="wrap_content"
+                android:text="划船机"
+                android:background="@drawable/bj_circle_21aa93_25"
+                android:textColor="#ffffff"
+                android:textSize="12sp" />
+            <TextView
+                android:id="@+id/tv_4"
+                android:layout_width="wrap_content"
+                android:paddingVertical="5dp"
+                android:paddingHorizontal="15dp"
+                android:layout_height="wrap_content"
+                android:text="训练"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/bj_circle_theme_2"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/bnt"
+                android:layout_width="wrap_content"
+                android:paddingVertical="7dp"
+                android:paddingHorizontal="17dp"
+                android:layout_height="wrap_content"
+                android:text="训练"
+                android:background="@drawable/btn_shape_bj_theme_25"
+                android:textColor="#333333"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</LinearLayout>

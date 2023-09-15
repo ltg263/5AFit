@@ -899,9 +899,6 @@ public class HomeTwoFragment extends BaseFragment {
 
     //先检查权限 anroid 6.0以上 需要动态获取 位置权限
     public static boolean isYdQuanXian(Context mContext) {
-        if (Build.VERSION.SDK_INT < 23) {
-            return true;
-        }
         String[] permissions = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 Manifest.permission.READ_EXTERNAL_STORAGE,
                 Manifest.permission.ACCESS_COARSE_LOCATION,
