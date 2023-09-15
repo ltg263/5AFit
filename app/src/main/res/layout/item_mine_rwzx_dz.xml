@@ -83,7 +83,7 @@
                 android:layout_height="wrap_content"
                 android:text="训练"
                 android:background="@drawable/btn_shape_bj_theme_25"
-                android:textColor="#333333"
+                android:textColor="@color/white"
                 android:textSize="13sp" />
         </LinearLayout>
 

@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/ll_select_yes"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
         android:gravity="center"
         android:orientation="vertical">
 
         <com.jxkj.fit_5a.conpoment.view.SquareRelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="47dp"
+            android:layout_height="47dp"
             android:layout_marginStart="@dimen/dp_10"
             android:layout_marginTop="@dimen/dp_10"
             android:layout_marginEnd="@dimen/dp_10"
@@ -28,7 +28,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_centerHorizontal="true"
-                android:layout_margin="1dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="1dp"
                 android:scaleType="fitXY"
                 android:src="@mipmap/ic_7"
                 app:type="circle" />
@@ -47,14 +50,14 @@
     </LinearLayout>
     <LinearLayout
         android:id="@+id/ll_select_no"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical">
 
         <com.jxkj.fit_5a.conpoment.view.SquareRelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="47dp"
+            android:layout_height="47dp"
             android:layout_marginStart="@dimen/dp_10"
             android:layout_marginTop="@dimen/dp_10"
             android:layout_marginEnd="@dimen/dp_10"
@@ -66,7 +69,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_centerHorizontal="true"
-                android:layout_margin="1dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="1dp"
                 android:scaleType="fitXY"
                 android:src="@mipmap/ic_7"
                 app:type="circle" />

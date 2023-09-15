@@ -404,6 +404,7 @@ public class FacilityAddPpActivity extends BaseActivity {
                             YaLingActivity_1.intentActivity(mBaseActivity);
                         }else{
                             mBaseActivity.finish();
+                            MainActivity.isRenWu = true;
                             mBaseActivity.startActivity(new Intent(mBaseActivity, MainActivity.class));
                         }
                     }

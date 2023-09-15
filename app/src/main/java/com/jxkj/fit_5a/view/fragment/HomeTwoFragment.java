@@ -189,7 +189,6 @@ public class HomeTwoFragment extends BaseFragment {
 
         mFacilityAddSbAdapter = new FacilityAddSbAdapter(null);
         mFacilityAddSbAdapter.setFang(true);
-        rv_sb_list.setLayoutManager(new GridLayoutManager(getActivity(), 5));
         rv_sb_list.setHasFixedSize(true);
         rv_sb_list.setAdapter(mFacilityAddSbAdapter);
 
@@ -580,6 +579,7 @@ public class HomeTwoFragment extends BaseFragment {
 
     @OnClick({R.id.tv_left_text, R.id.tv_all_guo, R.id.tv_tong_cheng, R.id.tv_two_ri, R.id.tv_two_zhou, R.id.tv_two_yue, R.id.tv_go_find, R.id.tv_right_text})
     public void onViewClicked(View view) {
+        Log.w("view","view:"+view.getId());
         switch (view.getId()) {
             case R.id.tv_left_text:
                 if (isYdQuanXian(getActivity())) {
@@ -936,6 +936,7 @@ public class HomeTwoFragment extends BaseFragment {
                 //                                          int[] grantResults)
                 // to handle the case where the user grants the permission. See the documentation
                 // for ActivityCompat#requestPermissions for more details.
+                bluetoothManager.getAdapter().enable();
                 return true;
             }
             bluetoothManager.getAdapter().enable();

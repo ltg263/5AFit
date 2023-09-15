@@ -49,8 +49,8 @@
             android:padding="10dp"
             android:background="@drawable/bj_circle_fff_10"
             android:overScrollMode="never"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:spanCount="5" />
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="horizontal"/>
         <LinearLayout
             android:id="@+id/ll_shaixuan"
             android:layout_width="match_parent"
@@ -133,7 +133,7 @@
                     android:ellipsize="end"
                     android:textSize="12sp"
                     android:textColor="@color/color_333333"
-                    android:text="最新"/>
+                    android:text="默认"/>
                 <ImageView
                     android:id="@+id/iv_3"
                     android:layout_width="wrap_content"

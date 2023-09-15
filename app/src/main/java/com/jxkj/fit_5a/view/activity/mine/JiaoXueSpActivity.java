@@ -147,6 +147,7 @@ public class JiaoXueSpActivity extends BaseActivity {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 deviceTypeId = mFacilityAddSbAdapter.getData().get(position).getId();
+                page = 1;
                 getTeachingMomentQuery();
             }
         });
@@ -160,6 +161,7 @@ public class JiaoXueSpActivity extends BaseActivity {
                 mJiaoXueTitleAdapter.setPos(position);
                 mJiaoXueTitleAdapter.notifyDataSetChanged();
                 classificationId = mJiaoXueTitleAdapter.getData().get(position).getId();
+                page = 1;
                 getTeachingMomentQuery();
             }
         });
@@ -226,7 +228,7 @@ public class JiaoXueSpActivity extends BaseActivity {
                             list_shaixuan_sb.clear();
                             list_shaixuan_sb.addAll(result.getData().getList());
                             mFacilityAddSbAdapter.setNewData(result.getData().getList());
-                            deviceTypeId = mFacilityAddSbAdapter.getData().get(0).getId();
+//                            deviceTypeId = mFacilityAddSbAdapter.getData().get(0).getId();
                             getClassificationAll();
                         }
                     }
@@ -259,6 +261,7 @@ public class JiaoXueSpActivity extends BaseActivity {
                         if (isDataInfoSucceed(result)) {
                             mJiaoXueTitleAdapter.setNewData(result.getData());
                             classificationId = mJiaoXueTitleAdapter.getData().get(0).getId();
+                            page = 1;
                             getTeachingMomentQuery();
                         }
                     }
@@ -347,6 +350,7 @@ public class JiaoXueSpActivity extends BaseActivity {
                                     }else{
                                         difficulty = position;
                                     }
+                                    page = 1;
                                     getTeachingMomentQuery();
                                 }
                             }
@@ -363,7 +367,7 @@ public class JiaoXueSpActivity extends BaseActivity {
                                     tv2.setTextColor(getColor(R.color.color_4555a3));
                                     tv2.setText(list_shaixuan_sj[position]);
                                     setTimeUi(position);
-
+                                    page = 1;
                                     getTeachingMomentQuery();
                                 }
                             }
@@ -380,6 +384,7 @@ public class JiaoXueSpActivity extends BaseActivity {
                                     tv3.setTextColor(getColor(R.color.color_4555a3));
                                     tv3.setText(list_shaixuan_zx[position]);
                                     sortType = position+1;
+                                    page = 1;
                                     getTeachingMomentQuery();
                                 }
                             }
@@ -420,6 +425,7 @@ public class JiaoXueSpActivity extends BaseActivity {
                                 }else{
                                     starCoachId = Long.parseLong(listsSelect.get(3));
                                 }
+                                page = 1;
                                 getTeachingMomentQuery();
                             }
                         });

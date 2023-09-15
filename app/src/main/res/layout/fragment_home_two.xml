@@ -112,6 +112,8 @@
                         android:id="@+id/rv_sb_list"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         android:layout_below="@id/iv"
                         android:layout_marginTop="5dp"
                         android:overScrollMode="never" />
