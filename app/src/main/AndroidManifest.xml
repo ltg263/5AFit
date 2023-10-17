@@ -518,6 +518,10 @@
 
             android:screenOrientation="portrait" />
         <activity
+            android:name=".view.activity.mine.ZhuXiaoActivity"
+
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".view.activity.mine.MineHomeActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />

@@ -106,19 +106,20 @@ public class PopupWindowLanYan extends PopupWindow {
         ble4Util.startScan(new BluetoothAdapter.LeScanCallback() {
             @Override
             public void onLeScan(BluetoothDevice bluetoothDevice, int rssi, byte[] bytes) {
-                if (ActivityCompat.checkSelfPermission(mcontext, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
-                    // TODO: Consider calling
-                    //    ActivityCompat#requestPermissions
-                    // here to request the missing permissions, and then overriding
-                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                    //                                          int[] grantResults)
-                    // to handle the case where the user grants the permission. See the documentation
-                    // for ActivityCompat#requestPermissions for more details.
-                    return;
-                }
+//                if (ActivityCompat.checkSelfPermission(mcontext, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+//                    // TODO: Consider calling
+//                    //    ActivityCompat#requestPermissions
+//                    // here to request the missing permissions, and then overriding
+//                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+//                    //                                          int[] grantResults)
+//                    // to handle the case where the user grants the permission. See the documentation
+//                    // for ActivityCompat#requestPermissions for more details.
+//                    return;
+//                }
                 if (StringUtil.isNotBlank(bluetoothDevice.getName())) {
                     Log.w("bluetoothDeviceName:", "--->>" + bluetoothDevice.getName().toLowerCase());
-                    if (sbName.equals("安利划船机")) {
+//                    if (sbName.equals("安利划船机")) {
+                    if (StringUtil.getLoginUserType().equals("1")) {
                         for (int i = 0; i < ConstValues_Ly.mBleNames_al.length; i++) {
                             if (bluetoothDevice.getName().toLowerCase().contains(ConstValues_Ly.mBleNames_al[i])) {
                                 BleAdapter.RSISIMAp.put(bluetoothDevice.getAddress(), rssi);
@@ -203,17 +204,17 @@ public class PopupWindowLanYan extends PopupWindow {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 dismiss();
-                if (ActivityCompat.checkSelfPermission(mcontext, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
-                    // TODO: Consider calling
-                    //    ActivityCompat#requestPermissions
-                    // here to request the missing permissions, and then overriding
-                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                    //                                          int[] grantResults)
-                    // to handle the case where the user grants the permission. See the documentation
-                    // for ActivityCompat#requestPermissions for more details.
-                    return;
-                }
-                Log.w("bluetoothDeviceName:","getName"+bleadapter.getDevice(i).getName().toLowerCase());
+//                if (ActivityCompat.checkSelfPermission(mcontext, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+//                    // TODO: Consider calling
+//                    //    ActivityCompat#requestPermissions
+//                    // here to request the missing permissions, and then overriding
+//                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+//                    //                                          int[] grantResults)
+//                    // to handle the case where the user grants the permission. See the documentation
+//                    // for ActivityCompat#requestPermissions for more details.
+//                    return;
+//                }
+//                Log.w("bluetoothDeviceName:","getName"+bleadapter.getDevice(i).getName().toLowerCase());
                 ble4Util.setUUidData(UUidData);
                 ble4Util.stopScan();
                 Log.w("bluetoothDeviceName:","sb22Name"+sbName);
@@ -231,16 +232,16 @@ public class PopupWindowLanYan extends PopupWindow {
                 ble4Util.connect(bleadapter.getDevice(i).getAddress(), new BleUtil.CallBack() {
                     @Override
                     public void StateChange(int state, int newState) {
-                        if (ActivityCompat.checkSelfPermission(mcontext, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
-                            // TODO: Consider calling
-                            //    ActivityCompat#requestPermissions
-                            // here to request the missing permissions, and then overriding
-                            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                            //                                          int[] grantResults)
-                            // to handle the case where the user grants the permission. See the documentation
-                            // for ActivityCompat#requestPermissions for more details.
-                            return;
-                        }
+//                        if (ActivityCompat.checkSelfPermission(mcontext, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+//                            // TODO: Consider calling
+//                            //    ActivityCompat#requestPermissions
+//                            // here to request the missing permissions, and then overriding
+//                            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+//                            //                                          int[] grantResults)
+//                            // to handle the case where the user grants the permission. See the documentation
+//                            // for ActivityCompat#requestPermissions for more details.
+//                            return;
+//                        }
                         String value = null;
                         if (newState == BluetoothGatt.STATE_CONNECTED){
                             BleAddress = bleadapter.getDevice(i).getAddress();
@@ -283,16 +284,16 @@ public class PopupWindowLanYan extends PopupWindow {
 
     }
     public boolean isYaLingLianJie(Activity context,int i){
-        if (ActivityCompat.checkSelfPermission(mcontext, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return false;
-        }
+//        if (ActivityCompat.checkSelfPermission(mcontext, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+//            // TODO: Consider calling
+//            //    ActivityCompat#requestPermissions
+//            // here to request the missing permissions, and then overriding
+//            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+//            //                                          int[] grantResults)
+//            // to handle the case where the user grants the permission. See the documentation
+//            // for ActivityCompat#requestPermissions for more details.
+//            return false;
+//        }
         if(ConstValues_Ly.isYalingsheben(bleadapter.getDevice(i).getName())){
             if(!sbName.equals("哑铃")){
                 Message message = new Message();
@@ -477,6 +478,20 @@ public class PopupWindowLanYan extends PopupWindow {
             deviceTypeParamId--;
         }else if(ConstValues_Ly.METER_ID==ConstValues_Ly.METER_ID_S[1] || ConstValues_Ly.METER_ID==ConstValues_Ly.METER_ID_S[2]){
 
+        }
+        if(StringUtil.getLoginUserType().equals("1")){
+            PopupWindowLanYan.BleName = "安利划船机"+"-"+PopupWindowLanYan.BleSbName;
+            ConstValues_Ly.SB_NAME ="安利划船机";
+            ConstValues_Ly.DEVICE_IMG= "https://oss.5afit.com/device/I7z9hsoswfVjNhX48osyOQ.png";
+            ConstValues_Ly.DEVICE_TYPE_ID_URL = "11";
+//            ConstValues_Ly.DEVICE_TYPE_ID_PARAM = ;
+//            ConstValues_Ly.DEVICE_TYPE_ID ;
+            initLsData();
+            if(PopupWindowLanYan.dialogInterface!=null){
+                PopupWindowLanYan.dialogInterface.btnConfirm("出现UI");
+                PopupWindowLanYan.dialogInterface = null;
+            }
+            return;
         }
         RetrofitUtil.getInstance().apiService()
                 .postDeviceProtocolCheck(ConstValues_Ly.BRAND_ID, deviceBrandParamId+"",

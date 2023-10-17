@@ -39,6 +39,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.jxkj.fit_5a.MainActivity;
 import com.jxkj.fit_5a.R;
 import com.jxkj.fit_5a.base.TaskListBase;
+import com.jxkj.fit_5a.conpoment.constants.ConstValues;
 import com.jxkj.fit_5a.conpoment.utils.SharedUtils;
 import com.jxkj.fit_5a.conpoment.utils.StringUtil;
 import com.jxkj.fit_5a.entity.DiscountUsableNotBean;
@@ -1024,5 +1025,48 @@ public class DialogUtils {
          * 确定
          */
         void bntClickListener(String pos);
+    }
+
+    /**
+     * 统一的弹框
+     */
+    public static void showUnificationDialogZx(Context context, final UnificationDialogInterface mUnificationDialogInterface) {
+        final Dialog unificationDialog = new Dialog(context, R.style.selectorDialog);
+        final View view = LayoutInflater.from(context).inflate(R.layout.dialog_unification_zx, null);
+        TextView tv_title =  view.findViewById(R.id.tv_title);
+        TextView bnt_text_1 =  view.findViewById(R.id.bnt_text_1);
+        TextView bnt_text_2 =  view.findViewById(R.id.bnt_text_2);
+        ImageView iv_close =  view.findViewById(R.id.iv_close);
+        //密码框
+        EditText et_input =  view.findViewById(R.id.et_input);
+        tv_title.setText("注销账号:"+SharedUtils.singleton().get(ConstValues.USER_PHONE,""));
+        iv_close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                unificationDialog.dismiss();
+            }
+        });
+
+        bnt_text_1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                unificationDialog.dismiss();
+                mUnificationDialogInterface.bntClickListener("-1");
+            }
+        });
+
+        bnt_text_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(StringUtil.isNotBlank(et_input.getText().toString())){
+                    unificationDialog.dismiss();
+                    mUnificationDialogInterface.bntClickListener(et_input.getText().toString());
+                }
+            }
+        });
+
+        unificationDialog.setCancelable(false);
+        unificationDialog.setContentView(view);
+        unificationDialog.show();
     }
 }

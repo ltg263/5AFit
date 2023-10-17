@@ -537,7 +537,7 @@
                         android:layout_marginStart="@dimen/dp_10"
                         android:text="No.0"
                         android:textColor="@color/color_000000"
-                        android:textSize="13sp" />
+                        android:textSize="12sp" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -548,8 +548,8 @@
 
                         <com.jxkj.fit_5a.conpoment.view.RoundImageView
                             android:id="@+id/iv_head"
-                            android:layout_width="23dp"
-                            android:layout_height="23dp"
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
                             android:src="@drawable/icon_two"
                             app:type="circle" />
 
@@ -564,7 +564,7 @@
                             android:maxLines="1"
                             android:text="--"
                             android:textColor="@color/color_333333"
-                            android:textSize="13sp" />
+                            android:textSize="12sp" />
 
                     </LinearLayout>
 
@@ -580,7 +580,7 @@
                         android:gravity="center|start"
                         android:text="0cal"
                         android:textColor="@color/color_333333"
-                        android:textSize="13sp" />
+                        android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/tv_zan"
@@ -593,7 +593,7 @@
                         android:gravity="center"
                         android:text="0"
                         android:textColor="@color/color_333333"
-                        android:textSize="13sp" />
+                        android:textSize="12sp" />
 
                 </LinearLayout>
 

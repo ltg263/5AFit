@@ -242,7 +242,21 @@ public class RankListActivity extends BaseActivity {
                         if (isDataInfoSucceed(result)) {
                             typeD = type;
                             userData = result.getData().getUser();
-                            mTvName.setText(userData.getNickName());
+                            String nameNew = userData.getNickName();
+                            String q = "";
+                            String h = "";
+                            if(!HomeTwoBelowAdapter.containsChineseCharacters(nameNew)){
+                                if(nameNew.length()>10){
+                                    q = nameNew.substring(0,5);
+                                    h = nameNew.substring(nameNew.length()-3);
+                                    nameNew = q+"..."+h;
+                                }
+                            }else if(nameNew.length()>6){
+                                q = nameNew.substring(0,3);
+                                h = nameNew.substring(nameNew.length()-2);
+                                nameNew = q+"..."+h;
+                            }
+                            mTvName.setText(nameNew);
                             mTvZan.setText(result.getData().getLikeCount());
                             mTvDll.setText(result.getData().getCalories()+"kcal");
                             mTvMingc.setText("未上榜");

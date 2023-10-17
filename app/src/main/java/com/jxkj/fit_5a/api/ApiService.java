@@ -1800,6 +1800,8 @@ public interface ApiService {
                                                      @Query("phone") String phone, @Query("password") String password,
                                                      @Query("registrationId") String registrationId,
                                                      @Query("verify") String verify);
+    @POST(ConstValues.PORT_5 + "api/v1/user/cancellation")
+    Observable<Result> userCancellation(@Query("phone") String phone, @Query("password") String password);
 
     /**
      * 注册

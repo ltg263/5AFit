@@ -381,7 +381,7 @@ public class HomeFourFragment extends BaseFragment {
                 UserScActivity.startActivity(getActivity(), SharedUtils.getUserId() + "");
                 break;
             case R.id.tv_mine_cgx:
-//                UserCgxActivity.startActivity(getActivity(), SharedUtils.getUserId() + "");
+                UserCgxActivity.startActivity(getActivity(), SharedUtils.getUserId() + "");
 //                List<QueryPopularBean> mData = SharedAssociationUtils.singleton().getSharedHistoryEquipment();
 //                if(mData!=null && mData.size()>0){
 //                    AssociationAddActivity.startActivityAddAssociation(
@@ -390,7 +390,7 @@ public class HomeFourFragment extends BaseFragment {
 //                }else{
 //                    AssociationAddActivity.startActivityAddAssociation(getActivity(),3,"","","","");
 //                }
-//                break;
+                break;
             case R.id.iv_caogao:
 //                if(mQueryPopularBean!=null){
 //                    AssociationActivity.startActivity(getActivity(),

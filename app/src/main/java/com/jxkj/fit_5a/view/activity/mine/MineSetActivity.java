@@ -5,9 +5,14 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.jxkj.fit_5a.MainActivity;
 import com.jxkj.fit_5a.R;
+import com.jxkj.fit_5a.api.ApiService;
+import com.jxkj.fit_5a.api.RetrofitUtil;
 import com.jxkj.fit_5a.app.MainApplication;
 import com.jxkj.fit_5a.base.BaseActivity;
+import com.jxkj.fit_5a.base.Result;
+import com.jxkj.fit_5a.conpoment.constants.ConstValues;
 import com.jxkj.fit_5a.conpoment.utils.DataCleanManager;
 import com.jxkj.fit_5a.conpoment.utils.HttpRequestUtils;
 import com.jxkj.fit_5a.conpoment.utils.IntentUtils;
@@ -16,10 +21,17 @@ import com.jxkj.fit_5a.conpoment.utils.StringUtil;
 import com.jxkj.fit_5a.conpoment.utils.ThirdLoginUtils;
 import com.jxkj.fit_5a.conpoment.utils.ToastUtils;
 import com.jxkj.fit_5a.conpoment.view.DialogUtils;
+import com.jxkj.fit_5a.entity.LoginInfo;
 import com.jxkj.fit_5a.view.activity.login_other.LoginActivity;
+import com.jxkj.fit_5a.view.activity.login_other.SetUserXbActivity;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import io.reactivex.Observable;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
 public class MineSetActivity extends BaseActivity {
     @BindView(R.id.iv_back)
@@ -64,9 +76,12 @@ public class MineSetActivity extends BaseActivity {
         });
     }
 
-    @OnClick({R.id.ll_back, R.id.ll1, R.id.ll2,R.id.ll3,R.id.ll4,R.id.tv_tui})
+    @OnClick({R.id.ll_back, R.id.ll1, R.id.ll2,R.id.ll3,R.id.ll4,R.id.tv_tui,R.id.llzhuxiao})
     public void onViewClicked(View view) {
         switch (view.getId()) {
+            case R.id.llzhuxiao:
+                startActivity(new Intent(this,ZhuXiaoActivity.class));
+                break;
             case R.id.ll_back:
                 finish();
                 break;
@@ -105,5 +120,7 @@ public class MineSetActivity extends BaseActivity {
                 break;
         }
     }
+
+
 }
 

@@ -264,8 +264,9 @@ public class HomeTwoFragment extends BaseFragment {
                             if (list.get(position).equals("在线运动")) {
                                 MotorPatternActivity.startIntentActivity(getActivity(), MotorPatternActivity.ROOM_TYPE[0]);
                             } else if (list.get(position).equals("经典运动")) {
-                                IntentUtils.getInstence().
-                                        intent(getActivity(), TaskSelectionActivity.class, "exercise_type", list.get(position));
+//                                IntentUtils.getInstence().
+//                                        intent(getActivity(), TaskSelectionActivity.class, "exercise_type", list.get(position));
+                                startActivity(new Intent(getActivity(), TaskStartActivity.class));
                             } else {
                                 YaLingActivity_1.intentActivity(getActivity());
                             }
@@ -277,8 +278,9 @@ public class HomeTwoFragment extends BaseFragment {
                 if (list.get(position).equals("在线运动")) {
                     MotorPatternActivity.startIntentActivity(getActivity(), MotorPatternActivity.ROOM_TYPE[0]);
                 } else if (list.get(position).equals("经典运动")) {
-                    IntentUtils.getInstence().
-                            intent(getActivity(), TaskSelectionActivity.class, "exercise_type", list.get(position));
+//                    IntentUtils.getInstence().
+//                            intent(getActivity(), TaskSelectionActivity.class, "exercise_type", list.get(position));
+                    startActivity(new Intent(getActivity(), TaskStartActivity.class));
                 } else {
                     YaLingActivity_1.intentActivity(getActivity());
                 }
@@ -775,7 +777,22 @@ public class HomeTwoFragment extends BaseFragment {
                     RankStatsData.UserBean userData = result.getData().getUser();
                     if (userData != null) {
                     }
-                    mTvName.setText(userData.getNickName());
+                    String nameNew = userData.getNickName();
+                    String q = "";
+                    String h = "";
+                    if(!HomeTwoBelowAdapter.containsChineseCharacters(nameNew)){
+                        if(nameNew.length()>10){
+                            q = nameNew.substring(0,5);
+                            h = nameNew.substring(nameNew.length()-3);
+                            nameNew = q+"..."+h;
+                        }
+                    }else if(nameNew.length()>5){
+                        q = nameNew.substring(0,2);
+                        h = nameNew.substring(nameNew.length()-2);
+                        nameNew = q+"..."+h;
+                    }
+                    mTvName.setText(nameNew);
+
                     GlideImageUtils.setGlideImage(getActivity(), userData.getAvatar(), iv_head);
                     mTvZan.setText(result.getData().getLikeCount());
                     mTvDll.setText(result.getData().getCalories() + "kcal");

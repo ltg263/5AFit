@@ -67,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:text="训练"
                 android:layout_marginStart="10dp"
-                android:background="@drawable/bj_circle_theme_2"
+                android:background="@drawable/btn_shape_bj_theme_25"
                 android:textColor="@color/white"
                 android:textSize="12sp" />
             <View

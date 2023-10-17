@@ -94,6 +94,12 @@ public class UserCgxActivity extends BaseActivity {
         finish();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        query_related();
+    }
+
     private void query_related() {
         List<QueryPopularBean>  mSharedHistoryEquipment = SharedAssociationUtils.singleton().getSharedHistoryEquipment();
         if(mSharedHistoryEquipment!=null){

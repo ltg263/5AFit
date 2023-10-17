@@ -8,14 +8,18 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.jxkj.fit_5a.MainActivity;
 import com.jxkj.fit_5a.R;
 import com.jxkj.fit_5a.api.RetrofitUtil;
 import com.jxkj.fit_5a.base.BaseActivity;
 import com.jxkj.fit_5a.base.DeviceTypeData;
+import com.jxkj.fit_5a.base.HistoryEquipmentData;
 import com.jxkj.fit_5a.base.Result;
 import com.jxkj.fit_5a.base.TaskListBase;
 import com.jxkj.fit_5a.conpoment.utils.GlideImageLoader;
 import com.jxkj.fit_5a.conpoment.utils.IntentUtils;
+import com.jxkj.fit_5a.conpoment.utils.SharedHistoryEquipment;
+import com.jxkj.fit_5a.conpoment.utils.ToastUtils;
 import com.jxkj.fit_5a.entity.AdListData;
 import com.jxkj.fit_5a.lanya.ConstValues_Ly;
 import com.jxkj.fit_5a.view.activity.login_other.FacilityAddSbActivity;
@@ -75,9 +79,15 @@ public class TaskSelectionOneActivity extends BaseActivity {
                 if (HomeTwoFragment.isYdQuanXian(TaskSelectionOneActivity.this)) {
                     return;
                 }
-                ConstValues_Ly.DEVICE_IMG = mMineRwzxDzAdapter.getData().get(position).getImg_rs();
-                ConstValues_Ly.DEVICE_TYPE_ID_URL = mMineRwzxDzAdapter.getData().get(position).getId_rw()+"";
-                FacilityAddSbActivity.getBluetoothChannel(TaskSelectionOneActivity.this,mMineRwzxDzAdapter.getData().get(position).getName_rw(),tv_title);
+                if (!ConstValues_Ly.isA1) {
+                    ToastUtils.showShort("请先链接设备");
+                    ConstValues_Ly.DEVICE_IMG = mMineRwzxDzAdapter.getData().get(position).getImg_rs();
+                    ConstValues_Ly.DEVICE_TYPE_ID_URL = mMineRwzxDzAdapter.getData().get(position).getId_rw()+"";
+                    FacilityAddSbActivity.getBluetoothChannel(TaskSelectionOneActivity.this,mMineRwzxDzAdapter.getData().get(position).getName_rw(),tv_title);
+                    return;
+                }
+                MainActivity.isRenWu = true;
+                IntentUtils.getInstence().intent(TaskSelectionOneActivity.this, MainActivity.class);
             }
         });
         getAdList();

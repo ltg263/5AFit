@@ -135,6 +135,39 @@
         android:layout_height="1dp"
         android:layout_marginHorizontal="@dimen/dp_10"
         android:background="@color/line_color" />
+    <LinearLayout
+        android:id="@+id/llzhuxiao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="@dimen/dp_10"
+            android:gravity="center_vertical"
+            android:padding="@dimen/dimen_15dp"
+            android:text="注销账号"
+            android:textColor="@color/color_333333"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:drawableEnd="@drawable/icon_jiantou_you_99"
+            android:drawablePadding="@dimen/dp_10"
+            android:padding="@dimen/dp_10"
+            android:text=""
+            android:textColor="@color/color_999999"
+            android:textSize="14sp" />
+    </LinearLayout>
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="@dimen/dp_10"
+        android:background="@color/line_color" />
 
     <LinearLayout
         android:id="@+id/ll4"

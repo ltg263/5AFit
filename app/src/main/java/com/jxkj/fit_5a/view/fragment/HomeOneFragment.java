@@ -24,12 +24,14 @@ import com.jxkj.fit_5a.entity.TeachingMomentBean;
 import com.jxkj.fit_5a.entity.TeachingMomentListsBean;
 import com.jxkj.fit_5a.view.activity.exercise.TaskSelectionActivity;
 import com.jxkj.fit_5a.view.activity.exercise.TaskSelectionOneActivity;
+import com.jxkj.fit_5a.view.activity.home.WebViewActivity;
 import com.jxkj.fit_5a.view.activity.mine.JiaoXueSpActivity;
 import com.jxkj.fit_5a.view.activity.home.TaskSignActivity;
 import com.jxkj.fit_5a.view.activity.mine.JiaoXueSpXpActivity;
 import com.jxkj.fit_5a.view.activity.mine.MineMessageAnnouncementActivity;
 import com.jxkj.fit_5a.view.activity.mine.ShoppingActivity;
 import com.jxkj.fit_5a.view.activity.mine.ShoppingDetailsActivity;
+import com.jxkj.fit_5a.view.activity.mine.ShoppingJfActivity;
 import com.jxkj.fit_5a.view.activity.mine.YunDongShuJuActivity;
 import com.jxkj.fit_5a.view.adapter.HomeCnxhMainHomeAdapter;
 import com.jxkj.fit_5a.view.adapter.HomeRmkcMainAdapter;
@@ -45,6 +47,9 @@ import com.xiaosu.view.text.VerticalRollingTextView;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.listener.OnBannerListener;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -368,9 +373,35 @@ public class HomeOneFragment extends BaseFragment {
         mBanner.setOnBannerListener(new OnBannerListener() {
             @Override
             public void OnBannerClick(int position) {
-//                IntentUtils.getInstence().intent(getActivity(),JiaoXueSpXpActivity.class,
-//                        "momentId",data.get(position).getMomentId()+"",
-//                        "publisherId",data.get(position).getPublisherId()+"");
+                // "{\"title\":\"炫彩哑铃系列 全身训练\",\"mid\":1693983856127000,\"pid\":-1}",
+                if(data.get(position).getType()==3){
+                    String mCon = data.get(position).getContent();
+                    try {
+                        JSONObject object = new JSONObject(mCon);
+                        IntentUtils.getInstence().intent(getActivity(), JiaoXueSpXpActivity.class,
+                                "momentId",object.getString("mid"),
+                                "publisherId",object.getString("pid"));
+                    } catch (JSONException e) {
+                        throw new RuntimeException(e);
+                    }
+                }else if(data.get(position).getType()==2){
+
+                    String mCon = data.get(position).getContent();
+                    try {
+                        JSONObject object = new JSONObject(mCon);
+                        ShoppingDetailsActivity.startActivity(getActivity(),object.getString("id"));
+                    } catch (JSONException e) {
+                        throw new RuntimeException(e);
+                    }
+                }else if(data.get(position).getType()==1){
+                    String mCon = data.get(position).getContent();
+                    try {
+                        JSONObject object = new JSONObject(mCon);
+                        WebViewActivity.startActivityIntent(getActivity(),object.getString("url"),"5AFit");
+                    } catch (JSONException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
             }
         });
 

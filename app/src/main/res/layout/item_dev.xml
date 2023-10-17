@@ -29,6 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="addr"
+                android:visibility="gone"
                 android:textColor="#ff6699ff"
                 android:textSize="12dp" />
 
@@ -42,6 +43,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
             android:text="rsisi"
+            android:visibility="invisible"
             android:textColor="#ff6699ff"
             android:textSize="12dp" />
 

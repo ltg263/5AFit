@@ -10,9 +10,10 @@
 
     <ImageView
         android:id="@+id/iv_1"
-        android:layout_width="@dimen/dimen_30dp"
-        android:layout_height="wrap_content"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
         android:layout_marginStart="@dimen/dp_10"
+        android:scaleType="fitXY"
         android:adjustViewBounds="true"
         android:src="@drawable/icon_home_two_1"
         android:visibility="visible" />
@@ -36,8 +37,8 @@
 
         <com.jxkj.fit_5a.conpoment.view.RoundImageView
             android:id="@+id/iv_2"
-            android:layout_width="23dp"
-            android:layout_height="23dp"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
             android:src="@mipmap/icon_app_logo"
             app:type="circle" />
 
@@ -47,12 +48,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dimen_5dp"
             android:drawablePadding="@dimen/dimen_5dp"
-            android:ellipsize="end"
             android:gravity="center|start"
             android:maxLines="1"
             android:text="--"
             android:textColor="@color/color_333333"
-            android:textSize="13sp" />
+            android:textSize="12sp" />
 
     </LinearLayout>
 
@@ -73,7 +73,7 @@
             android:maxLines="1"
             android:text="0cal"
             android:textColor="@color/color_333333"
-            android:textSize="13sp" />
+            android:textSize="12sp" />
 
     </LinearLayout>
 
@@ -99,7 +99,7 @@
             android:gravity="center"
             android:text="0"
             android:textColor="@color/color_333333"
-            android:textSize="13sp" />
+            android:textSize="12sp" />
     </LinearLayout>
 
 </LinearLayout>

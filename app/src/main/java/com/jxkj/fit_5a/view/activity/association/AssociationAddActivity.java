@@ -125,22 +125,22 @@ public class AssociationAddActivity extends BaseActivity {
     protected void initViews() {
         Intent intent = getIntent();
         type = getIntent().getIntExtra("type",0);
-//        mQueryPopularBean = (QueryPopularBean) intent.getSerializableExtra("mData");
-        List<QueryPopularBean> mData = SharedAssociationUtils.singleton().getSharedHistoryEquipment();
-        if(mData!=null){
-            for(int i=0;i<mData.size();i++){
-                if(type == -1){
-                    mQueryPopularBean = mData.get(0);
-                }
-                if(type == 2 && 2 == Integer.parseInt(mData.get(i).getContentType())){
-                    mQueryPopularBean = mData.get(i);
-                }
-
-                if(type == 3 && 3 == Integer.parseInt(mData.get(i).getContentType())){
-                    mQueryPopularBean = mData.get(i);
-                }
-            }
-        }
+        mQueryPopularBean = (QueryPopularBean) intent.getSerializableExtra("mData");
+//        List<QueryPopularBean> mData = SharedAssociationUtils.singleton().getSharedHistoryEquipment();
+//        if(mData!=null){
+//            for(int i=0;i<mData.size();i++){
+//                if(type == -1){
+//                    mQueryPopularBean = mData.get(0);
+//                }
+//                if(type == 2 && 2 == Integer.parseInt(mData.get(i).getContentType())){
+//                    mQueryPopularBean = mData.get(i);
+//                }
+//
+//                if(type == 3 && 3 == Integer.parseInt(mData.get(i).getContentType())){
+//                    mQueryPopularBean = mData.get(i);
+//                }
+//            }
+//        }
         initRvXq();
         if(mQueryPopularBean!=null){//草稿箱
             media = mQueryPopularBean.getMedia();
@@ -441,7 +441,7 @@ public class AssociationAddActivity extends BaseActivity {
     }
 
     private void postPublishMomentCgx() {
-        SharedAssociationUtils.singleton().updateSharedHistoryEquipmentUpdate_Type(type);
+//        SharedAssociationUtils.singleton().updateSharedHistoryEquipmentUpdate_Type(type);
 //        if(mQueryPopularBean!=null){
 //            int pos = getIntent().getIntExtra("position",0);
 //            SharedAssociationUtils.singleton().updateSharedHistoryEquipmentUpdate(pos);
@@ -478,6 +478,10 @@ public class AssociationAddActivity extends BaseActivity {
                     @Override
                     public void bntClickListener(String pos) {
                         if(pos.equals("2")){
+                            if(AssociationAddActivity.this.mQueryPopularBean!=null){
+                                int posC = getIntent().getIntExtra("position",0);
+                                SharedAssociationUtils.singleton().updateSharedHistoryEquipmentUpdate(posC);
+                            }
                             SharedAssociationUtils.singleton().putSharedHistoryEquipment(mQueryPopularBean);
                         }
                         finish();

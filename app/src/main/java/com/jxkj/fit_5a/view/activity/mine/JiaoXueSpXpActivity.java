@@ -1,6 +1,9 @@
 package com.jxkj.fit_5a.view.activity.mine;
 
 import android.content.res.Configuration;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,20 +11,31 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.core.widget.NestedScrollView;
+
 import com.bumptech.glide.Glide;
 import com.jxkj.fit_5a.MainActivity;
 import com.jxkj.fit_5a.R;
 import com.jxkj.fit_5a.api.RetrofitUtil;
 import com.jxkj.fit_5a.base.BaseActivity;
+import com.jxkj.fit_5a.base.HistoryEquipmentData;
 import com.jxkj.fit_5a.base.Result;
 import com.jxkj.fit_5a.conpoment.utils.HttpRequestUtils;
 import com.jxkj.fit_5a.conpoment.utils.IntentUtils;
+import com.jxkj.fit_5a.conpoment.utils.SharedHistoryEquipment;
 import com.jxkj.fit_5a.conpoment.utils.StringUtil;
 import com.jxkj.fit_5a.conpoment.utils.ToastUtils;
 import com.jxkj.fit_5a.conpoment.view.JzvdStdTikTok;
 import com.jxkj.fit_5a.conpoment.view.JzvdStdTikTok_jx;
 import com.jxkj.fit_5a.entity.TeachingMomentBean;
 import com.jxkj.fit_5a.entity.VideoPlayInfoBean;
+import com.jxkj.fit_5a.lanya.ConstValues_Ly;
+import com.jxkj.fit_5a.view.activity.exercise.ExerciseRecordDetailsActivity_xl;
+import com.jxkj.fit_5a.view.activity.exercise.TaskFinishActivity;
+import com.jxkj.fit_5a.view.activity.exercise.TaskSelectionOneActivity;
+import com.jxkj.fit_5a.view.activity.exercise.landscape.MapExerciseFinishActivity;
+import com.jxkj.fit_5a.view.activity.login_other.FacilityAddSbActivity;
+import com.jxkj.fit_5a.view.fragment.HomeTwoFragment;
 import com.jxkj.fit_5a.view.search.ShoppingFlowLayout;
 
 import java.util.List;
@@ -43,6 +57,8 @@ public class JiaoXueSpXpActivity extends BaseActivity {
     View mMyNestedScrollView;
     @BindView(R.id.ll)
     View ll;
+    @BindView(R.id.mNsv)
+    NestedScrollView relativeLayout;
     @BindView(R.id.iv_back)
     ImageView mIvBack;
     @BindView(R.id.tv_title)
@@ -209,9 +225,54 @@ public class JiaoXueSpXpActivity extends BaseActivity {
         mMpVideo.startVideo();
     }
 
-    @OnClick({R.id.tv_shoucang,R.id.tv_shoucang_ok,R.id.tv_productTitle, R.id.tv_ok,R.id.tv_title_all})
+    private Handler mHandler = new Handler();
+
+    public String getImgPath(TaskFinishActivity.Aba aba) {
+        mHandler.postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                // 要在运行在子线程中
+                final Bitmap bmp = getBitmapByView(relativeLayout); // 获取图片
+                MapExerciseFinishActivity.savePicture(bmp, "5Afit_img_1.jpg");// 保存图片
+                if(bmp!=null){
+                    aba.ok();
+                }else{
+                    ToastUtils.showShort("图片生成失败");
+                }
+            }
+        }, 100);
+
+        return "";
+    }
+    public final Bitmap getBitmapByView(NestedScrollView scrollView) {
+        if (null == scrollView) {
+            throw new IllegalArgumentException("parameter can't be null.");
+        }
+        scrollView.setDrawingCacheEnabled(true);
+        int height = 0;
+        Bitmap bitmap;
+        for (int i = 0, s = scrollView.getChildCount(); i < s; i++) {
+            height += scrollView.getChildAt(i).getHeight();
+            scrollView.getChildAt(i).setBackgroundResource(android.R.drawable.screen_background_light);
+        }
+        bitmap = Bitmap.createBitmap(scrollView.getWidth(), height, Bitmap.Config.ARGB_8888);
+        final Canvas canvas = new Canvas(bitmap);
+        scrollView.draw(canvas);
+        Log.w("bitmap","bitmap:"+bitmap);
+        return bitmap;
+    }
+    @OnClick({R.id.tv_shoucang,R.id.tv_fenxiang,R.id.tv_shoucang_ok,R.id.tv_productTitle, R.id.tv_ok,R.id.tv_title_all})
     public void onClick(View view) {
         switch (view.getId()) {
+            case R.id.tv_fenxiang:
+                getImgPath(new TaskFinishActivity.Aba() {
+                    @Override
+                    public void ok() {
+                        MapExerciseFinishActivity.shareData(JiaoXueSpXpActivity.this,"5Afit_img_1.jpg");
+                    }
+                });
+                break;
             case R.id.tv_title_all:
                 onClickTextMax();
                 break;
@@ -229,7 +290,13 @@ public class JiaoXueSpXpActivity extends BaseActivity {
                 }
                 break;
             case R.id.tv_ok:
-                MainActivity.isRenWu = true;
+                if (HomeTwoFragment.isYdQuanXian(this)) {
+                    return;
+                }
+                if (!ConstValues_Ly.isA1) {
+                    ToastUtils.showShort("请先链接设备");
+                    return;
+                }
                 IntentUtils.getInstence().intent(this, MainActivity.class);
                 break;
         }
