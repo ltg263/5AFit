@@ -26,12 +26,16 @@ android {
             storePassword '5afit123456'
             keyPassword '5afit123456'
             keyAlias '5AFit_key'
+            v1SigningEnabled true //是否开启V1签名
+            v2SigningEnabled true //是否开启V2签名
         }
         release {
             storeFile file('5AFit.jks') //绝对路径
             storePassword "5afit123456"
             keyAlias "5AFit_key"
             keyPassword "5afit123456"
+            v1SigningEnabled true //是否开启V1签名
+            v2SigningEnabled true //是否开启V2签名
         }
     }
 //        MD5:  24:39:44:D1:14:41:EC:75:28:94:B8:B1:C5:0E:4C:87
