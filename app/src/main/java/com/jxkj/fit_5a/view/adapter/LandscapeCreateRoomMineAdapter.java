@@ -30,12 +30,19 @@ public class LandscapeCreateRoomMineAdapter extends BaseQuickAdapter<GameRoomDet
     protected void convert(@NonNull BaseViewHolder helper, GameRoomDetailsBean.UserBean item) {
         GlideImgLoader.loadImageViewRadius(mContext,item.getAvatar(),helper.getView(R.id.iv_avatar));
         helper.setText(R.id.tv_nickName,item.getNickName())
-        .setText(R.id.tv_calories,item.getSportStats().getCalories())
-        .setText(R.id.tv_distance,item.getSportStats().getDistance())
-        .setText(R.id.tv_duration, StringUtil.getTimeGeShiYw(item.getSportStats().getDuration()));
+        .setText(R.id.tv_calories,"0")
+        .setText(R.id.tv_distance,"0")
+        .setText(R.id.tv_duration, "0");
+
+        if(item.getSportStats()!=null){
+            helper.setText(R.id.tv_calories,item.getSportStats().getCalories()).setText(R.id.tv_distance,item.getSportStats().getDistance())
+                .setText(R.id.tv_duration, StringUtil.getTimeGeShiYw(item.getSportStats().getDuration()));
+        }
         if(mapUserId.equals(item.getUserId())){
             helper.setText(R.id.tv_nickName,item.getNickName()+"(房主)");
         }
     }
 
 }
+//0000fff0-0000-1000-8000-00805f9b34fb
+//2023-10-17 12:22:40.194 26584-26908 ---》》》                  com.jxkj.fit_5a                      W  mDevReadCharacteristic:0000fff1-0000-1000-8000-00805f9b34fb

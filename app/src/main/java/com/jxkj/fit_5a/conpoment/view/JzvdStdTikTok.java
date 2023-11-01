@@ -133,6 +133,7 @@ public class JzvdStdTikTok extends JzvdStd {
     boolean isSilence = false;
 
     public void setSilence(boolean isSilence) {
+        Log.w("setSilence","setSilence:"+isSilence);
         this.isSilence = isSilence;
     }
 

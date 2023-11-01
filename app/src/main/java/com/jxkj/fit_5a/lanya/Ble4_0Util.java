@@ -118,7 +118,28 @@ public class Ble4_0Util implements BleUtil {
     public String[] getUuidStr() {
         return uuidStr;
     }
-
+//     //判断手机厂商
+//    public String checkPhoneFirm() {
+//        String phoneState = Build.BRAND.toLowerCase(); //获取手机厂商
+//        if (phoneState.equals("huawei") || phoneState.equals("honor"))
+//            return PhoneConstant.IS_HUAWEI;
+//        else if (phoneState.equals("xiaomi") && Build.BRAND != null)
+//            return PhoneConstant.IS_XIAOMI;
+//        else if (phoneState.equals("oppo") && Build.BRAND != null)
+//            return PhoneConstant.IS_OPPO;
+//        else if (phoneState.equals("vivo") && Build.BRAND != null)
+//            return PhoneConstant.IS_VIVO;
+//        else if (phoneState.equals("meizu") && Build.BRAND != null)
+//            return PhoneConstant.IS_MEIZU;
+//        else if (phoneState.equals("samsung") && Build.BRAND != null)
+//            return PhoneConstant.IS_SAMSUNG;
+//        else if (phoneState.equals("letv") && Build.BRAND != null)
+//            return PhoneConstant.IS_LETV;
+//        else if (phoneState.equals("smartisan") && Build.BRAND != null)
+//            return PhoneConstant.IS_SMARTISAN;
+//
+//        return "";
+//    }
     @Override
     public boolean connect(String blemac, final CallBack callback) {
         callback.StateChange(0, BluetoothGatt.STATE_CONNECTING);
@@ -153,6 +174,7 @@ public class Ble4_0Util implements BleUtil {
             @Override
             public void onConnectionStateChange(final BluetoothGatt gatt, int status, int newState) {
                 super.onConnectionStateChange(gatt, status, newState);
+                isScuu = false;
                 Log.w("---》》》","onConnectionStateChange"+newState+"；isLianJieZhong："+isLianJieZhong);
 //                if(!isLianJieZhong){
 //                    return;
@@ -166,8 +188,16 @@ public class Ble4_0Util implements BleUtil {
                     }
                     //设置接收数据长度，默认20
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        boolean a = mBluetoothGatt.requestMtu(512);
+                        String phoneState = Build.BRAND.toLowerCase(); //获取手机厂商
+                        boolean a  = false;
+                        if (phoneState.equals("xiaomi") && Build.BRAND != null) {
+                            a = mBluetoothGatt.requestMtu(1024);
+                        }else{
+                            a = mBluetoothGatt.requestMtu(512);
+                        }
+                        String model = Build.MODEL;
                         Log.e("---》》》","requestMtu"+a);
+                        Log.e("---》》》","phoneState"+phoneState);
                     }
                 }
                 if (newState == BluetoothGatt.STATE_DISCONNECTED) {
@@ -186,7 +216,6 @@ public class Ble4_0Util implements BleUtil {
                 Log.w("---》》》","onServicesDiscovered");
                 List<BluetoothGattService> serviceList = gatt.getServices();
                 for (BluetoothGattService gattService : serviceList) {
-
                     if(!isCurrentUuid(gattService.getUuid().toString(),serviceUUid)){
                         continue;
                     }
@@ -216,6 +245,8 @@ public class Ble4_0Util implements BleUtil {
 
                             lp:
                             for (BluetoothGattDescriptor descriptor : descriptorlist) {
+                                Log.w("---》》》","escriptor.getUuid()"+descriptor.getUuid());
+                                Log.w("---》》》","escriptor.getUuid()"+(descriptor.getUuid().toString().contains("")));
                                 if (descriptor.getUuid().toString().contains("")) {
                                     descriptor.setValue(BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE);
                                     mBluetoothGatt.writeDescriptor(descriptor);
@@ -232,6 +263,7 @@ public class Ble4_0Util implements BleUtil {
                             mDevWriteCharacteristic = gattCharacteristic;
                             uuidStr[2] = mDevWriteCharacteristic.getUuid().toString();
                             Log.e("---》》》", "连接成功"+isConnect());
+                            isScuu = true;
                             callback.StateChange(status, newStates);
                         }
                     }
@@ -306,8 +338,8 @@ public class Ble4_0Util implements BleUtil {
             @Override
             public void onMtuChanged(BluetoothGatt gatt, int mtu, int status) {
                 super.onMtuChanged(gatt, mtu, status);
-                if (BluetoothGatt.GATT_SUCCESS == status) {
-                    Log.e("---》》》","onMtuChanged success MTU = " + mtu);
+                if (BluetoothGatt.GATT_SUCCESS == status && !isScuu) {
+                    Log.e("---》》》","onMtuChanged success MTU = " + mtu+";isScuu:"+isScuu);
                     gatt.discoverServices();
                 } else {
                     Log.e("---》》》","onMtuChanged fail ");
@@ -317,6 +349,7 @@ public class Ble4_0Util implements BleUtil {
 
         return true;
     }
+    boolean isScuu = false;
 
     private boolean isCurrentUuid(String uuid,List<String> uuidList){
         for(int i=0;i<uuidList.size();i++){

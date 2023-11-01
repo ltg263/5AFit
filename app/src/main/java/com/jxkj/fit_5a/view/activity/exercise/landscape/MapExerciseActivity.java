@@ -584,6 +584,9 @@ public class MapExerciseActivity extends Activity {
             DialogUtils.showUnificationDialog(this, "提示", result.getMesg(), "确定", false, new DialogUtils.UnificationDialogInterface() {
                 @Override
                 public void bntClickListener(String pos) {
+                    iv_img.setAlpha(1.0f);
+                    mMpVideo.setSilence(true);
+                    mMpVideo.mediaInterface.setVolume(0f, 0f);
                     finish();
                 }
             });
@@ -667,6 +670,9 @@ public class MapExerciseActivity extends Activity {
         isOutRoom = true;
         if(duration==0 || Calories==0){
             PopupWindowLanYan.ble4Util.disconnect();
+            iv_img.setAlpha(1.0f);
+            mMpVideo.setSilence(true);
+            mMpVideo.mediaInterface.setVolume(0f, 0f);
             finish();
             return;
         }
@@ -733,6 +739,9 @@ public class MapExerciseActivity extends Activity {
                 iv_img_.setCancel();
                 iv_img = null;
                 iv_img_ = null;
+                iv_img.setAlpha(1.0f);
+                mMpVideo.setSilence(true);
+                mMpVideo.mediaInterface.setVolume(0f, 0f);
                 finish();
                 PopupWindowLanYan.ble4Util.disconnect();
             }

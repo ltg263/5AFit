@@ -6,8 +6,8 @@ android {
         applicationId "com.jxkj.fit_5a"
         minSdkVersion 26
         targetSdkVersion 32
-        versionCode 42
-        versionName "1.4.1"
+        versionCode 46
+        versionName "1.4.5"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         ndk {
             // 设置支持的SO库架构
@@ -35,6 +35,7 @@ android {
         }
     }
 //        MD5:  24:39:44:D1:14:41:EC:75:28:94:B8:B1:C5:0E:4C:87
+//        MD5:  243944d11441ec752894b8b1c50e4c87
 //        SHA1: 35:B6:9E:7A:DE:89:54:B2:55:A7:42:23:E5:27:09:35:64:B5:66:69
 //        SHA256: 08:39:64:73:7B:11:B5:54:4B:7B:C4:AA:F5:D8:93:56:97:83:74:07:3C:92:A2:FC:B5:B3:26:DE:B9:C7:2C:C5
 

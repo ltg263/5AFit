@@ -188,6 +188,9 @@ public class MapExerciseActivity_Zx extends Activity{
                     @Override
                     public void onNext(Result result) {
                         if(result.getCode()==0 || result.getCode() == 40010) {
+                            iv_img.setAlpha(1.0f);
+                            mMpVideo.setSilence(true);
+                            mMpVideo.mediaInterface.setVolume(0f, 0f);
                             removeConnectService();
                             finish();
                         }
@@ -884,6 +887,9 @@ public class MapExerciseActivity_Zx extends Activity{
                 return;
             }
             removeConnectService();
+            iv_img.setAlpha(1.0f);
+            mMpVideo.setSilence(true);
+            mMpVideo.mediaInterface.setVolume(0f, 0f);
             finish();
             return;
         }
@@ -967,6 +973,9 @@ public class MapExerciseActivity_Zx extends Activity{
                         if(StringUtil.isNotBlank(roomMemberId)){
                             gameGivenUp();
                         }else{
+                            iv_img.setAlpha(1.0f);
+                            mMpVideo.setSilence(true);
+                            mMpVideo.mediaInterface.setVolume(0f, 0f);
                             gameRoomQuit(roomId);
                         }
                     }
@@ -1146,6 +1155,9 @@ public class MapExerciseActivity_Zx extends Activity{
                             //极速模式
                             List<GameCompleteBean.GameRankingsBean> mRankingsBeans = null;
                             if(mMapDetailsBean_zx.getType().equals(MotorPatternActivity.ROOM_TYPE[0])) {
+                                iv_img.setAlpha(1.0f);
+                                mMpVideo.setSilence(true);
+                                mMpVideo.mediaInterface.setVolume(0f, 0f);
                                 Intent mIntent = new Intent(MapExerciseActivity_Zx.this, MapExerciseFinishActivity.class);
                                 mIntent.putParcelableArrayListExtra("mBpmDataBeans", mBpmDataBeans);
                                 mIntent.putParcelableArrayListExtra("logs",logs);
@@ -1179,6 +1191,9 @@ public class MapExerciseActivity_Zx extends Activity{
                                         result.getData().getRanking(),new DialogUtils.EditTextDialogInterface() {
                                     @Override
                                     public void btnConfirm(String string) {
+                                        iv_img.setAlpha(1.0f);
+                                        mMpVideo.setSilence(true);
+                                        mMpVideo.mediaInterface.setVolume(0f, 0f);
                                         if(string.equals("1")){
                                             Intent mIntent = new Intent(MapExerciseActivity_Zx.this, MapExerciseFinishActivity.class);
                                             mIntent.putParcelableArrayListExtra("mBpmDataBeans", mBpmDataBeans);
