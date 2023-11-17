@@ -234,8 +234,8 @@
 
                 <ImageView
                     android:id="@+id/iv_szmr"
-                    android:layout_width="@dimen/common_margin_20"
-                    android:layout_height="@dimen/common_margin_20"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:src="@drawable/wxz" />
 
             </LinearLayout>

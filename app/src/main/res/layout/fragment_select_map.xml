@@ -40,7 +40,7 @@
             android:layout_marginBottom="@dimen/dimen_20dp"
             android:background="@drawable/btn_shape_bj_theme_btm"
             android:drawableStart="@drawable/icon_pb_jl"
-            android:drawablePadding="@dimen/common_margin_5"
+            android:drawablePadding="5dp"
             android:gravity="center_vertical"
             android:paddingStart="@dimen/dp_10"
             android:text="4.2km"

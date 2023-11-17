@@ -58,7 +58,7 @@
         android:layout_marginTop="@dimen/dimen_15dp"
         android:background="@mipmap/ic_hp_sj"
         android:drawableStart="@mipmap/ic_ph_xiaod"
-        android:drawablePadding="@dimen/common_margin_3"
+        android:drawablePadding="3dp"
         android:gravity="center_vertical"
         android:paddingStart="@dimen/dimen_15dp"
         android:paddingTop="@dimen/dimen_5dp"

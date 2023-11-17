@@ -173,6 +173,8 @@ public class HomeOneFragment extends BaseFragment {
                 break;
             case R.id.on_rv_qd:
             case R.id.ll_top_1:
+//                Intent mIntent = new Intent(getActivity(), YaLingActivity_2.class);
+//                startActivity(mIntent);
                 startActivity(new Intent(getActivity(), TaskSignActivity.class));
                 break;
             case R.id.tv_gdkc:

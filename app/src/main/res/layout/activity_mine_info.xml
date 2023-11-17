@@ -540,7 +540,7 @@
         android:visibility="gone"
         android:layout_marginHorizontal="@dimen/dimen_30dp"
         android:layout_marginTop="@dimen/dimen_30dp"
-        android:layout_marginBottom="@dimen/common_margin_20"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/btn_shape_bj_theme_25"
         android:gravity="center"
         android:paddingTop="@dimen/dp_10"

@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.alibaba.security.biometrics.build.V;
 import com.jxkj.fit_5a.R;
 
 import cn.jzvd.JzvdStd;

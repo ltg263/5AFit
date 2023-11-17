@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <corners android:topLeftRadius="@dimen/common_margin_6"
-        android:bottomLeftRadius="@dimen/common_margin_6"/>
+    <corners android:topLeftRadius="6dp"
+        android:bottomLeftRadius="6dp"/>
 
     <gradient
         android:angle="90"

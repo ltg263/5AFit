@@ -20,17 +20,17 @@ public class LogcatHelper {
     private int mPId;
 
     private String getSavePath(Context mContext) {
-        String path;
-        if (Build.VERSION.SDK_INT > 29) {
-            path = mContext.getExternalFilesDir(null).getAbsolutePath();;
-        } else {
-            if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {// 优先保存到SD卡中
-                path = Environment.getExternalStorageDirectory().getAbsolutePath();
-            } else {// 如果SD卡不存在，就保存到本应用的目录下
-                path = mContext.getFilesDir().getAbsolutePath();
-            }
-        }
-        return path;
+//        String path;
+//        if (Build.VERSION.SDK_INT > 29) {
+//            path = mContext.getExternalFilesDir(null).getAbsolutePath();;
+//        } else {
+//            if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {// 优先保存到SD卡中
+//                path = Environment.getExternalStorageDirectory().getAbsolutePath();
+//            } else {// 如果SD卡不存在，就保存到本应用的目录下
+//                path = mContext.getFilesDir().getAbsolutePath();
+//            }
+//        }
+        return mContext.getExternalFilesDir(null).getAbsolutePath();
     }
     /**
      * 初始化目录

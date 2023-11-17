@@ -97,7 +97,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="@dimen/common_margin_20"
+        android:layout_marginBottom="20dp"
         android:gravity="center"
         android:lineSpacingExtra="@dimen/dp_10"
         android:text="宁波海德健身服务有限公司 版权所有\nCopyright 2020-2026 All Rights Reserved." />

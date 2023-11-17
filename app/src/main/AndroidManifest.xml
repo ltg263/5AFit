@@ -243,6 +243,10 @@
 
             android:screenOrientation="portrait" />
         <activity
+            android:name=".view.activity.yaling.YaLingActivity_sp"
+
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".view.activity.yaling.YaLingActivity_3"
 
             android:screenOrientation="portrait" />

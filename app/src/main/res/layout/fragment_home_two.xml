@@ -350,7 +350,7 @@
                         android:layout_height="match_parent"
                         android:layout_above="@id/tv_zs"
                         android:layout_marginHorizontal="@dimen/dimen_20dp"
-                        android:layout_marginTop="@dimen/common_margin_20">
+                        android:layout_marginTop="20dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -375,7 +375,7 @@
                                         android:id="@+id/tv_phb_2"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginTop="@dimen/common_margin_15"
+                                        android:layout_marginTop="15dp"
                                         android:text="第2-3名"
                                         android:textColor="#884444"
                                         android:textSize="@dimen/sp_14" />
@@ -471,7 +471,7 @@
                                         android:id="@+id/tv_phb_3"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginTop="@dimen/common_margin_15"
+                                        android:layout_marginTop="15dp"
                                         android:text="第4-10名"
                                         android:textColor="#884444"
                                         android:textSize="@dimen/sp_14" />

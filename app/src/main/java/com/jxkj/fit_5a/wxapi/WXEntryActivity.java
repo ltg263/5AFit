@@ -1,12 +1,12 @@
 package com.jxkj.fit_5a.wxapi;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
 
-import com.alibaba.security.biometrics.activity.BaseActivity;
 import com.jxkj.fit_5a.conpoment.constants.ConstValues;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
@@ -14,7 +14,7 @@ import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.IWXAPIEventHandler;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 
-public class WXEntryActivity extends BaseActivity implements IWXAPIEventHandler {
+public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
     private IWXAPI api;
 
     public static BaseResp resp =null;
@@ -31,6 +31,7 @@ public class WXEntryActivity extends BaseActivity implements IWXAPIEventHandler 
 
         }
     }
+
 
     protected void onNewIntent(Intent var1) {
         super.onNewIntent(var1);

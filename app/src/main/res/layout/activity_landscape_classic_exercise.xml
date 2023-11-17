@@ -48,7 +48,7 @@
             android:id="@+id/lsv"
             android:layout_width="@dimen/dimen_50dp"
             android:layout_height="@dimen/dimen_50dp"
-            android:layout_margin="@dimen/common_margin_6" />
+            android:layout_margin="6dp" />
 
         <TextView
             android:layout_width="wrap_content"

@@ -455,7 +455,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_below="@id/tv_sj1"
                                 android:drawableStart="@drawable/icon_task_7x"
-                                android:drawablePadding="@dimen/common_margin_2"
+                                android:drawablePadding="2dp"
                                 android:text="50~60%"
                                 android:textColor="#FFB300"
                                 android:textSize="9sp" />
@@ -511,7 +511,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_below="@id/tv_sj2"
                                 android:drawableStart="@drawable/icon_task_7x"
-                                android:drawablePadding="@dimen/common_margin_2"
+                                android:drawablePadding="2dp"
                                 android:text="50~60%"
                                 android:textColor="#FFB300"
                                 android:textSize="9sp" />
@@ -567,7 +567,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_below="@id/tv_sj3"
                                 android:drawableStart="@drawable/icon_task_7x"
-                                android:drawablePadding="@dimen/common_margin_2"
+                                android:drawablePadding="2dp"
                                 android:text="50~60%"
                                 android:textColor="#FFB300"
                                 android:textSize="9sp" />
@@ -623,7 +623,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_below="@id/tv_sj4"
                                 android:drawableStart="@drawable/icon_task_7x"
-                                android:drawablePadding="@dimen/common_margin_2"
+                                android:drawablePadding="2dp"
                                 android:text="50~60%"
                                 android:textColor="#FFB300"
                                 android:textSize="9sp" />
@@ -679,7 +679,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_below="@id/tv_sj5"
                                 android:drawableStart="@drawable/icon_task_7x"
-                                android:drawablePadding="@dimen/common_margin_2"
+                                android:drawablePadding="2dp"
                                 android:text="50~60%"
                                 android:textColor="#FFB300"
                                 android:textSize="9sp" />
@@ -735,7 +735,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_below="@id/tv_sj6"
                                 android:drawableStart="@drawable/icon_task_7x"
-                                android:drawablePadding="@dimen/common_margin_2"
+                                android:drawablePadding="2dp"
                                 android:text="50~60%"
                                 android:textColor="#FFB300"
                                 android:textSize="9sp" />

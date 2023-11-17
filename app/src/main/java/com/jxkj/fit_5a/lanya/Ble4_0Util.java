@@ -1,5 +1,6 @@
 package com.jxkj.fit_5a.lanya;
 
+import android.Manifest;
 import android.app.Activity;
 import android.bluetooth.BluetoothA2dp;
 import android.bluetooth.BluetoothAdapter;
@@ -16,6 +17,8 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.util.Log;
+
+import androidx.core.app.ActivityCompat;
 
 import com.jxkj.fit_5a.MainActivity;
 import com.jxkj.fit_5a.conpoment.utils.MyActivityManager;
@@ -63,9 +66,9 @@ public class Ble4_0Util implements BleUtil {
         serviceUUid = new ArrayList<>();
         readUUID = new ArrayList<>();
         writeUUID = new ArrayList<>();
-        for(int i=0;i<UUidData.size();i++){
+        for (int i = 0; i < UUidData.size(); i++) {
             serviceUUid.add(UUidData.get(i).getServiceUuid().toLowerCase());
-            if(UUidData.get(i).getServiceUuid().length()<6){
+            if (UUidData.get(i).getServiceUuid().length() < 6) {
                 readUUID.add(UUidData.get(i).getCharacteristicRead().toLowerCase());
                 writeUUID.add(UUidData.get(i).getCharacteristicWrite().toLowerCase());
             } else {
@@ -118,7 +121,8 @@ public class Ble4_0Util implements BleUtil {
     public String[] getUuidStr() {
         return uuidStr;
     }
-//     //判断手机厂商
+
+    //     //判断手机厂商
 //    public String checkPhoneFirm() {
 //        String phoneState = Build.BRAND.toLowerCase(); //获取手机厂商
 //        if (phoneState.equals("huawei") || phoneState.equals("honor"))
@@ -188,9 +192,14 @@ public class Ble4_0Util implements BleUtil {
                     }
                     //设置接收数据长度，默认20
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        String phoneState = Build.BRAND.toLowerCase(); //获取手机厂商
+                        String phoneState = "";
+                        if(Build.BRAND != null){
+                            phoneState = Build.BRAND.toLowerCase(); //获取手机厂商
+                        }
+
                         boolean a  = false;
-                        if (phoneState.equals("xiaomi") && Build.BRAND != null) {
+                        Log.w("---》》》","phoneState:"+phoneState);
+                        if (phoneState.equals("xiaomi")) {
                             a = mBluetoothGatt.requestMtu(1024);
                         }else{
                             a = mBluetoothGatt.requestMtu(512);
@@ -342,7 +351,7 @@ public class Ble4_0Util implements BleUtil {
                     Log.e("---》》》","onMtuChanged success MTU = " + mtu+";isScuu:"+isScuu);
                     gatt.discoverServices();
                 } else {
-                    Log.e("---》》》","onMtuChanged fail ");
+                    Log.e("---》》》","onMtuChanged fail MTU = " + mtu+";isScuu:"+isScuu);
                 }
             }
         });

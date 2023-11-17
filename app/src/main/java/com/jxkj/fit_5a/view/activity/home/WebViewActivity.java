@@ -81,7 +81,7 @@ public class WebViewActivity extends BaseActivity {
         webSettings.setBuiltInZoomControls(true);//是否显示缩放按钮，默认false
         webSettings.setUseWideViewPort(true);//设置此属性，可任意比例缩放。大视图模式
         webSettings.setLoadWithOverviewMode(true);//和setUseWideViewPort(true)一起解决网页自适应问题
-        webSettings.setAppCacheEnabled(false);//是否使用缓存
+//        webSettings.setAppCacheEnabled(false);//是否使用缓存
         webSettings.setDomStorageEnabled(true);//DOM Storage
 
 

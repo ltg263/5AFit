@@ -4,7 +4,10 @@
     <color name="colorPrimaryDark">#212121</color>
     <color name="colorAccent">#333333</color>
 
+    <color name="transparency_65">#65000000</color>
+    <color name="transparent">#00000000</color>
     <color name="color_text_theme">#FFB300</color>
+    <color name="red">#FF0000</color>
 
     <color name="color_40000000">#20666666</color>
     <color name="color_20666666">#eeeeee</color>

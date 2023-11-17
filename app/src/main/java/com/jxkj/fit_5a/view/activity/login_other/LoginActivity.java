@@ -383,6 +383,7 @@ public class LoginActivity extends BaseActivity{
 
                     @Override
                     public void onNext(Result<LoginInfo> result) {
+                        Log.w("result","result:"+result.getCode());
                         if(isDataInfoSucceed(result)){
                             if(finalMm!=null){
                                 SharedUtils.singleton().put(ConstValues.USER_PASSWORD, finalMm);

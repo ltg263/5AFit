@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/iv_icon"
         android:layout_alignBottom="@id/iv_icon"
-        android:layout_marginStart="@dimen/common_margin_26"
+        android:layout_marginStart="26dp"
         android:gravity="center_vertical"
         android:lineSpacingExtra="@dimen/dimen_20dp"
         android:text="不管你来自何方，\n都欢迎你！"
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="@dimen/dimen_70dp"
-        android:layout_marginEnd="@dimen/common_margin_26"
+        android:layout_marginEnd="26dp"
         android:src="@mipmap/icon_app_logo" />
 
 

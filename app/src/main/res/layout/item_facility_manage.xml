@@ -73,7 +73,7 @@
         android:id="@+id/tv_ljzt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="@dimen/common_margin_5"
+        android:layout_marginVertical="5dp"
         android:layout_marginStart="@dimen/dp_10"
         android:background="@drawable/btn_shape_bj_theme_2"
         android:paddingHorizontal="@dimen/dimen_15dp"

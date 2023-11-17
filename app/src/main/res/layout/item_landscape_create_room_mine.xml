@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/iv_avatar"
-        android:layout_width="@dimen/common_margin_26"
-        android:layout_height="@dimen/common_margin_26"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
         android:src="@mipmap/ic_6" />
 
     <TextView

@@ -192,10 +192,13 @@ public class StepArcView extends View {
         if (currentCounts > totalStepNum) {
             currentCounts = totalStepNum;
         }
+        float scale = 0,currentAngleLength = 0;
+        if(totalStepNum != 0 && currentCounts!=0){
 /**所走步数占用总共步数的百分比*/
-        float scale = (float) currentCounts / totalStepNum;
+            scale = (float) currentCounts / totalStepNum;
 /**换算成弧度最后要到达的角度的长度-->弧长*/
-        float currentAngleLength = scale * angleLength;
+            currentAngleLength = scale * angleLength;
+        }
 /**开始执行动画*/
         setAnimation(last, currentAngleLength, animationLength);
         last = currentAngleLength;

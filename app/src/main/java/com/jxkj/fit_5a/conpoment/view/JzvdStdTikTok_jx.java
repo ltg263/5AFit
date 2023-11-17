@@ -10,7 +10,7 @@ import com.jxkj.fit_5a.R;
 import cn.jzvd.JzvdStd;
 
 public class JzvdStdTikTok_jx extends JzvdStd {
-    View iv_back;
+    View iv_back_sp;
     public JzvdStdTikTok_jx(Context context) {
         super(context);
     }
@@ -27,13 +27,13 @@ public class JzvdStdTikTok_jx extends JzvdStd {
     @Override
     public void init(Context context) {
         super.init(context);
-        iv_back = findViewById(R.id.iv_back);
+        iv_back_sp = findViewById(R.id.iv_back_sp);
     }
 
     public void updateStartImage() {
         Log.w("state:","state:"+state);
         if(state==1){
-            iv_back.setVisibility(GONE);
+            iv_back_sp.setVisibility(GONE);
         }
 //        if (state == STATE_PLAYING) {
 //            startButton.setImageResource(R.drawable.icon_shipin_bofang);

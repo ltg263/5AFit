@@ -207,6 +207,8 @@ public class YaLingActivity_3 extends BaseActivity {
                     mIntent.putExtra("data_id",data_id);
                     mContext.startActivity(mIntent);
                     mContext.finish();
+                }else {
+                    mContext.finish();
                 }
 
             }

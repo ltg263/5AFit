@@ -98,7 +98,7 @@
         android:drawablePadding="@dimen/dimen_2dp"
         android:gravity="center"
         android:paddingVertical="@dimen/dimen_5dp"
-        android:paddingStart="@dimen/common_margin_8"
+        android:paddingStart="8dp"
         android:paddingEnd="@dimen/dimen_25dp"
         android:text="房间号"
         android:textColor="@color/color_999999"
