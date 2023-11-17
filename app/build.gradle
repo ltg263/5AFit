@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 32
+    compileSdkVersion 33
     defaultConfig {
         applicationId "com.jxkj.fit_5a"
         minSdkVersion 26
-        targetSdkVersion 32
-        versionCode 46
-        versionName "1.4.5"
+        targetSdkVersion 33
+        versionCode 47
+        versionName "1.4.6"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         ndk {
             // 设置支持的SO库架构
@@ -126,7 +126,7 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
 
     //rxjava自动解绑
-    implementation 'com.uber.autodispose:autodispose-android-archcomponents:1.0.0-RC2'
+//    implementation 'com.uber.autodispose:autodispose-android-archcomponents:1.0.0-RC2'
 //    implementation 'com.blankj:utilcode:1.23.7'
     implementation 'com.jakewharton:butterknife:10.2.3'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
@@ -163,17 +163,17 @@ dependencies {
 
 
     //底部导航栏
-    implementation 'com.ashokvarma.android:bottom-navigation-bar:2.0.4'
-    implementation 'com.github.forvv231:EasyNavigation:1.0.3'
+//    implementation 'com.ashokvarma.android:bottom-navigation-bar:2.0.4'
+//    implementation 'com.github.forvv231:EasyNavigation:1.0.3'
 
     //侧滑返回
-    implementation 'me.imid.swipebacklayout.lib:library:1.1.0'
+//    implementation 'me.imid.swipebacklayout.lib:library:1.1.0'
 
     implementation project(path: ':library')
 
     //下拉选择框
-    implementation 'com.github.arcadefire:nice-spinner:1.4.3'
-    implementation 'com.github.JuHonggang:ShadowDrawable:0.1'
+//    implementation 'com.github.arcadefire:nice-spinner:1.4.3'
+//    implementation 'com.github.JuHonggang:ShadowDrawable:0.1'
 
     //沉浸式
 
@@ -198,16 +198,16 @@ dependencies {
     implementation 'com.zaaach:citypicker:2.0.2'
     implementation 'com.lxj:xpopup:1.8.6'
     implementation 'com.nineoldandroids:library:2.4.0'
-    implementation 'com.flyco.roundview:FlycoRoundView_Lib:1.1.2@aar'
-    implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:1.5.0@aar'
-    implementation 'com.xiaosu:VerticalRollingTextView:2.0.9'
+//    implementation 'com.flyco.roundview:FlycoRoundView_Lib:1.1.2@aar'
+//    implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:1.5.0@aar'
+//    implementation 'com.xiaosu:VerticalRollingTextView:2.0.9'
     implementation 'com.github.hackware1993:MagicIndicator:1.5.0'
-    implementation 'q.rorbin:VerticalTabLayout:1.2.5'
-    implementation 'cn.youngkaaa:yviewpager:0.4'
-    implementation 'com.github.iwgang:countdownview:2.1.6'
-    implementation 'com.github.anzaizai:EasySwipeMenuLayout:1.1.4'
-    implementation 'com.github.zcweng:switch-button:0.0.3@aar'
-    implementation 'liji.library.dev:multilinechooselib:2.0.3'
+//    implementation 'q.rorbin:VerticalTabLayout:1.2.5'
+//    implementation 'cn.youngkaaa:yviewpager:0.4'
+//    implementation 'com.github.iwgang:countdownview:2.1.6'
+//    implementation 'com.github.anzaizai:EasySwipeMenuLayout:1.1.4'
+//    implementation 'com.github.zcweng:switch-button:0.0.3@aar'
+//    implementation 'liji.library.dev:multilinechooselib:2.0.3'
 //    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:5.4.0'
     implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:6.8.0'
 
@@ -216,7 +216,7 @@ dependencies {
 
     //    implementation 'q.rorbin:badgeview:1.1.3'
     implementation 'com.allenliu.badgeview:library:1.1.1'
-    implementation(name: 'rpsdk-3.3.0.1', ext: 'aar')
+//    implementation(name: 'rpsdk-3.3.0.1', ext: 'aar')
     implementation(name: 'chileaf_hd211_1.0.1', ext: 'aar')
 //    implementation(name: 'SecurityBodySDK-external-release-5.4.109-preInstall', ext: 'aar')
 //    implementation(name: 'SecurityGuardSDK-external-release-5.4.187-preInstall', ext: 'aar')
